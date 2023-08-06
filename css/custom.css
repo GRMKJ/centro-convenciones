@@ -16,6 +16,9 @@
     #servicios{
         margin-top: -55%;
     }
+    #ubicacion{
+        margin-top: -55%;
+    }
 
     #filtro{
         --bs-gutter-x: 0;
@@ -29,6 +32,11 @@
     #footerinos{
         background-color: #ff0000;
         margin-top: 5%;
+    }
+    
+    #footerinou{
+        background-color: #ff0000;
+        margin-top: 30%;
     }
 
     #thumbnail{
@@ -60,6 +68,10 @@
         margin-top: -55%;
     }
 
+    #ubicacion{
+        margin-top: -55%;
+    }
+
     #filtro{
         --bs-gutter-x: 0;
     }
@@ -72,6 +84,11 @@
     #footerinos{
         background-color: #ff0000;
         margin-top: 5%;
+    }
+
+    #footerinou{
+        background-color: #ff0000;
+        margin-top: 30%;
     }
 
     #thumbnail{
@@ -100,6 +117,10 @@
         margin-top: -55%;
     }
 
+    #ubicacion{
+        margin-top: -55%;
+    }
+
     #filtro{
         --bs-gutter-x: 1rem;
     }
@@ -113,6 +134,11 @@
         background-color: #ff0000;
         margin-top: 5%;
     }
+
+    #footerinou{
+        background-color: #ff0000;
+        margin-top: 30%;
+    }
     
     #thumbnail{
         aspect-ratio: 9/16;
@@ -121,7 +147,8 @@
     }
     
     #cartelera1{
-        width: 16%!important;
+        width: 15%!important;
+        margin-right:1% ;
     }
 }
 

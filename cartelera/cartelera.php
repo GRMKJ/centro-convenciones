@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE= edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Complejo Cultural Siglo XXI - Cartelera</title>
+  <link rel="icon" type="image/x-icon" href="..\imagenes\CULTURA1.png">
+  <title>CC Siglo XXI - Cartelera</title>
   <link rel="stylesheet" href="../css/custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -49,10 +50,10 @@
                     <a class="nav-link align-middle text-white" href="../servicios/servicios.php">Servicios</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link align-middle text-white" href="../ubicacion/index.php">Ubicacion</a>
+                    <a class="nav-link align-middle text-white" href="../ubicacion/ubicacion.php">Ubicación</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link align-middle text-white" href="../somos/index.php">Quienes somos</a>
+                    <a class="nav-link align-middle text-white" href="../somos/somos.php">Quienes somos</a>
                   </li>
                 </ul>
               </div>

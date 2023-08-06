@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE= edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="..\imagenes\CULTURA1.png">
-  <title>CC Siglo XXI - Servicios</title>
+  <title>CC Siglo XXI - Ubicación</title>
   <link rel="stylesheet" href="../css/custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -40,10 +40,10 @@
                     <a class="nav-link align-middle text-white" href="../cartelera/cartelera.php">Cartelera</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active align-middle text-white" href="#">Servicios</a>
+                    <a class="nav-link align-middle text-white" href="../servicios/servicios.php">Servicios</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link align-middle text-white" href="../ubicacion/ubicacion.php">Ubicación</a>
+                    <a class="nav-link active align-middle text-white" href="#">Ubicación</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link align-middle text-white" href="../somos/somos.php">Quienes somos</a>
@@ -87,94 +87,56 @@
     <div class="card bg-dark text-white w-100 z-0">
       <img src="../imagenes/cartelera.png" class="bg-img w-100" />
       <div class="card-img-overlay text-light justify-content-center flex-column text-center pt-0 pt-lg-5" style="background-color: rgba(0, 0, 0, 0.5)">
-        <h2 class="fs-1 pt-4 pt-lg-1 pt-xxl-5"> Nuestros Servicios</h2>
+        <h2 class="fs-1 pt-4 pt-lg-1 pt-xxl-5"> Nuestros Recintos</h2>
       </div>
     </div>
   </section>
-  <!-- Contenido de la Pagina -->
-  <section>
-    <div class="container-fluid">
-      <div id="servicios" class="row w-100"> 
-        <div class="col ms-xxl-5 col-xxl-8">   
-          <div class="card mb-3">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <div class="img-fluid rounded">
-                  <img src="../imagenes/estacionamiento.jpg" class="img-fluid rounded-start" alt="...">
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Estacionamiento</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-              </div>
-            </div>
+
+  <!-- Contenido -->
+  <div id="ubicacion" class="container-fluid ">
+    <div class="row column-gap-3 justify-content-center">
+      <div class="col col-xxl-3">
+        <div class="card">
+          <h5 class="card-title align-self-center fw-bolder m-3">Auditorio CCSXXI</h5>
+          <div class="img-fluid">
+            <img src="../imagenes/cartelera.png" class="card-img-top" alt="...">
+          </div>  
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Ver Eventos en el Recinto</a>
           </div>
         </div>
       </div>
-      <div class="row w-100 justify-content-end"> 
-        <div class="col ms-xxl-5 col-xxl-8 me-5">   
-          <div class="card mb-3">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <div class="img-fluid rounded">
-                  <img src="../imagenes/estacionamiento.jpg" class="img-fluid rounded-start" alt="...">
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Estacionamiento</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-              </div>
-            </div>
+      <div class="col col-xxl-3">
+        <div class="card">
+          <h5 class="card-title align-self-center fw-bolder m-3">Teatro CCSXXI</h5>
+          <div class="img-fluid">
+            <img src="../imagenes/cartelera.png" class="card-img-top" alt="...">
+          </div>  
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Ver Eventos en el Recinto</a>
           </div>
         </div>
-      </div>
-      <div class="row w-100"> 
-        <div class="col ms-xxl-5 col-xxl-8">   
-          <div class="card mb-3">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <div class="img-fluid rounded">
-                  <img src="../imagenes/estacionamiento.jpg" class="img-fluid rounded-start" alt="...">
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Estacionamiento</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-              </div>
-            </div>
+      </div> 
+      <div class="col col-xxl-3">
+        <div class="card">
+          <h5 class="card-title align-self-center fw-bolder m-3">Sala de Cine CCSXXI</h5>
+          <div class="img-fluid">
+            <img src="../imagenes/cartelera.png" class="card-img-top" alt="...">
+          </div>  
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Ver Eventos en el Recinto</a>
           </div>
         </div>
-      </div>
-      <div class="row w-100 justify-content-end"> 
-        <div class="col ms-xxl-5 col-xxl-8 me-5">   
-          <div class="card mb-3">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <div class="img-fluid rounded">
-                  <img src="../imagenes/estacionamiento.jpg" class="img-fluid rounded-start" alt="...">
-                </div>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title">Estacionamiento</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </div>  
     </div>
-  </section>
+  </div>
+
   <!-- Pie de Pagina -->
   <footer>
-      <div id="footerinos" class="container-fluid">
+      <div id="footerinou" class="container-fluid z-1">
         <div class="row justify-content-md-center pb-lg-5 pb-5 pt-5 m-0 text-white">
             
             <div class="d-flex col-lg-5 mt-5 justify-content-center">
