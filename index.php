@@ -89,8 +89,8 @@
   </section>
 
   <section>
-    <div id="cartas" class="row z-1 mb-5 ms-5 me-5">
-      <div class="col col-xxl-2 col-lg-4 col-sm-6 mb-3 mb-sm-0">
+    <div id="cartas" class="row z-1 mb-5 ms-5">
+      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-6 ms-1 mb-3 mb-sm-0">
         <div class="card mb-4">
           <img id="poster" src="imagenes/poster.jpg" class="card-img-top" alt="...">
           <div class="card-footer">
@@ -98,7 +98,7 @@
           </div>
         </div>
       </div>
-      <div class="col col-xxl-2 col-lg-4 col-sm-6 mb-3 mb-sm-0">
+      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-6 ms-1 mb-3 mb-sm-0">
         <div class="card mb-4">
           <img id="poster" src="imagenes/poster.jpg" class="card-img-top" alt="...">
           <div class="card-footer">
@@ -106,7 +106,7 @@
           </div>
         </div>
       </div>
-      <div class="col col-xxl-2 col-lg-4 col-sm-6 mb-3 mb-sm-0">
+      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-6 ms-1 mb-3 mb-sm-0">
         <div class="card mb-4">
           <img id="poster" src="imagenes/poster.jpg" class="card-img-top" alt="...">
           <div class="card-footer">
@@ -114,7 +114,7 @@
           </div>
         </div>
       </div>
-      <div class="col col-xxl-2 col-lg-4 col-sm-6 mb-3 mb-sm-0">
+      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-6 ms-1 mb-3 mb-sm-0">
         <div class="card mb-4">
           <img id="poster" src="imagenes/poster.jpg" class="card-img-top" alt="...">
           <div class="card-footer">
@@ -122,7 +122,7 @@
           </div>
         </div>
       </div>
-      <div class="col col-xxl-2 col-lg-4 col-sm-6 mb-3 mb-sm-0">
+      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-6 ms-1 mb-3 mb-sm-0">
         <div class="card mb-4">
           <img id="poster" src="imagenes/poster.jpg" class="card-img-top" alt="...">
           <div class="card-footer">
@@ -130,7 +130,7 @@
           </div>
         </div>
       </div>
-      <div class="col col-xxl-2 col-lg-4 col-sm-6 mb-3 mb-sm-0">
+      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-6 ms-1 mb-3 mb-sm-0">
         <div class="card mb-4">
           <img id="poster" src="imagenes/poster.jpg" class="card-img-top" alt="...">
           <div class="card-footer">

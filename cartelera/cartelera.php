@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE= edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Complejo Cultural Siglo XXI - Cartelera</title>
-        <link rel="stylesheet" href="../css/custom.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script></head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE= edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complejo Cultural Siglo XXI - Cartelera</title>
+  <link rel="stylesheet" href="../css/custom.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script>
+    function addDays(date, days) {
+      var result = new Date(date);
+      result.setDate(result.getDate() + days);
+      return result;
+    }
+  </script>   
 </head>
 <body class="bg-black">
   <!-- Header -->
@@ -89,33 +96,111 @@
       </div>
     </div>
   </section>
-
   <!-- Filtros -->
   <section>
-      <div id="cartelera" class="row z-1 p-5">
-        <div class="col rounded bg-white col-12 col-lg-12 col-xxl-2">
-          <div class="card">
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Filtros <i class="bi bi-arrow-down-short"></i>
-            </button>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                  
+    <div id="cartelera" class="row z-1 p-5">
+      <div id="filtro" class="col rounded bg-white mb-4 col-12 col-lg-12 col-xxl-2">
+        <div class="card">
+          <button id="filtrocartelera" class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample">
+              Filtros <i class="bi bi-arrow-down-short"></i>
+          </button>
+          <div class="collapse show" id="collapseExample">
+              <div class="card card-body">
+                <div>
+                  <form action="cartelera.php">
+                  <span class="form-label fw-bold mt-2">Por Nombre del Evento</span>
+                  <input class="form-control mt-2 mb-2" type="text" id="nombreevento" placeholder="Nombre del Evento">
+                  <span class="form-label fw-bold mt-2">Por Fecha:</span><br>
+                  <span class="form-label mt-2">Inicio</span>
+                  <input class="form-control mt-2 mb-2" type="date" default="" id="fechain" placeholder="">
+                  <span class="form-label mt-2">Fin</span>
+                  <input class="form-control mt-2 mb-2" type="date" default="" id="fechaout" placeholder="">
+                  <script>
+                    document.getElementById("fechain").valueAsDate = new Date();
+                    document.getElementById("fechaout").valueAsDate = addDays(document.getElementById("fechain").valueAsDate,5);
+                  </script>
+                  <span class="form-label fw-bold mt-2">Categoria</span>
+                  <div class="form-check mt-2">
+                    <input class="form-check-input" type="checkbox" id="checkC" value="C">
+                    <label class="form-check-label" for="radiocat"> Conciertos y Festivales </label>
+                  </div>
+                  <div class="form-check mt-2">
+                    <input class="form-check-input" type="checkbox" id="checkT" value="T">
+                    <label class="form-check-label" for="radiocat"> Teatro y Culturales </label>
+                  </div>
+                  <div class="form-check mt-2">
+                    <input class="form-check-input" type="checkbox" id="checkD" value="D">
+                    <label class="form-check-label" for="radiocat"> Deportivos </label>
+                  </div>
+                  <div class="form-check mt-2">
+                    <input class="form-check-input" type="checkbox" id="checkF" value="F">
+                    <label class="form-check-label" for="radiocat"> Familiares </label>
+                  </div>
+                  <div class="form-check mt-2">
+                    <input class="form-check-input" type="checkbox" id="checkE" value="E">
+                    <label class="form-check-label" for="radiocat"> Especiales </label>
+                  </div>
+                  <div>
+                    <span class="form-label mt-2">Lugar del Evento</span>
+                    <select class="form-select mt-2" name="lugarevento" id="lugarevento">
+                      <option value="0">Selecciona un Lugar</option>
+                      <option value=""></option> 
+                    </select>
+                  </div>
+                  <div class="d-grid mt-3 gap-2">
+                    <input class="btn btn-success" type="submit" value="Aplicar Filtros">
+                  </div>
+                  </form>
                 </div>
-            </div>
-          </div>
-        </div>
-        <div class="col rounded bg-white col-12 col-lg-12 col-xxl-10 pe-0">
-          <div class="card">
-            <p class="p-2">
-              Resultados de la Busqueda <i class="bi bi-arrow-down-short"></i>
-            </p>
+              </div>
           </div>
         </div>
       </div>
+        <div id="filtro" class="col rounded col-12 col-lg-12 col-xxl-10 pe-0">
+          <div class="card bg-white">
+            <p id="result" class="p-2">
+              Resultados de la Busqueda <i class="bi bi-arrow-down-short"></i>
+            </p>
+            <!-- Resultado de Busqueda -->
+            <div class="card bg-white">
+              <div class="row pt-2 pb-2">
+                <div class="col col-2">
+                  <div class="d-flex w-100 justify-content-center">
+                    <img id="thumbnail" src="../imagenes/poster.jpg"> 
+                  </div>
+                </div>
+                <div class="col col-7 align-self-center">
+                  <p class="h4">Ghost in the Shell (2017)</p>
+                  <p class="h5">Sala de Cine CCXXI - 08/04/2023 </p>
+                </div>
+                <div class="col col-3 align-self-center">
+                  <div class="d-flex w-100 pe-xl-5 justify-content-end">
+                    <form action="detalles.php">
+                      <input type="hidden" value=""><!-- php-->
+                      <input id="filtrocartelera" class="btn" type="submit" value="Ver Detalles">
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mt-3 bg-white">
+            <div class="row pt-2 pb-2">
+              <div class="col col-12">
+                <div class="d-flex w-100 justify-content-center">
+                  <a class="ms-2 me-2"><</a>
+                  <a class="ms-2 me-2">1</a>
+                  <a class="ms-2 me-2">2</a>
+                  <a class="ms-2 me-2">3</a>
+                  <a class="ms-2 me-2">4</a>
+                  <a class="ms-2 me-2">></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
   </section>
-
-
   <!-- Pie de Pagina -->
   <footer>
       <div id="footerinoc" class="container-fluid">
