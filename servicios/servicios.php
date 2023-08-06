@@ -92,17 +92,78 @@
   </section>
   <!-- Contenido de la Pagina -->
   <section>
-    <div id="servicios" class="row w-100"> 
-      <div class="col ms-5 col-8">   
-        <div class="card mb-3">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img src="..." class="img-fluid rounded-start" alt="...">
+    <div class="container-fluid">
+      <div id="servicios" class="row w-100"> 
+        <div class="col ms-xxl-5 col-xxl-8">   
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <div class="img-fluid rounded">
+                  <img src="../imagenes/estacionamiento.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Estacionamiento</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
             </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Estacionamiento</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row w-100 justify-content-end"> 
+        <div class="col ms-xxl-5 col-xxl-8 me-5">   
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <div class="img-fluid rounded">
+                  <img src="../imagenes/estacionamiento.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Estacionamiento</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row w-100"> 
+        <div class="col ms-xxl-5 col-xxl-8">   
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <div class="img-fluid rounded">
+                  <img src="../imagenes/estacionamiento.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Estacionamiento</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row w-100 justify-content-end"> 
+        <div class="col ms-xxl-5 col-xxl-8 me-5">   
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <div class="img-fluid rounded">
+                  <img src="../imagenes/estacionamiento.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Estacionamiento</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -112,7 +173,7 @@
   </section>
   <!-- Pie de Pagina -->
   <footer>
-      <div id="footerinoc" class="container-fluid">
+      <div id="footerinos" class="container-fluid">
         <div class="row justify-content-md-center pb-lg-5 pb-5 pt-5 m-0 text-white">
             
             <div class="d-flex col-lg-5 mt-5 justify-content-center">

@@ -25,6 +25,11 @@
         background-color: #ff0000;
         margin-top: 70%;
     }
+    
+    #footerinos{
+        background-color: #ff0000;
+        margin-top: 5%;
+    }
 
     #thumbnail{
         aspect-ratio: 9/16;
@@ -64,6 +69,11 @@
         margin-top: 70%;
     }
 
+    #footerinos{
+        background-color: #ff0000;
+        margin-top: 5%;
+    }
+
     #thumbnail{
         aspect-ratio: 9/16;
         max-width: 6rem;
@@ -97,6 +107,11 @@
     #footerinoc{
         background-color: #ff0000;
         margin-top: 70%;
+    }
+
+    #footerinos{
+        background-color: #ff0000;
+        margin-top: 5%;
     }
     
     #thumbnail{
