@@ -43,10 +43,10 @@
                       <a class="nav-link align-middle text-white" href="../servicios/servicios.php">Servicios</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active align-middle text-white" href="../ubicacion/ubicacion.php">Ubicación</a>
+                      <a class="nav-link align-middle text-white" href="../ubicacion/ubicacion.php">Ubicación</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link align-middle text-white" href="#">Quienes somos</a>
+                      <a class="nav-link active align-middle text-white" href="#">Quienes somos</a>
                     </li>
                   </ul>
                 </div>
@@ -82,10 +82,82 @@
       </nav>
     </header>   
     
+    <!-- Imagen de Fondo y Titulo -->
+    <section class="w-100">
+    <div class="card bg-dark text-white w-100 z-0">
+      <img src="../imagenes/somos.png" class="bg-img w-100" />
+      <div class="card-img-overlay text-light justify-content-center flex-column text-center pt-0 pt-lg-5" style="background-color: rgba(0, 0, 0, 0.5)">
+        <h2 class="fs-1 pt-4 pt-lg-1 pt-xxl-5">¿Quienes somos?</h2>
+      </div>
+    </div>
+    </section>
+
+    <!-- Contenido de la Pagina -->
+    <section>
+      <div id="somos" class="container-fluid">  
+        <div class="row column-gap-3 justify-content-center">
+          <div class="col col-xxl-4">
+            <div class="card">
+              <h5 class="card-title align-self-start fw-bolder m-3">Centro Cultural Siglo XXI</h5>
+              <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a id="filtrocartelera" href="#" class="btn">Ver Eventos en el Recinto</a>
+              </div>
+            </div>
+            <div class="card mt-3">
+              <h5 class="card-title align-self-start fw-bolder m-3">Contactanos</h5>
+              <form action="somos.php" class="needs-validation ps-4 pe-4 mb-3">
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="nombre" aria-describedby="nombre">
+                </div>
+                <div class="mb-3">
+                  <label for="apellido" class="form-label">Apellido(s)</label>
+                  <input type="text" class="form-control" id="apellido">
+                </div>
+                <div class="mb-3">
+                  <label for="telefono" class="form-label">Telefono</label>
+                  <input type="text" class="form-control" id="telefono">
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">E-mail</label>
+                  <input type="mail" class="form-control" id="email">
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Razón de Contacto</label>
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Selecciona una Razón</option>
+                    <option value="1">Contratación de Servicios</option>
+                    <option value="2">Aclaraciones</option>
+                    <option value="3">Quejas y Sugerencias</option>
+                    <option value="4">Bolsa de Trabajo</option>
+                  </select>
+                </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" value="" id="acepto" required>
+                  <label class="form-check-label" for="acepto">Acepto ser contactado por CCSXXI</label>
+                </div>
+                <button id="filtrocartelera" type="submit" class="btn">Enviar Datos</button>
+              </form>
+            </div>
+          </div>
+          <div class="col col-xxl-4">
+            <div class="card mb-3 justify-content-center">
+              <div class="img-fluid  w-100">
+                <img class="img-fluid p-5 w-100 " src="..\identidad\CULTURA1Black.png">
+              </div>
+            </div>
+            <div class="card">
+              <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3264.7781022664894!2d-98.2411219073527!3d19.02083513873902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc7424895884f%3A0x947e2bcfdc25a577!2sCentro%20de%20Convenciones%20CCU%20-%20BUAP!5e0!3m2!1ses-419!2smx!4v1691359307988!5m2!1ses-419!2smx" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>  
+        </div>
+      </div>  
+    </section>
 
     <!-- Pie de Pagina -->
     <footer>
-        <div id="footerinos" class="container-fluid">
+        <div id="footerinoq" class="container-fluid">
           <div class="row justify-content-md-center pb-lg-5 pb-5 pt-5 m-0 text-white">
               
               <div class="d-flex col-lg-5 mt-5 justify-content-center">

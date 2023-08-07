@@ -93,7 +93,7 @@
   </section>
 
   <!-- Contenido -->
-  <div id="ubicacion" class="container-fluid ">
+  <div id="ubicacion" class="container-fluid">
     <div class="row column-gap-3 justify-content-center">
       <div class="col col-xxl-3">
         <div class="card">

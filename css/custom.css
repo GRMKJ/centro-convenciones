@@ -19,6 +19,9 @@
     #ubicacion{
         margin-top: -55%;
     }
+    #somos{
+        margin-top: -55%;
+    }
 
     #filtro{
         --bs-gutter-x: 0;
@@ -35,6 +38,11 @@
     }
     
     #footerinou{
+        background-color: #ff0000;
+        margin-top: 30%;
+    }
+
+    #footerinoq{
         background-color: #ff0000;
         margin-top: 30%;
     }
@@ -71,6 +79,9 @@
     #ubicacion{
         margin-top: -55%;
     }
+    #somos{
+        margin-top: -55%;
+    }
 
     #filtro{
         --bs-gutter-x: 0;
@@ -87,6 +98,11 @@
     }
 
     #footerinou{
+        background-color: #ff0000;
+        margin-top: 30%;
+    }
+
+    #footerinoq{
         background-color: #ff0000;
         margin-top: 30%;
     }
@@ -120,6 +136,9 @@
     #ubicacion{
         margin-top: -55%;
     }
+    #somos{
+        margin-top: -55%;
+    }
 
     #filtro{
         --bs-gutter-x: 1rem;
@@ -139,6 +158,11 @@
         background-color: #ff0000;
         margin-top: 30%;
     }
+
+    #footerinoq{
+        background-color: #ff0000;
+        margin-top: 13%;
+    }
     
     #thumbnail{
         aspect-ratio: 9/16;
@@ -149,6 +173,10 @@
     #cartelera1{
         width: 15%!important;
         margin-right:1% ;
+    }
+
+    #map{
+        height: 25rem;
     }
 }
 
