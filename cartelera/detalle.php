@@ -11,12 +11,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> 
   </head>
-  <body style="background-color:#2d2039">
+  <body class="bg-black">
     <!-- Header -->
     <header class="w-100">
       <nav class="navbar navbar-expand-lg ps-lg-2 pe-lg-2 ps-xll-5 pe-xll-5">
           <div class="container-fluid">
-              <a id="logos" class="navbar-brand me-auto me-lg-5" aria-current="page" href="../index.php">
+              <a id="logos" class="navbar-brand me-auto me-lg-5" aria-current="page" href="">
                 <img  id="logo" src="../identidad/CULTURA1White.png" class="img-fluid float-end w-auto" alt="logo">
               </a>
             <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,26 +85,20 @@
     <!-- Imagen de Fondo y Titulo -->
     <section class="w-100">
     <div class="card bg-dark text-white w-100 z-0">
-      <img src="../imagenes/somos.png" class="bg-img w-100" />
-      <div class="card-img-overlay text-light justify-content-center flex-column text-center pt-0 pt-lg-5" style="background-color: rgba(0, 0, 0, 0.5)">
-        <h2 class="fs-1 pt-4 pt-lg-1 pt-xxl-5">¿Quienes somos?</h2>
-      </div>
+      <img src="../imagenes/somos.png" class="bg-img w-100">
     </div>
     </section>
 
     <!-- Contenido de la Pagina -->
     <section>
       <div id="somos" class="container-fluid">  
-        <div class="row column-gap-3 mb-3 justify-content-center">
-          <div class="col col-10 mb-3 col-lg-4">
+        <div class="row column-gap-3 justify-content-center">
+          <div class="col col-xxl-4">
             <div class="card">
-              <h5 class="card-title align-self-start fw-bolder m-3">Información de Contacto</h5>
+              <h5 class="card-title align-self-start fw-bolder m-3">Centro Cultural Siglo XXI</h5>
               <div class="card-body">
-                <p class="card-text">COMPLEJO CULTURAL SIGLO XXI</p>
-                <p class="card-text">Sociedad Anonima de Capital Variable</p>
-                <p class="card-text">Cúmulo de Virgo 34, Reserva Territorial Atlixcáyotl, 72810 Puebla, Pue.</p>
-                <p class="card-text">contacto@ccsxxi.com.mx</p>
-                <p class="card-text">+52 (222) 426 7184</p>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a id="filtrocartelera" href="#" class="btn">Ver Eventos en el Recinto</a>
               </div>
             </div>
             <div class="card mt-3">
@@ -144,7 +138,7 @@
               </form>
             </div>
           </div>
-          <div class="col mb-3 col-10 col-lg-4">
+          <div class="col col-xxl-4">
             <div class="card mb-3 justify-content-center">
               <div class="img-fluid  w-100">
                 <img class="img-fluid p-5 w-100 " src="..\identidad\CULTURA1Black.png">
@@ -157,67 +151,11 @@
         </div>
       </div>  
     </section>
-            
-    <!-- Legales -->
-    <section id="legal">
-      <div class=" text-light justify-content-center flex-column text-center pt-0 mt-5 mb-5 pt-lg-5">
-        <h2 class="fs-1 pt-4 pt-lg-1 pt-xxl-5">Legales</h2>
-      </div>
-      <div id="legales" class="container-fluid">  
-        <div class="row column-gap-3 mb-3 justify-content-center">
-          <div class="col col-10 mb-3 col-lg-4">
-            <div class="card">
-              <h5 class="card-title align-self-start fw-bolder m-3">Politica de Privacidad</h5>
-              <div class="card-body">
-                <p class="card-text">De conformidad con lo establecido en la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, COMPLEJO CULTURAL SXXI S.A. de C.V. pone a su disposición el siguiente aviso de privacidad.</p>
-                <p class="card-text">COMPLEJO CULTURAL SXXI S.A. de C.V., es responsable del uso y protección de sus datos personales, en este sentido y atendiendo las obligaciones legales establecidas en la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, a través de este instrumento se informa a los titulares de los datos, la información que de ellos se recaba y los fines que se le darán a dicha información.</p>
-                <p class="card-text">Además de lo anterior, informamos a usted que COMPLEJO CULTURAL SXXI S.A. de C.V., tiene su domicilio fiscal ubicado en:</p>
-                <p class="card-text">Cúmulo de Virgo 34, Reserva Territorial Atlixcáyotl, 72810 Puebla, Pue.</p>
-                <p class="card-text">Los datos personales que recabamos de usted serán utilizados para las siguientes finalidades, de las cuales son necesarias para concretar nuestra relación con usted, así como atender los servicios y/o pedidos que solicite:</p>
-                <p class="card-text">Brindar un mejor servicio en los pedidos realizados, cumplir con las expectativas del cliente. Generar una estrecha relación con clientes y clientes potenciales para el beneficio de ellos.</p>
-                <p class="card-text">Para llevar a cabo las finalidades descritas en el presente aviso de privacidad, utilizaremos los siguientes datos personales: Nombre, domicilio, correo electrónico, teléfono y/o número de celular.</p>
-                <p class="card-text">Por otra parte, informamos a usted, que sus datos personales no serán compartidos con ninguna autoridad, empresa, organización o persona distintas a nosotros y serán utilizados exclusivamente para los fines señalados.</p>
-                <p class="card-text">Usted tiene en todo momento el derecho a conocer qué datos personales tenemos de usted, para que los utilizamos y las condiciones del uso que les damos. Asimismo, es su derecho solicitar la corrección de su información personal en caso de que esté desactualizada, sea inexacta o incompleta (rectificación); de igual manera tiene derecho a que su información se elimine de nuestros registros o bases de datos cuando considere que la misma no está siendo utilizada adecuadamente; así como también a oponerse al uso de sus datos personales para fines específicos (oposición). Estos derechos se conocen como derechos ARCO.</p>
-                <a class="card-text" href="mailto:contacto@ccsxxi.com.mx">contacto@ccsxxi.com.mx</a>
-              </div>
-            </div>
-          </div>
-          <div class="col col-10 col-lg-4">
-            <div class="card">
-              <h5 class="card-title align-self-start fw-bolder m-3">Aviso Legal</h5>
-              <div class="card-body">
-                <p class="card-text">Bienvenido al sitio web Complejo Cultural Siglo XXI, operado por COMPLEJO CULTURAL SIGLO XXI S.A. de C.V. (en adelante, "nosotros", "nuestro" o "el sitio web"). Al acceder y utilizar este sitio web, aceptas los siguientes términos y condiciones en su totalidad. Si no estás de acuerdo con alguno de estos términos, por favor, no utilices el sitio web.</p>
-                <p class="card-text fw-bold">Uso del Sitio Web:</p>
-                <p class="card-text">1.1. Contenido: El contenido proporcionado en el sitio web es únicamente para fines informativos y promocionales. No nos responsabilizamos de la exactitud, integridad o actualidad de la información proporcionada. Los usuarios deben verificar la información directamente con el venue o los organizadores del evento antes de tomar decisiones basadas en dicha información.</p>
-                <p class="card-text">1.2. Cambios en la Información: Nos reservamos el derecho de realizar cambios en el contenido del sitio web, incluyendo la información sobre eventos, en cualquier momento y sin previo aviso.</p>
-                <p class="card-text">1.3. Uso Autorizado: Los usuarios pueden utilizar este sitio web únicamente para obtener información sobre eventos y actividades relacionadas en el venue. Queda prohibido utilizar el sitio web con fines ilegales, fraudulentos o para cualquier otro propósito no autorizado.</p>  
-                <p class="card-text fw-bold">Propiedad Intelectual:</p>
-                <p class="card-text">2.1. Derechos de Autor: Todo el contenido del sitio web, incluyendo pero no limitado a textos, gráficos, logotipos, imágenes, vídeos, iconos y software, están protegidos por las leyes de derechos de autor y propiedad intelectual aplicables. No se permite la reproducción, distribución, exhibición o cualquier otro uso no autorizado del contenido sin nuestro consentimiento expreso por escrito.</p>
-                <p class="card-text">2.2. Marcas Comerciales: Todas las marcas comerciales, nombres comerciales y logotipos utilizados en el sitio web son propiedad de sus respectivos propietarios. No se otorga ningún derecho de uso de las marcas comerciales sin el consentimiento expreso por escrito de los propietarios.</p>
-                <p class="card-text fw-bold">Responsabilidad:</p>
-                <p class="card-text">3.1. Exclusión de Garantías: El uso del sitio web es bajo tu propio riesgo. No ofrecemos ninguna garantía o representación sobre la disponibilidad, precisión, confiabilidad, actualidad o idoneidad del sitio web o del contenido para un propósito particular.</p>
-                <p class="card-text">3.2. Limitación de Responsabilidad: En la medida máxima permitida por la ley, no seremos responsables de ningún daño directo, indirecto, incidental, consecuencial, especial o punitivo que surja del uso o la imposibilidad de usar el sitio web, incluyendo, pero no limitado a, pérdida de ingresos, beneficios o datos, incluso si se ha advertido de la posibilidad de tales daños.</p>
-                <p class="card-text fw-bold">Enlaces a Terceros:</p>
-                <p class="card-text">El sitio web puede contener enlaces a sitios web de terceros. Estos enlaces son proporcionados solo para comodidad del usuario y no implican que respaldemos o tengamos control sobre el contenido de dichos sitios. No somos responsables de la disponibilidad, contenido o prácticas de privacidad de sitios web de terceros.</p>
-                <p class="card-text fw-bold">Privacidad:</p>
-                <p class="card-text">Nuestra política de privacidad describe cómo recopilamos, utilizamos y compartimos información personal. Al utilizar este sitio web, aceptas nuestras prácticas de privacidad que se describen en la Política de Privacidad.</p>
-                <p class="card-text fw-bold">Ley Aplicable:</p>
-                <p class="card-text">Este Aviso Legal se regirá e interpretará de acuerdo con las leyes federales aplicables en la República Mexicana. Cualquier disputa que surja de este Aviso Legal estará sujeta a la jurisdicción exclusiva de los tribunales competentes de la Ciudad de Puebla.</p>
-                <p class="card-text">Al utilizar este sitio web, aceptas cumplir con este Aviso Legal en su totalidad. Si no estás de acuerdo con alguno de los términos aquí establecidos, te rogamos que no utilices el sitio web.</p>
-                <p class="card-text">Fecha de entrada en vigor: 7 de agosto de 2023</p>
-                <p class="card-text">Si tienes alguna pregunta o inquietud sobre este Aviso Legal, puedes ponerte en contacto con nosotros a través de contacto@ccsxxi.com.mx.</p>
-                <p class="card-text">¡Gracias por utilizar nuestro sitio web!</p>
-              </div>
-            </div>
-          </div>  
-        </div>
-      </div>  
-    </section>
 
     <!-- Pie de Pagina -->
     <footer>
         <div id="footerinoq" class="container-fluid">
-          <div class="row justify-content-md-center pb-lg-5 pb-5 pt-5 m-0 text-white">
+        <div class="row justify-content-md-center pb-lg-5 pb-5 pt-5 m-0 text-white">
               
               <div class="d-flex col-lg-5 mt-5 justify-content-center">
                 <p div class="h7 text-center mt-5">Complejo Cultural Siglo XXI | Todos los derechos reservados © 2023
@@ -267,12 +205,5 @@
           </div>
         </div>
     </footer>
-    <?php 
-    if(isset($_GET['legal'])){
-      if($_GET['legal']==true){
-        echo '<script> document.getElementById("legal").scrollIntoView({behavior: "smooth"}); </script>';
-      }
-    }
-    ?> 
   </body>
 </html>

@@ -44,13 +44,17 @@
 
     #footerinoq{
         background-color: #ff0000;
-        margin-top: 30%;
+        margin-top: 0%;
     }
 
     #thumbnail{
         aspect-ratio: 9/16;
         max-width: 3rem;
         max-height: 5.3rem;
+    }
+
+    #map{
+        height: 30rem;
     }
 
 }
@@ -104,7 +108,7 @@
 
     #footerinoq{
         background-color: #ff0000;
-        margin-top: 30%;
+        margin-top: 0%;
     }
 
     #thumbnail{
@@ -113,6 +117,9 @@
         max-height: 10.6rem;
     }
 
+    #map{
+        height: 42.5rem;
+    }
 
 }
 
@@ -161,7 +168,7 @@
 
     #footerinoq{
         background-color: #ff0000;
-        margin-top: 13%;
+        margin-top: 0%;
     }
     
     #thumbnail{
@@ -176,8 +183,10 @@
     }
 
     #map{
-        height: 25rem;
+        height: 36.5rem;
     }
+
+    
 }
 
 #thumbnail{
@@ -254,6 +263,11 @@ div.navbar-brand{
     height: 90px;
     margin: 10px;
     
+}
+
+#mapa{
+    margin-top: .5rem!important;
+    margin-bottom: .5rem!important;
 }
 
 a.navbar{
