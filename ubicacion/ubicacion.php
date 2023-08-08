@@ -95,7 +95,7 @@
   <!-- Contenido -->
   <div id="ubicacion" class="container-fluid">
     <div class="row column-gap-3 justify-content-center">
-      <div class="col col-xxl-3">
+      <div class="col col-10 col-xxl-3 mt-4 mb-5">
         <div class="card">
           <h5 class="card-title align-self-center fw-bolder m-3">Auditorio CCSXXI</h5>
           <div class="img-fluid">
@@ -107,7 +107,7 @@
           </div>
         </div>
       </div>
-      <div class="col col-xxl-3">
+      <div class="col col-10 col-xxl-3 mb-5">
         <div class="card">
           <h5 class="card-title align-self-center fw-bolder m-3">Teatro CCSXXI</h5>
           <div class="img-fluid">
@@ -119,7 +119,7 @@
           </div>
         </div>
       </div> 
-      <div class="col col-xxl-3">
+      <div class="col col-10 col-xxl-3 mb-5">
         <div class="card">
           <h5 class="card-title align-self-center fw-bolder m-3">Sala de Cine CCSXXI</h5>
           <div class="img-fluid">
@@ -144,19 +144,19 @@
                 </p>
               </div>
 
-            <div  class="d-flex flex-column ms-sm-5 ps-2 mt-sm-5 col-lg-3 align-middle">
+            <div  class="d-flex flex-column ps-2 mt-sm-5 col-lg-3 align-middle">
               <div class="row justify-content-center">
-              <p><span class="text-white">Mapa del Sitio:</span></p>
+              <p><span class="text-white  ms-sm-5">Mapa del Sitio:</span></p>
                 <div class="col col-10 col-xxl-4 justify-content-center">
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="../index.php"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="../cartelera/cartelera.php"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="../servicios/servicios.php"><i class="bi bi-arrow-right-circle-fill"></i> Servicios</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="../ubicacion/ubicacion.php"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 mb-0" href="../index.php"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 mb-0" href="../cartelera/cartelera.php"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 mb-0" href="../servicios/servicios.php"><i class="bi bi-arrow-right-circle-fill"></i> Servicios</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 mb-0" href="../ubicacion/ubicacion.php"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>
                 </div>
                 <div class="col col-10 col-xxl-4 justify-content-center">
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="../somos/somos.php"><i class="bi bi-arrow-right-circle-fill"></i> Quienes Somos</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="../somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Politica de Privacidad</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="../somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Aviso Legal</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 mb-0" href="../somos/somos.php"><i class="bi bi-arrow-right-circle-fill"></i> Quienes Somos</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 mb-0" href="../somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Politica de Privacidad</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 mb-0" href="../somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Aviso Legal</a></p>
                 </div>
               </div>    
             </div>

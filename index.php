@@ -90,8 +90,8 @@
   </section>
 
   <section>
-    <div id="cartas" class="row z-1 mb-5 ms-5">
-      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-6 ms-1 mb-3 mb-sm-0">
+    <div id="cartas" class="row z-1 mb-5 ms-5 justify-content-evenly">
+      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-5 ms-1 mb-3 mb-sm-0">
         <div class="card mb-4">
           <img id="poster" src="imagenes/poster.jpg" class="card-img-top" alt="...">
           <div class="card-footer">
@@ -99,7 +99,7 @@
           </div>
         </div>
       </div>
-      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-6 ms-1 mb-3 mb-sm-0">
+      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-5 ms-1 mb-3 mb-sm-0">
         <div class="card mb-4">
           <img id="poster" src="imagenes/poster.jpg" class="card-img-top" alt="...">
           <div class="card-footer">
@@ -107,7 +107,7 @@
           </div>
         </div>
       </div>
-      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-6 ms-1 mb-3 mb-sm-0">
+      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-5 ms-1 mb-3 mb-sm-0">
         <div class="card mb-4">
           <img id="poster" src="imagenes/poster.jpg" class="card-img-top" alt="...">
           <div class="card-footer">
@@ -115,7 +115,7 @@
           </div>
         </div>
       </div>
-      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-6 ms-1 mb-3 mb-sm-0">
+      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-5 ms-1 mb-3 mb-sm-0">
         <div class="card mb-4">
           <img id="poster" src="imagenes/poster.jpg" class="card-img-top" alt="...">
           <div class="card-footer">
@@ -123,7 +123,7 @@
           </div>
         </div>
       </div>
-      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-6 ms-1 mb-3 mb-sm-0">
+      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-5 ms-1 mb-3 mb-sm-0">
         <div class="card mb-4">
           <img id="poster" src="imagenes/poster.jpg" class="card-img-top" alt="...">
           <div class="card-footer">
@@ -131,7 +131,7 @@
           </div>
         </div>
       </div>
-      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-6 ms-1 mb-3 mb-sm-0">
+      <div id="cartelera1" class="col col-xxl-2 col-lg-4 col-sm-5 ms-1 mb-3 mb-sm-0">
         <div class="card mb-4">
           <img id="poster" src="imagenes/poster.jpg" class="card-img-top" alt="...">
           <div class="card-footer">
@@ -152,19 +152,19 @@
           </p>
         </div>
 
-        <div  class="d-flex flex-column ms-sm-5 ps-2 mt-sm-5 col-lg-3 align-middle">
+        <div class="d-flex flex-column  ps-2 mt-sm-5 col-lg-3 align-middle">
               <div class="row justify-content-center">
-              <p><span class="text-white">Mapa del Sitio:</span></p>
+              <p><span class="text-white ms-sm-5">Mapa del Sitio:</span></p>
                 <div class="col col-10 col-xxl-4 justify-content-center">
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="index.php"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="cartelera/cartelera.php"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="servicios/servicios.php"><i class="bi bi-arrow-right-circle-fill"></i> Servicios</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="ubicacion/ubicacion.php"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="index.php"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="cartelera/cartelera.php"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="servicios/servicios.php"><i class="bi bi-arrow-right-circle-fill"></i> Servicios</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="ubicacion/ubicacion.php"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>
                 </div>
                 <div class="col col-10 col-xxl-4 justify-content-center">
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="somos/somos.php"><i class="bi bi-arrow-right-circle-fill"></i> Quienes Somos</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Politica de Privacidad</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Aviso Legal</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="somos/somos.php"><i class="bi bi-arrow-right-circle-fill"></i> Quienes Somos</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Politica de Privacidad</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Aviso Legal</a></p>
                 </div>
               </div>    
             </div>
