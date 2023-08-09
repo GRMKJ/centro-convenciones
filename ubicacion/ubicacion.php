@@ -95,15 +95,16 @@
   <!-- Contenido -->
   <div id="ubicacion" class="container-fluid">
     <div class="row column-gap-3 justify-content-center">
-      <div class="col col-10 col-xxl-3 mt-4 mb-5">
+      <div class="col col-10 col-xxl-3 mb-5 mt-sm-4">
         <div class="card">
           <h5 class="card-title align-self-center fw-bolder m-3">Auditorio CCSXXI</h5>
           <div class="img-fluid">
-            <img src="../imagenes/cartelera.png" class="card-img-top" alt="...">
+            <img src="../imagenes/somos.png" class="card-img-top" alt="...">
           </div>  
           <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Ver Eventos en el Recinto</a>
+            <p class="card-text">El Auditorio del Complejo Cultural Siglo XXI es un espacio versátil y moderno que puede acomodar a hasta 2,000 personas. El auditorio está equipado con un escenario, un sistema de sonido y un sistema de iluminación de última generación, lo que lo convierte en el lugar perfecto para una variedad de eventos, incluyendo conciertos, conferencias, presentaciones y eventos especiales.</p>
+            <p class="card-text">El auditorio está ubicado en el corazón del centro de la ciudad, lo que lo hace fácilmente accesible para todos. El auditorio también cuenta con una variedad de comodidades, incluyendo un bar, un área de descanso y un estacionamiento subterráneo.</p>
+            <a id="filtrocartelera" href="#" class="btn btn-primary">Ver Eventos en el Recinto</a>
           </div>
         </div>
       </div>
@@ -111,23 +112,25 @@
         <div class="card">
           <h5 class="card-title align-self-center fw-bolder m-3">Teatro CCSXXI</h5>
           <div class="img-fluid">
-            <img src="../imagenes/cartelera.png" class="card-img-top" alt="...">
+            <img src="../imagenes/auditorio.png" class="card-img-top" alt="...">
           </div>  
           <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Ver Eventos en el Recinto</a>
+            <p class="card-text">El Teatro del Complejo Cultural Siglo XXI es una joya arquitectónica. El teatro fue construido en 2019. El teatro cuenta con una capacidad de 500 personas y presenta una variedad de espectáculos, incluyendo obras de teatro, musicales, conciertos y eventos especiales.</p>
+            <p class="card-text">El teatro cuenta con un escenario grande y bien equipado, así como un sistema de sonido e iluminación de última generación. El teatro también cuenta con una variedad de comodidades, incluyendo un bar, un área de descanso y un estacionamiento subterráneo.</p>
+            <a id="filtrocartelera" href="#" class="btn btn-primary">Ver Eventos en el Recinto</a>
           </div>
         </div>
       </div> 
-      <div class="col col-10 col-xxl-3 mb-5">
+      <div class="col col-10 col-xxl-3 mb-5 mt-sm-4">
         <div class="card">
           <h5 class="card-title align-self-center fw-bolder m-3">Sala de Cine CCSXXI</h5>
           <div class="img-fluid">
-            <img src="../imagenes/cartelera.png" class="card-img-top" alt="...">
+            <img src="../imagenes/cine.png" class="card-img-top" alt="...">
           </div>  
           <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Ver Eventos en el Recinto</a>
+            <p class="card-text">La Sala de Cine del Complejo Cultural Siglo XXI es el lugar perfecto para disfrutar de una película con amigos y familiares. La sala cuenta con una pantalla grande, un sistema de sonido de última generación y asientos cómodos. La sala también cuenta con una variedad de comodidades, incluyendo un bar, un área de descanso y un estacionamiento subterráneo.</p>
+            <p class="card-text">La Sala de Cine del Complejo Cultural Siglo XXI está ubicada en el mismo complejo,  La sala también cuenta con una variedad de horarios de proyección, por lo que puede encontrar una película que se ajuste a su agenda.</p>
+            <a id="filtrocartelera" href="#" class="btn btn-primary">Ver Eventos en el Recinto</a>
           </div>
         </div>
       </div>  
@@ -148,15 +151,15 @@
               <div class="row justify-content-center">
               <p><span class="text-white  ms-sm-5">Mapa del Sitio:</span></p>
                 <div class="col col-10 col-xxl-4 justify-content-center">
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 mb-0" href="../index.php"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 mb-0" href="../cartelera/cartelera.php"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 mb-0" href="../servicios/servicios.php"><i class="bi bi-arrow-right-circle-fill"></i> Servicios</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 mb-0" href="../ubicacion/ubicacion.php"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 ms-xxl-0" href="../index.php"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 ms-xxl-0" href="../cartelera/cartelera.php"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 ms-xxl-0" href="../servicios/servicios.php"><i class="bi bi-arrow-right-circle-fill"></i> Servicios</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 ms-xxl-0" href="../ubicacion/ubicacion.php"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>
                 </div>
                 <div class="col col-10 col-xxl-4 justify-content-center">
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 mb-0" href="../somos/somos.php"><i class="bi bi-arrow-right-circle-fill"></i> Quienes Somos</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 mb-0" href="../somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Politica de Privacidad</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 mb-0" href="../somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Aviso Legal</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 ms-xxl-0" href="../somos/somos.php"><i class="bi bi-arrow-right-circle-fill"></i> Quienes Somos</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 ms-xxl-0" href="../somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Politica de Privacidad</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 ms-xxl-0" href="../somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Aviso Legal</a></p>
                 </div>
               </div>    
             </div>

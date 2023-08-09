@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="css/custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script></head>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
 <body class="bg-black">
   <!-- Header -->
   <header class="w-100">
@@ -55,10 +56,10 @@
                 <div class="container" id="navbar">
                 <ul class="navbar-nav justify-content-center me-auto mt-3 mb-2 mb-lg-0">
                   <li class="nav-item m-0">
-                    <a class="nav-link align-middle text-white" href="">Iniciar Sesion</a>
+                    <a class="nav-link align-middle text-white" href="usuario/inicio.php">Iniciar Sesion</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link align-middle  text-white" href="">Registrarse</a>
+                    <a class="nav-link align-middle  text-white" href="usuario/registro.php">Registrarse</a>
                   </li>
                 </ul>
               </div>
@@ -70,9 +71,9 @@
                 <i class="bi bi-person-fill" ></i>
               </button>
               <ul id="useraccesslist" class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Iniciar Sesión</a></li>
+                <li><a class="dropdown-item" href="usuario/inicio.php">Iniciar Sesión</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                <li><a class="dropdown-item" href="usuario/registro.php">Registrarse</a></li>
               </ul>
             </div>
           </div> 
@@ -156,15 +157,15 @@
               <div class="row justify-content-center">
               <p><span class="text-white ms-sm-5">Mapa del Sitio:</span></p>
                 <div class="col col-10 col-xxl-4 justify-content-center">
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="index.php"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="cartelera/cartelera.php"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="servicios/servicios.php"><i class="bi bi-arrow-right-circle-fill"></i> Servicios</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="ubicacion/ubicacion.php"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5" href="index.php"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5" href="cartelera/cartelera.php"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5" href="servicios/servicios.php"><i class="bi bi-arrow-right-circle-fill"></i> Servicios</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5" href="ubicacion/ubicacion.php"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>
                 </div>
                 <div class="col col-10 col-xxl-4 justify-content-center">
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="somos/somos.php"><i class="bi bi-arrow-right-circle-fill"></i> Quienes Somos</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Politica de Privacidad</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Aviso Legal</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="somos/somos.php"><i class="bi bi-arrow-right-circle-fill"></i> Quienes Somos</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Politica de Privacidad</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Aviso Legal</a></p>
                 </div>
               </div>    
             </div>

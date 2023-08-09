@@ -93,9 +93,9 @@
   </section>
   <!-- Contenido de la Pagina -->
   <section>
-    <div class="container-fluid">
-      <div id="servicios" class="row w-100"> 
-        <div class="col ms-xxl-5 col-xxl-8">   
+    <div class="container-fluid justify-items-center">
+      <div id="servicios" class="row"> 
+        <div id="cardserviciosl" class="col col-10 col-xxl-9">   
           <div class="card mb-3">
             <div class="row g-0">
               <div class="col-md-4">
@@ -106,64 +106,68 @@
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">Estacionamiento</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">El Complejo Cultural Siglo XXI cuenta con un estacionamiento de 600 espacios, ubicado dentro del mismo complejo. El estacionamiento está abierto de 7:00am a 12:00 am y las tarifas son de $5.00 por hora.</p>
+                  <p class="card-text">El estacionamiento está bien iluminado y está vigilado por seguridad las 24 horas del día, los 7 días de la semana.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row w-100 justify-content-end"> 
-        <div class="col ms-xxl-5 col-xxl-8 me-5">   
+      <div id="servicios2" class="row justify-content-end"> 
+        <div id="cardserviciosr" class="col col-10 col-xxl-9 me-5">   
           <div class="card mb-3">
             <div class="row g-0">
-              <div class="col-md-4">
-                <div class="img-fluid rounded">
-                  <img src="../imagenes/estacionamiento.jpg" class="img-fluid rounded-start" alt="...">
-                </div>
-              </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Estacionamiento</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <h5 class="card-title">Bar "Cultura"</h5>
+                  <p class="card-text">Nuestro bar es el lugar perfecto para relajarse y disfrutar de una bebida después de un largo día de trabajo o una noche de eventos. El bar cuenta con una amplia variedad de bebidas, incluyendo cerveza, vino, cócteles y bebidas no alcohólicas. También hay una variedad de bocadillos y platos ligeros disponibles.</p>
+                  <p class="card-text">El bar está abierto de 12:00pm a 12:00am y ofrece un ambiente relajado y acogedor. El bar también cuenta con una pantalla grande de televisión, por lo que puede ver sus eventos deportivos favoritos mientras disfruta de una bebida.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="img-fluid rounded">
+                  <img src="../imagenes/bar.png" class="img-fluid rounded-start" alt="...">
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row w-100"> 
-        <div class="col ms-xxl-5 col-xxl-8">   
+      <div id="servicios2" class="row"> 
+        <div id="cardserviciosl" class="col col-10 col-xxl-9">   
           <div class="card mb-3">
             <div class="row g-0">
               <div class="col-md-4">
                 <div class="img-fluid rounded">
-                  <img src="../imagenes/estacionamiento.jpg" class="img-fluid rounded-start" alt="...">
+                  <img src="../imagenes/lounge.jpg" class="img-fluid rounded-start" alt="...">
                 </div>
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Estacionamiento</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <h5 class="card-title">Sala de Espera</h5>
+                  <p class="card-text">Contamos con un espacio amplio y bien iluminado donde los asistentes pueden esperar a que comience su evento. La sala cuenta con asientos cómodos, mesas y sillas, así como una variedad de revistas y periódicos. También hay una estación de café y té, así como un área de Wi-Fi.</p>
+                  <p class="card-text">La sala de espera está abierta de 8:00am a 10:30pm y está ubicada en el 1 del complejo.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row w-100 justify-content-end"> 
-        <div class="col ms-xxl-5 col-xxl-8 me-5">   
+      <div id="servicios2" class="row justify-content-end"> 
+        <div id="cardserviciosr" class="col col-10 col-xxl-9 me-5">   
           <div class="card mb-3">
             <div class="row g-0">
-              <div class="col-md-4">
-                <div class="img-fluid rounded">
-                  <img src="../imagenes/estacionamiento.jpg" class="img-fluid rounded-start" alt="...">
-                </div>
-              </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title">Estacionamiento</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <h5 class="card-title">Restaurant Familiar</h5>
+                  <p class="card-text">Nuestro restaurante es el lugar perfecto para disfrutar de una comida deliciosa antes o después de un evento en el Centro de Eventos [nombre del Centro de Eventos]. El restaurante cuenta con un menú variado que ofrece algo para todos, desde platos ligeros hasta platos principales.</p>
+                  <p class="card-text">El restaurante está abierto de 8:00am a 10:30pm y está ubicado en el 2 del complejo.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="img-fluid rounded">
+                  <img src="../imagenes/restaurant.jpeg" class="img-fluid rounded-start" alt="...">
                 </div>
               </div>
             </div>
@@ -186,15 +190,15 @@
               <div class="row justify-content-center">
               <p><span class="text-white ms-sm-5">Mapa del Sitio:</span></p>
                 <div class="col col-10 col-xxl-4 justify-content-center">
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="../index.php"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="../cartelera/cartelera.php"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="../servicios/servicios.php"><i class="bi bi-arrow-right-circle-fill"></i> Servicios</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="../ubicacion/ubicacion.php"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="../index.php"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="../cartelera/cartelera.php"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="../servicios/servicios.php"><i class="bi bi-arrow-right-circle-fill"></i> Servicios</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="../ubicacion/ubicacion.php"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>
                 </div>
                 <div class="col col-10 col-xxl-4 justify-content-center">
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="../somos/somos.php"><i class="bi bi-arrow-right-circle-fill"></i> Quienes Somos</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="../somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Politica de Privacidad</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0 ms-sm-5" href="../somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Aviso Legal</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="../somos/somos.php"><i class="bi bi-arrow-right-circle-fill"></i> Quienes Somos</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="../somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Politica de Privacidad</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="../somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Aviso Legal</a></p>
                 </div>
               </div>    
             </div>

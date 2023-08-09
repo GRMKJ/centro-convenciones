@@ -57,6 +57,15 @@
         height: 30rem;
     }
 
+    #loginlogo{
+        width: 30%;
+        height: 100%;
+    }
+
+    #login{
+        width: 75%;
+    }
+
 }
 
 @media only screen and (min-width: 994px) and (max-width: 1399px) {
@@ -121,6 +130,15 @@
         height: 42.5rem;
     }
 
+    #loginlogo{
+        width: 50%;
+        height: 100%;
+    }
+    
+    #login{
+        width: 95%;
+    }
+
 }
 
 @media only screen and (min-width: 1400px) {
@@ -138,6 +156,11 @@
     
     #servicios{
         margin-top: -55%;
+        width: 80%;
+    }
+
+    #servicios2{
+        width: 80%;
     }
 
     #ubicacion{
@@ -158,12 +181,12 @@
 
     #footerinos{
         background-color: #ff0000;
-        margin-top: 5%;
+        margin-top: 0%;
     }
 
     #footerinou{
         background-color: #ff0000;
-        margin-top: 30%;
+        margin-top: 10%;
     }
 
     #footerinoq{
@@ -186,7 +209,23 @@
         height: 36.5rem;
     }
 
+    #cardserviciosl{
+        margin-top: 0%!important;
+        margin-left: 25%!important;
+    }
+    #cardserviciosr{
+        margin-top: 0%!important;
+        margin-right: 0%!important;
+    }
+
+    #loginlogo{
+        width: 50%;
+        height: 100%;
+    }
     
+    #login{
+        width: 100%;
+    }
 }
 
 #thumbnail{
@@ -217,7 +256,10 @@ a.nav-link.active{
 #filtrocartelera{
     --bs-btn-bg: #ff0000;
     --bs-btn-color: #ffffff;
+    --bs-btn-border-color: #ff0000;
     --bs-btn-hover-border-color: #ff0000;
+    --bs-btn-hover-bg: #ffffff;
+    --bs-btn-hover-color: #000000;
 }
 
 nav.navbar{

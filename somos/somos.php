@@ -228,15 +228,15 @@
               <div class="row justify-content-center">
               <p><span class="text-white">Mapa del Sitio:</span></p>
                 <div class="col col-10 col-xxl-4 justify-content-center">
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="../index.php"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="../cartelera/cartelera.php"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="../servicios/servicios.php"><i class="bi bi-arrow-right-circle-fill"></i> Servicios</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="../ubicacion/ubicacion.php"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0" href="../index.php"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0" href="../cartelera/cartelera.php"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0" href="../servicios/servicios.php"><i class="bi bi-arrow-right-circle-fill"></i> Servicios</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0" href="../ubicacion/ubicacion.php"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>
                 </div>
                 <div class="col col-10 col-xxl-4 justify-content-center">
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="../somos/somos.php"><i class="bi bi-arrow-right-circle-fill"></i> Quienes Somos</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="../somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Politica de Privacidad</a></p>
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 mb-0" href="../somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Aviso Legal</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0" href="../somos/somos.php"><i class="bi bi-arrow-right-circle-fill"></i> Quienes Somos</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0" href="../somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Politica de Privacidad</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0" href="../somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Aviso Legal</a></p>
                 </div>
               </div>    
             </div>
