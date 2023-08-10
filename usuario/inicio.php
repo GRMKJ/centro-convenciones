@@ -1,3 +1,11 @@
+<?php 
+session_start();
+require_once('..\modelo\Usuario.php');
+
+$usuario = new Usuario();
+$placeholder = new Usuario();
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +19,36 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
 <body style="background-color:#231c16">
+<?php 
+/*  Nota: Se que esto no es seguro ni correcto pero en la base de datos no se encripta la contraseña 
+por lo que solo para motivos practicos me invente esta solución Bonito dia */
+if(isset($_SESSION["sesion"])== true){
+    header("Location: index.php");
+}
+else{
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $placeholder->USERNAME = $_POST['username'];
+    $placeholder->PASSWRD = md5($_POST['password']);
+    $usuario->login();
+
+    echo $usuario->PASSWRD;
+
+    if ($usuario->password == $placeholder->password){
+        $_SESSION["sesion"]=$usuario->ID;
+        $_SESSION["rol"]=$usuario->ROL;
+        header("Location: panela/panela.php");
+    }
+    else{
+        ?>
+        <div class="alert alert-danger" role="alert">
+            <?='Username o Password invalidos'?>
+        </div>
+        
+    <?php
+        }
+    }
+}
+?>
     <!-- Carrusel -->
     <section class="w-100">
         <div>
@@ -32,9 +70,7 @@
                     <div class="d-flex w-100 justify-content-center">
                         <div id="login" class="card mt-xxl-5 mb-xxl-5">
                             <div class="p-2">
-                                <form>
-                                    <input id="filtrocartelera" type="button" value="Regresar" class="btn" onclick="history.back()">
-                                </form>
+                                <input id="filtrocartelera" type="button" value="Regresar" class="btn" onclick="history.back()">
                             </div>
                             <div class="d-flex mb-5 mt-5 w-100 justify-content-center">
                                 <svg  id="loginlogo" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -45,20 +81,26 @@
                             <div class="d-flex w-100 justify-content-center">
                                 <p class="fs-3 fw-bold"> Iniciar Sesión </p>
                             </div>
-                            <div>
-                                <form action="inicio.php" class="ps-4 pe-4 mb-3">
-                                    <div class="mt-3 mb-3">
-                                        <label for="usuario" class="form-label">Nombre de Usuario</label>
-                                        <input type="text" class="form-control" id="usuario" aria-describedby="usuario" placeholder="Nombre de Usuario">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="pass" class="form-label">Contraseña</label>
-                                        <input type="password" class="form-control" id="pass" placeholder="Contraseña">
-                                    </div>
-                                    <div class="d-flex w-100 mt-3 justify-content-evenly">
-                                        <button id="" type="submit" class="btn btn-success mt-3">Iniciar Sesion</button>
-                                        <a id="filtrocartelera" href="registro.php" class="btn mt-3">Registrarse</a>
-                                    </div>
+                            <div class="w-100 ps-4 pe-4 mb-3">
+                            <form name="frmInsProd" method="post" action="inicio.php">
+                            <table class="table table-striped bg-white">
+                                <tr>
+                                    <td style="vertical-align:middle" align="center"><b>Username</b></td>
+                                    <td style="vertical-align:middle"><input type="text" name="username" value="" class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align:middle" align="center"><b>Password</b></td>
+                                    <td style="vertical-align:middle"><input type="password" name="password" value="" class="form-control"></td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align:middle" align="right">
+                                        <a href="registro.php" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i>&nbsp;Registrarse</a>
+                                    </td>  
+                                    <td style="vertical-align:middle" align="center">
+                                        <button type="submit" class="btn btn-success"><i class="bi bi-save-fill"></i>&nbsp;Iniciar Sesion</button>
+                                    </td>
+                                </tr>
+                                </table>
                                 </form>
                             </div>
                         </div>

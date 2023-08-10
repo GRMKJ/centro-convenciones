@@ -3,12 +3,12 @@ require_once('Modelo.php');
 require_once('Pattern.php');
 
 class Persona extends Modelo {
-	public $id;
-	public $nombre;
-	public $a_paterno;
-	public $a_materno;
-	public $fecha_nac;
-	public $telefono;
+	public $ID;
+	public $NOMBRE;
+	public $A_PATERNO;
+	public $A_MATERNO;
+	public $FECHA_NAC;
+	public $TELEFONO;
 
 	function __construct() {
 		parent::__construct();
@@ -21,17 +21,17 @@ class Persona extends Modelo {
 		return $this->encuentraTodos();
 	}
 
-	function recuperaRegistro($id) {
-		$this->consulta = "select * from $this->tabla where id = $id";
+	function recuperaRegistro($ID) {
+		$this->consulta = "select * from $this->tabla where ID = $ID";
 
 	 	$dato = $this->encuentraUno();	
 	 	
 	 	if ( isset($dato) ) {
-	 		$this->nombre = $dato->nombre;
-	 		$this->a_paterno = $dato->a_paterno;
-	 		$this->a_materno = $dato->a_materno;
-	 		$this->fecha_nac = $dato->fecha_nac;
-	 		$this->telefono = $dato->telefono;
+	 		$this->NOMBRE = $dato->NOMBRE;
+	 		$this->A_PATERNO = $dato->A_PATERNO;
+	 		$this->A_MATERNO = $dato->A_MATERNO;
+	 		$this->FECHA_NAC = $dato->FECHA_NAC;
+	 		$this->TELEFONO = $dato->TELEFONO;
 	 	}
 	}
 
@@ -39,23 +39,25 @@ class Persona extends Modelo {
 		$this->traerDatos();
 
 		$this->consulta = 
-		"insert into $this->tabla (id,nombre,a_paterno,a_materno,fecha_nac,telefono) ".
+		"insert into $this->tabla (ID,NOMBRE,A_PATERNO,A_MATERNO,FECHA_NAC,TELEFONO) ".
 		"values ( " .
-		"$this->id," .
-		"'$this->nombre',".
-		"'$this->a_paterno',".
-		"'$this->a_materno',".
-		"'$this->fecha_nac',".
-		"'$this->telefono'";
+		"$this->ID," .
+		"'$this->NOMBRE',".
+		"'$this->A_PATERNO',".
+		"'$this->A_MATERNO',".
+		"'$this->FECHA_NAC',".
+		"'$this->TELEFONO');";
 		
-		$errores=$this->validarDatos();
+		$errores=$this->valIDarDatos();
 
 		if (count($errores)==0){
 			$this->ejecutaComandoIUD();
 			return $errores;
 		}
 		else {
+			echo 'Persona No Insertada';
 			return $errores;
+
 		}
 
 	}
@@ -65,14 +67,14 @@ class Persona extends Modelo {
 
 		$this->consulta = 
 		"update $this->tabla set " .
-		"nombre = '$this->nombre'," .
-		"a_paterno = '$this->a_paterno',".
-		"a_materno = '$this->a_materno',".
-		"fecha_nac = '$this->fecha_nac',".
-		"telefono = '$this->telefono'," .
-		"where id = $this->id";
+		"NOMBRE = '$this->NOMBRE'," .
+		"A_PATERNO = '$this->A_PATERNO',".
+		"A_MATERNO = '$this->A_MATERNO',".
+		"FECHA_NAC = '$this->FECHA_NAC',".
+		"TELEFONO = '$this->TELEFONO'" .
+		"where ID = $this->ID;";
 
-		$errores=$this->validarDatos();
+		$errores=$this->valIDarDatos();
 
 		if (count($errores)==0){
 			$this->ejecutaComandoIUD();
@@ -83,35 +85,31 @@ class Persona extends Modelo {
 		}
 	}
 
-	function eliminaRegistro($id) {
+	function eliminaRegistro($ID) {
 		$this->consulta = 
 		"delete from $this->tabla ".
-		"where id = $id;";
+		"where ID = $ID;";
 
 		$this->ejecutaComandoIUD();
 	}
 
 	function traerDatos(){
-		$this->id = $_POST['id'];
-		$this->nombre = $_POST['nombre'];
-		$this->a_paterno = $_POST['a_paterno'];
-		$this->a_materno = $_POST['a_materno'];
-		$this->fecha_nac = $_POST['fecha_nac'];
-		$this->telefono = $_POST['telefono'];
+		$this->ID = $_POST['ID'];
+		$this->NOMBRE = $_POST['NOMBRE'];
+		$this->A_PATERNO = $_POST['A_PATERNO'];
+		$this->A_MATERNO = $_POST['A_MATERNO'];
+		$this->FECHA_NAC = $_POST['FECHA_NAC'];
+		$this->TELEFONO = $_POST['TELEFONO'];
 	}
 
-	function validarDatos(){
+	function valIDarDatos(){
 		$errores = array();
-		if ($this->a_paterno==null){
-			$errores[]='El Nombre es Obligatorio';
+		if ($this->NOMBRE==null){
+			$errores[]='El NOMBRE es Obligatorio';
 		}
-		if ($this->a_paterno==null){
-			$errores[]='El Apellido Paterno es Obligatorio';
+		if ($this->A_PATERNO==null){
+			$errores[]='El ApellIdo Paterno es Obligatorio';
 		}
-		if (Pattern::phoneNumber($this->telefono)==null){
-			$errores[]='El formato del Telefono es incorrecto';
-		}
-			
 		return $errores;
 		
 	}

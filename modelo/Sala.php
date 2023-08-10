@@ -3,10 +3,10 @@ require_once('Modelo.php');
 require_once('Pattern.php');
 
 class Sala extends Modelo {
-	public $id;
-	public $estado;
-	public $nombre;
-	public $asientos;
+	public $ID;
+	public $ESTADO;
+	public $NOMBRE;
+	public $ASIENTOS;
 
 	function __construct() {
 		parent::__construct();
@@ -19,15 +19,15 @@ class Sala extends Modelo {
 		return $this->encuentraTodos();
 	}
 
-	function recuperaRegistro($id) {
-		$this->consulta = "select * from $this->tabla where id = $id";
+	function recuperaRegistro($ID) {
+		$this->consulta = "select * from $this->tabla where ID = $ID";
 
 	 	$dato = $this->encuentraUno();	
 	 	
 	 	if ( isset($dato) ) {
-	 		$this->estado = $dato->estado;
-	 		$this->nombre = $dato->nombre;
-	 		$this->asientos = $dato->asientos;
+	 		$this->ESTADO = $dato->ESTADO;
+	 		$this->NOMBRE = $dato->NOMBRE;
+	 		$this->ASIENTOS = $dato->ASIENTOS;
 	 	}
 	}
 
@@ -35,14 +35,14 @@ class Sala extends Modelo {
 		$this->traerDatos();
 
 		$this->consulta = 
-		"insert into $this->tabla (id,estado,nombre,asientos,fecha_nac,telefono) ".
+		"insert into $this->tabla (ID,ESTADO,NOMBRE,ASIENTOS) ".
 		"values ( " .
-		"$this->id," .
-		"$this->estado,".
-		"'$this->nombre',".
-		"$this->asientos,";
+		"$this->ID," .
+		"$this->ESTADO,".
+		"'$this->NOMBRE',".
+		"$this->ASIENTOS)";
 		
-		$errores=$this->validarDatos();
+		$errores=$this->valIDarDatos();
 
 		if (count($errores)==0){
 			$this->ejecutaComandoIUD();
@@ -59,12 +59,12 @@ class Sala extends Modelo {
 
 		$this->consulta = 
 		"update $this->tabla set " .
-		"estado = $this->estado," .
-		"nombre = '$this->nombre',".
-		"asientos = $this->asientos,".
-		"where id = $this->id";
+		"ESTADO = $this->ESTADO," .
+		"NOMBRE = '$this->NOMBRE',".
+		"ASIENTOS = $this->ASIENTOS ".
+		"where ID = $this->ID";
 
-		$errores=$this->validarDatos();
+		$errores=$this->valIDarDatos();
 
 		if (count($errores)==0){
 			$this->ejecutaComandoIUD();
@@ -75,31 +75,31 @@ class Sala extends Modelo {
 		}
 	}
 
-	function eliminaRegistro($id) {
+	function eliminaRegistro($ID) {
 		$this->consulta = 
 		"delete from $this->tabla ".
-		"where id = $id;";
+		"where ID = $ID;";
 
 		$this->ejecutaComandoIUD();
 	}
 
 	function traerDatos(){
-		$this->id = $_POST['id'];
-		$this->estado = $_POST['estado'];
-		$this->nombre = $_POST['nombre'];
-		$this->asientos = $_POST['asientos'];
+		$this->ID = $_POST['ID'];
+		$this->ESTADO = $_POST['ESTADO'];
+		$this->NOMBRE = $_POST['NOMBRE'];
+		$this->ASIENTOS = $_POST['ASIENTOS'];
 	}
 
-	function validarDatos(){
+	function valIDarDatos(){
 		$errores = array();
-		if ($this->estado==null){
-			$errores[]='El estado es Obligatorio';
+		if ($this->ESTADO==null){
+			$errores[]='El ESTADO es Obligatorio';
 		}
-		if ($this->nombre==null){
-			$errores[]='El nombre de la sala es Obligatorio';
+		if ($this->NOMBRE==null){
+			$errores[]='El NOMBRE de la sala es Obligatorio';
 		}
-		if ($this->asientos==null){
-			$errores[]='La Cantidad de Asientos es Obligatorio';
+		if ($this->ASIENTOS==null){
+			$errores[]='La CantIDad de ASIENTOS es Obligatorio';
 		}
 			
 		return $errores;

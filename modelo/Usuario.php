@@ -3,13 +3,13 @@ require_once('Modelo.php');
 require_once('Pattern.php');
 
 class Usuario extends Modelo {
-	public $id;
-	public $id_persona;
-	public $estado;
-	public $correo;
-	public $username;
-	public $psswrd;
-	public $rol;
+	public $ID;
+	public $ID_PERSONA;
+	public $ESTADO;
+	public $CORREO;
+	public $USERNAME;
+	public $PASSWRD;
+	public $ROL;
 
 	function __construct() {
 		parent::__construct();
@@ -22,18 +22,18 @@ class Usuario extends Modelo {
 		return $this->encuentraTodos();
 	}
 
-	function recuperaRegistro($id) {
-		$this->consulta = "select * from $this->tabla where id = $id";
+	function recuperaRegistro($ID) {
+		$this->consulta = "select * from $this->tabla where ID = $ID";
 
 	 	$dato = $this->encuentraUno();	
 	 	
 	 	if ( isset($dato) ) {
-	 		$this->id_persona = $dato->id_persona;
-	 		$this->estado = $dato->estado;
-	 		$this->correo = $dato->correo;
-	 		$this->username = $dato->username;
-	 		$this->psswrd = $dato->psswrd;
-	 		$this->rol = $dato->rol;
+	 		$this->ID_PERSONA = $dato->ID_PERSONA;
+	 		$this->ESTADO = $dato->ESTADO;
+	 		$this->CORREO = $dato->CORREO;
+	 		$this->USERNAME = $dato->USERNAME;
+	 		$this->PASSWRD = $dato->PASSWRD;
+	 		$this->ROL = $dato->ROL;
 	 	}
 	}
 
@@ -41,17 +41,17 @@ class Usuario extends Modelo {
 		$this->traerDatos();
 
 		$this->consulta = 
-		"insert into $this->tabla (id,id_persona,estado,correo,username,psswrd,rol) ".
+		"insert into $this->tabla (ID,ID_PERSONA,ESTADO,CORREO,USERNAME,PASSWRD,ROL) ".
 		"values ( " .
-		"$this->id," .
-		"last_insert_id(),".
-		"$this->estado,".
-		"'$this->correo',".
-		"'$this->username',".
-		"'$this->psswrd',".
-		"'$this->rol',";
+		"$this->ID," .
+		"$this->ID_PERSONA,".
+		"$this->ESTADO,".
+		"'$this->CORREO',".
+		"'$this->USERNAME',".
+		"'$this->PASSWRD',".
+		"'$this->ROL');";
 		
-		$errores=$this->validarDatos();
+		$errores=$this->valIDarDatos();
 
 		if (count($errores)==0){
 			$this->ejecutaComandoIUD();
@@ -68,15 +68,14 @@ class Usuario extends Modelo {
 
 		$this->consulta = 
 		"update $this->tabla set " .
-		"id_persona = $this->id_persona," .
-		"estado = $this->estado,".
-		"correo = '$this->correo',".
-		"username = '$this->username',".
-		"psswrd = '$this->psswrd'," .
-		"rol = '$this->rol',".
-		"where id = $this->id";
+		"ESTADO = $this->ESTADO,".
+		"CORREO = '$this->CORREO',".
+		"USERNAME = '$this->USERNAME',".
+		"PASSWRD = '$this->PASSWRD'," .
+		"ROL = '$this->ROL'".
+		"where ID = $this->ID";
 
-		$errores=$this->validarDatos();
+		$errores=$this->valIDarDatos();
 
 		if (count($errores)==0){
 			$this->ejecutaComandoIUD();
@@ -87,35 +86,60 @@ class Usuario extends Modelo {
 		}
 	}
 
-	function eliminaRegistro($id) {
+	function eliminaRegistro($ID) {
 		$this->consulta = 
 		"delete from $this->tabla ".
-		"where id = $id;";
+		"where ID = $ID;";
 
 		$this->ejecutaComandoIUD();
 	}
 
 	function traerDatos(){
-		$this->id = $_POST['id'];
-		$this->id_persona = $_POST['id_persona'];
-		$this->estado = $_POST['estado'];
-		$this->correo = $_POST['correo'];
-		$this->username = $_POST['username'];
-		$this->psswrd = $_POST['psswrd'];
-		$this->rol = $_POST['rol'];
+		$this->ID = $_POST['ID'];
+		$this->ID_PERSONA = $_POST['ID_PERSONA'];
+		$this->ESTADO = $_POST['ESTADO'];
+		$this->CORREO = $_POST['CORREO'];
+		$this->USERNAME = $_POST['USERNAME'];
+		$this->PASSWRD = md5($_POST['PASSWRD']);
+		$this->ROL = $_POST['ROL'];
 	}
 
-	function validarDatos(){
+	function valIDarDatos(){
 		$errores = array();
-		if ($this->estado==0){
-			$errores[]='Selecciona un estado';
+		if ($this->ESTADO==0){
+			$errores[]='Selecciona un ESTADO';
 		}
-		if (Pattern::email($this->correo)==null){
-			$errores[]='El formato del correo es incorrecto';
+		if (Pattern::email($this->CORREO)==null){
+			$errores[]='El formato del CORREO es incorrecto';
 		}
 			
 		return $errores;
 		
+	}
+	function login(){
+		
+		$this->USERNAME = $_POST['username'];
+	
+		$this->consulta = "select * from $this->tabla where USERNAME = '$this->USERNAME'";
+		 
+		echo $this->consulta;
+
+		$dato = $this->encuentraUno();
+		
+		if ( isset($dato) ) {
+            $this->ID = $dato->ID;
+            $this->USERNAME = $dato->USERNAME;
+            $this->PASSWRD = $dato->PASSWRD;
+			$this->ROL = $dato->ROL;
+		}
+	}
+
+	function procedUsuario(){
+		$this->consulta = "CALL registrarUsuario('".$_POST['NOMBRE']."', '".$_POST['A_PATERNO']."', '".$_POST['A_MATERNO']."', '".$_POST['FECHA_NAC']."', '".$_POST['TELEFONO']."', '".$_POST['CORREO']."', '".$_POST['PASSWRD']."', '".$_POST['USERNAME']."', ".$_POST['ROL'].");";
+		$errores=$this->valIDarDatos();
+
+		$this->ejecutaComandoIUD();
+		return $errores ;
 	}
 
 	}

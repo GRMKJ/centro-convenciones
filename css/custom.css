@@ -219,7 +219,7 @@
     }
 
     #loginlogo{
-        width: 50%;
+        width: 40%;
         height: 100%;
     }
     
@@ -355,4 +355,6 @@ img.img-fluid{
     display: inline-block;
 }
 
-
+#CRUD{
+    background-image: url(/imagenes/teatro.jpg);
+}

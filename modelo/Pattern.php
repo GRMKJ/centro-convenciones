@@ -7,7 +7,7 @@ class Pattern
             'America/Mexico_City','America/Monterrey','America/Tijuana'));
     private const ONLY_LETTERS = "/^[a-zA-Z\sñáéíóúÁÉÍÓÚ]+$/";
     private const ONLY_NUMBER = "/^[0-9.]+$/";
-    private const PHONE_NUMBER = "/^[0-9]{14}+$/";
+    private const PHONE_NUMBER = "/^[0-9]{10}+$/";
     private const CURP = "/^[A-Z]{4}[0-9]{6}[A-Z]{8}[A-Z0-9]{2}+$/";
     private const RFC = "/^[A-Z]{4}[0-9]{6}[A-Z0-9]{3}+$/";
 
