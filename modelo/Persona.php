@@ -74,7 +74,7 @@ class Persona extends Modelo {
 		"TELEFONO = '$this->TELEFONO'" .
 		"where ID = $this->ID;";
 
-		$errores=$this->valIDarDatos();
+		$errores=$this->validarDatos();
 
 		if (count($errores)==0){
 			$this->ejecutaComandoIUD();
@@ -102,7 +102,7 @@ class Persona extends Modelo {
 		$this->TELEFONO = $_POST['TELEFONO'];
 	}
 
-	function valIDarDatos(){
+	function validarDatos(){
 		$errores = array();
 		if ($this->NOMBRE==null){
 			$errores[]='El NOMBRE es Obligatorio';

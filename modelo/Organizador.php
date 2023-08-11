@@ -4,12 +4,11 @@ require_once('Pattern.php');
 
 class Organizador extends Modelo
 {
-	public $id;
-	public $id_persona;
-	public $estado;
-	public $razonsoc;
-	public $rfc;
-	public $direccion;
+	public $ID;
+	public $ID_PERSONA;
+	public $ESTADO;
+	public $RAZONSOC;
+	public $DIRECCION;
 
 	function __construct()
 	{
@@ -24,18 +23,17 @@ class Organizador extends Modelo
 		return $this->encuentraTodos();
 	}
 
-	function recuperaRegistro($id)
+	function recuperaRegistro($ID)
 	{
-		$this->consulta = "select * from $this->tabla where id = $id";
+		$this->consulta = "select * from $this->tabla where ID = $ID";
 
 		$dato = $this->encuentraUno();
 
 		if (isset($dato)) {
-			$this->id_persona = $dato->id_persona;
-			$this->estado = $dato->estado;
-			$this->razonsoc = $dato->razonsoc;
-			$this->rfc = $dato->rfc;
-			$this->direccion = $dato->direccion;
+			$this->ID_PERSONA = $dato->ID_PERSONA;
+			$this->ESTADO = $dato->ESTADO;
+			$this->RAZONSOC = $dato->RAZONSOC;
+			$this->DIRECCION = $dato->DIRECCION;
 		}
 	}
 
@@ -44,14 +42,13 @@ class Organizador extends Modelo
 		$this->traerDatos();
 
 		$this->consulta =
-			"insert into $this->tabla (id,id_persona,estado,razonsoc,rfc,direccion,rol) " .
+			"insert into $this->tabla (ID,ID_PERSONA,ESTADO,RAZONSOC,RFC,DIRECCION) " .
 			"values ( " .
-			"$this->id," .
-			"last_insert_id()," .
-			"$this->estado," .
-			"'$this->razonsoc'," .
-			"'$this->rfc'," .
-			"'$this->direccion',";
+			"$this->ID," .
+			"last_insert_ID()," .
+			"$this->ESTADO," .
+			"'$this->RAZONSOC'," .
+			"'$this->DIRECCION',";
 
 		$errores = $this->validarDatos();
 
@@ -70,13 +67,13 @@ class Organizador extends Modelo
 
 		$this->consulta =
 			"update $this->tabla set " .
-			"id_persona = $this->id_persona," .
-			"estado = $this->estado," .
-			"razonsoc = '$this->razonsoc'," .
-			"rfc = '$this->rfc'," .
-			"direccion = '$this->direccion'," .
-			"where id = $this->id";
-
+			"ESTADO = $this->ESTADO," .
+			"RAZONSOC = '$this->RAZONSOC'," .
+			"DIRECCION = '$this->DIRECCION'," .
+			"where ID = $this->ID";
+		
+		echo $this->consulta;
+		
 		$errores = $this->validarDatos();
 
 		if (count($errores) == 0) {
@@ -87,39 +84,40 @@ class Organizador extends Modelo
 		}
 	}
 
-	function eliminaRegistro($id)
+	function eliminaRegistro($ID)
 	{
 		$this->consulta =
 			"delete from $this->tabla " .
-			"where id = $id;";
+			"where ID = $ID;";
 
 		$this->ejecutaComandoIUD();
 	}
 
 	function traerDatos()
 	{
-		$this->id = $_POST['id'];
-		$this->id_persona = $_POST['id_persona'];
-		$this->estado = $_POST['estado'];
-		$this->razonsoc = $_POST['razonsoc'];
-		$this->rfc = $_POST['rfc'];
-		$this->direccion = $_POST['direccion'];
+		$this->ID = $_POST['ID'];
+		$this->ID_PERSONA = $_POST['ID_PERSONA'];
+		$this->ESTADO = $_POST['ESTADO'];
+		$this->RAZONSOC = $_POST['RAZONSOC'];
+		$this->DIRECCION = $_POST['DIRECCION'];
 	}
 
 	function validarDatos()
 	{
 		$errores = array();
-		if ($this->estado == 0) {
-			$errores[] = 'Selecciona un estado';
-		}
-		if (Pattern::esRfc($this->rfc) == null) {
-			$errores[] = 'El formato del RFC es incorrecto';
-		}
-
+		
 		return $errores;
 
 	}
 
-}
+	function procedorganizador(){
+		$this->consulta = "CALL registrarOrg('".$_POST['NOMBRE']."', '".$_POST['A_PATERNO']."', '".$_POST['A_MATERNO']."', '".$_POST['FECHA_NAC']."', '".$_POST['TELEFONO']."', '".$_POST['RAZONSOC']."', '".$_POST['DIRECCION']."');";
+		$errores=$this->valIDarDatos();
+
+		$this->ejecutaComandoIUD();
+		return $errores ;
+	}
+
+	}
 
 ?>
