@@ -67,12 +67,14 @@ class Persona extends Modelo {
 
 		$this->consulta = 
 		"update $this->tabla set " .
-		"NOMBRE = '$this->NOMBRE'," .
-		"A_PATERNO = '$this->A_PATERNO',".
-		"A_MATERNO = '$this->A_MATERNO',".
-		"FECHA_NAC = '$this->FECHA_NAC',".
-		"TELEFONO = '$this->TELEFONO'" .
+		"NOMBRE = '$this->NOMBRE', " .
+		"A_PATERNO = '$this->A_PATERNO', ".
+		"A_MATERNO = '$this->A_MATERNO', ".
+		"FECHA_NAC = '$this->FECHA_NAC', ".
+		"TELEFONO = '$this->TELEFONO' " .
 		"where ID = $this->ID;";
+	
+		echo $this->consulta;
 
 		$errores=$this->validarDatos();
 

@@ -67,9 +67,9 @@ class Organizador extends Modelo
 
 		$this->consulta =
 			"update $this->tabla set " .
-			"ESTADO = $this->ESTADO," .
-			"RAZONSOC = '$this->RAZONSOC'," .
-			"DIRECCION = '$this->DIRECCION'," .
+			"ESTADO = $this->ESTADO, " .
+			"RAZONSOC = '$this->RAZONSOC', " .
+			"DIRECCION = '$this->DIRECCION' " .
 			"where ID = $this->ID";
 		
 		echo $this->consulta;

@@ -61,11 +61,11 @@ $persona = new Persona();
 <div class="container py-2 w-50">
     <div class="form-group mt-2 mb-2">
         <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Organizadores</a>
-        <h2 class="mt-4 text-white">Agregar un organizador</h2>
+        <h2 class="mt-4 text-white">Modificar un organizador</h2>
     </div>
-    <form name="frmInsProd" method="post" action="insertar.php">
-    <input type="hidden" name="ID" value="">
-    <input type="hidden" name="ID_PERSONA" value="">
+    <form name="frmInsProd" method="post" action="modificar.php">
+    <input type="hidden" name="ID" value="<?=$organizador->ID?>">
+    <input type="hidden" name="ID_PERSONA" value="<?=$organizador->ID_PERSONA?>">
   	<table class="table mt-4">
     <tr>
         <td>

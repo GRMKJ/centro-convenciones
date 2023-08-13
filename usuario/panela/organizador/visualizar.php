@@ -1,22 +1,22 @@
 <?php 
-require_once('../../../modelo/Usuario.php');
+require_once('../../../modelo/Organizador.php');
 require_once('../../../modelo/Persona.php');
 
-$usuario = new Usuario();
+$organizador = new Organizador();
 $persona = new Persona();
 
 
 if ($_GET['id']) {
-    $usuario->id = $_GET['id'];
-    $usuario->recuperaRegistro($usuario->id);
-    $persona->recuperaRegistro($usuario->ID_PERSONA);
+    $organizador->ID = $_GET['id'];
+    $organizador->recuperaRegistro($organizador->ID);
+    $persona->recuperaRegistro($organizador->ID_PERSONA);
 }
 ?>
 <html>
 <head>
-  <title>CC Siglo XXI - Ver Usuarios</title>
+  <title>CC Siglo XXI - Ver Organizadores</title>
   <link rel="icon" type="image/x-icon" href="..\..\..\imagenes\CULTURA1.png">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="wIDth=device-wIDth,initial-scale=1">
   <link rel="stylesheet" href="../../../css/estilo.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -36,39 +36,36 @@ if ($_GET['id']) {
 
 <div class="container py-2">
     <div class="form-group">
-        <a href="index.php" class="btn btn-danger"><i class="bi bi-arrow-return-left"></i>&nbsp;Usuarios</a>
-        <h2 class="mt-4 text-white">Detalles del usuario</h2>
+        <a href="index.php" class="btn btn-danger"><i class="bi bi-arrow-return-left"></i>&nbsp;Organizadores</a>
+        <h2 class="mt-4 text-white">Detalles del Organizador</h2>
     </div>
-    <form name="frmModProd" method="post" action="modificar.php">
-    <input type="hidden" name="id" value="<?=$usuario->id?>">
+    <form name="frmModProd" method="post" action="index.php">
+    <input type="hIDden" name="ID" value="<?=$organizador->ID?>">
   	<table class="table">
       <tr>
         <td>
-        	<label class="control-label">Username</label>
+        	<label class="control-label">Razon Social</label>
         </td>
         <td>
-            <span><?=$usuario->USERNAME?></span>
+            <span><?=$organizador->RAZONSOC?></span>
         </td>        
     </tr>
     <tr>
         <td>
-        	<label class="control-label">Password</label>
+        	<label class="control-label">Dirección</label>
         </td>
         <td>
-            <span><?=$usuario->PASSWRD?></span>
+            <span><?=$organizador->DIRECCION?></span>
         </td>        
     </tr>
     <tr>
-        <td>
-        	<label class="control-label">Rol</label>
-        </td>
-        <td>
-            <span title="<?=$usuario->rol?>"><?=($usuario->ROL == 1)?"Cliente":""?><?=($usuario->ROL == 5)?"Administrativo":""?></span>
-        </td>        
+        <td colspan="2  ">
+        	<label align="center" class="control-label">Persona de Contacto</label>
+        </td>       
     </tr>
     <tr>
         <td>
-        	<label class="control-label">Nombre</label>  
+        	<label class="control-label">Nombre</label>
         </td>
         <td>
             <span><?=$persona->NOMBRE?></span>
@@ -76,22 +73,22 @@ if ($_GET['id']) {
     </tr>
     <tr>
         <td>
-        	<label class="control-label">Apellido Paterno</label>
-       	</td>
+        	<label class="control-label">Apellido Paterno</label>  
+        </td>
         <td>
             <span><?=$persona->A_PATERNO?></span>
+        </td>        
+    </tr>
+    <tr>
+        <td>
+        	<label class="control-label">Apellido Materno</label>
+       	</td>
+        <td>
+            <span><?=$persona->A_MATERNO?></span>
         </td>
     </tr>
     
     <tr>
-        <td>
-        	<label class="control-label">Apellido Materno</label>
-        </td>
-        <td>
-            <span><?=$persona->A_MATERNO?></span>
-        </td>        
-     </tr>
-     <tr>
         <td>
         	<label class="control-label">Fecha de Nacimiento</label>
         </td>
@@ -105,14 +102,6 @@ if ($_GET['id']) {
         </td>
         <td>
             <span><?=$persona->TELEFONO?></span>
-        </td>        
-     </tr>
-     <tr>
-        <td>
-        	<label class="control-label">Correo</label>
-        </td>
-        <td>
-            <span><?=$usuario->CORREO?></span>
         </td>        
      </tr>
      <tr>

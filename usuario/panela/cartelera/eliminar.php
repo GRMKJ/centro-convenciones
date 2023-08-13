@@ -1,9 +1,9 @@
-<?php require_once('../logica/Usuario.php');?>
 <?php 
+require_once('../../../modelo/Evento.php');
 
-$usuario = new Usuario();
+$evento = new Evento();
 if (isset($_GET['id'])) {
-    $usuario->eliminaRegistro($_GET['id']);
+    $evento->eliminaRegistro($_GET['id']);
 }
 
 header("Location: index.php"); // Redireccionamiento 

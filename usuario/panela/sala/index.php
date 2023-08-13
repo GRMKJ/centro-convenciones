@@ -1,7 +1,7 @@
 <?php 
-require_once('../../../modelo/sala.php');
+require_once('../../../modelo/Sala.php');
 
-$sala = new sala();
+$sala = new Sala();
 $salas = $sala->lista();
 
 ?>

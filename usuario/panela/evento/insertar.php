@@ -1,155 +1,92 @@
 <?php 
-require_once('../logica/Usuario.php');
-require_once('../logica/Estado.php');
-require_once('../logica/Rol.php'); 
+require_once('../../../modelo/Evento.php');
+require_once('../../../modelo/Organizador.php');
 
-$usuario = new Usuario();
-$estado = new Estado();
-$placeholder = new Usuario();
-$estados = $estado->lista();
-$rol = new Rol();
-$roles = $rol->lista();
+$evento = new Evento();
+$placeholder = new Evento();
+$organizador = new Organizador();
+$organizadores = $organizador->lista();
+
 ?>
-
 <html>
 <head>
-    <title>PVAMP - Nuevo Usuario</title>
+    <title>CC Siglo XXI - Agregar Evento</title>
+    <link rel="icon" type="image/x-icon" href="..\..\..\imagenes\CULTURA1.png">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../estilo/estilo.css">
+    <link rel="stylesheet" href="../../../css/estilo.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </head>
-<body>
+<body style="background-image: url(../../../imagenes/teatro.jpg);background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;">
 <div class="container py-2 w-50">
 <?php 
-if (isset($_POST['id'])) {
+if (isset($_POST['ID'])) {
     $placeholder->traerDatos();
-    $error = $usuario->insertaRegistro();
+    $error = $evento->insertaRegistro();
     if (count($error)==0){
         header("Location: index.php");
     }
-    else{
-        foreach ($error as $errores){?>
+    else{?>
         <div class="alert alert-danger" role="alert">
-            <?=$errores?>
+            <?='algo salio mal'?>
         </div>
         
     <?php
         }
 
     }
-}
 ?>
 </div>
 <div class="container py-2 w-50">
     <div class="form-group mt-2 mb-2">
-        <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Usuarios</a>
-        <h2 class="mt-4">Agregar un usuario</h2>
+        <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Evento</a>
+        <h2 class="mt-4 text-white">Agregar un evento</h2>
     </div>
     <form name="frmInsProd" method="post" action="insertar.php">
-    <input type="hidden" name="id" value="0">
+    <input type="hidden" name="ID" value="null">
   	<table class="table mt-4">
     <tr>
         <td>
-        	<label class="control-label ms-2">Username</label>
-        	<input type="text" name="username" placeholder="Username" value="<?=$placeholder->username?>" class="form-control">
+        	<label class="control-label ms-2">Nombre del Evento</label>
+        	<input type="text" name="NOMBRE" placeholder="Nombre de la evento" value="<?=$placeholder->NOMBRE?>" class="form-control">
         </td>
     </tr>
     <tr>
         <td>
-        	<label class="control-label ms-2">Password</label>
-        	<input type="password" name="password" placeholder="Password" value="<?=$placeholder->password?>" class="form-control">
+        	<label class="control-label ms-2">Tipo</label>
+        	<select class="form-select" name="TIPO">
+                <option value="0" <?=($placeholder->TIPO == 0)?"selected":""?>>Selecciona un Organizador</option>
+                <option value="C" <?=($placeholder->TIPO == 'C')?"selected":""?>>Conciertos y Festivales</option>
+                <option value="T" <?=($placeholder->TIPO == 'T')?"selected":""?>>Teatro y Culturales</option>
+                <option value="D" <?=($placeholder->TIPO == 'D')?"selected":""?>>Deportivos</option>
+                <option value="E" <?=($placeholder->TIPO == 'E')?"selected":""?>>Especiales</option>
+                <option value="F" <?=($placeholder->TIPO == 'F')?"selected":""?>>Familiares</option>
+            </select>
         </td>
     </tr>
     <tr>
         <td>
-        	<label class="control-label ms-2">Rol</label>
-        	<select class="form-select" name="rol">
-                <option value="0">Selecciona un Rol</option>
+        	<label class="control-label ms-2">Duracion (en horas:minutos)</label>
+        	<input type="time" name="DURACION" placeholder="Duracion" value="<?=$placeholder->DURACION?>" class="form-control">
+        </td>
+     </tr>
+     <tr>
+        <td>
+        	<label class="control-label ms-2">Organizador</label>
+        	<select class="form-select" name="ID_ORGANIZADOR">
+                <option value="0">Selecciona un Organizador</option>
                 <?php
-                foreach ($roles as $rol){
+                foreach ($organizadores as $organizador){
                 ?>
-                    <option value="<?=$rol->id?>" <?=($placeholder->rol == $rol->id)?"selected":""?>> <?=$rol->rol?></option>
+                    <option value="<?=$organizador->ID?>" <?=($placeholder->ID_ORGANIZADOR == $organizador->ID)?"selected":""?>> <?=$organizador->RAZONSOC?></option>
                 <?php 
                 }
                 ?>            
             </select>
-        </td>
-     </tr>
-    <tr>
-        <td>
-        	<label class="control-label ms-2">Nombre</label>  
-        	<input type="text" name="nombre" placeholder="Nombre del Usuario" value="<?=$placeholder->nombre?>" class="form-control">
-        </td>
-    </tr>
-    <tr>
-        <td>
-        	<label class="control-label ms-2">Apellidos</label>
-        	<input type="text" name="apellidos" placeholder="Apellido Paterno del usuario" value="<?=$placeholder->apellidos?>" class="form-control">
-       	</td>
-    </tr>
-    <tr>
-        <td>
-        	<label class="control-label ms-2">Calle</label>
-        	<input type="text" name="calle" placeholder="Calle del Domicilio" value="<?=$placeholder->calle?>" class="form-control">
-        </td>
-     </tr>
-     <tr>
-        <td>
-        	<label class="control-label ms-2">Numero Ext.</label>
-        	<input type="text" name="numero_ext" placeholder="Numero Exterior del Domicilio" value="<?=$placeholder->numero_ext?>" class="form-control">
-        </td>
-     </tr>
-     <tr>
-        <td>
-        	<label class="control-label ms-2">Numero Int.</label>
-        	<input type="text" name="numero_int" placeholder="Numero Interior del Domicilio" value="<?=$placeholder->numero_int?>" class="form-control">
-        </td>
-     </tr>
-     <tr>
-        <td>
-        	<label class="control-label ms-2">Ciudad</label>
-        	<input type="text" name="ciudad" placeholder="Ciudad del Domicilio" value="<?=$placeholder->ciudad?>" class="form-control">
-        </td>
-     </tr>
-     <tr>
-        <td>
-        	<label class="control-label ms-2">Estado</label>
-        	<select class="form-select" name="estado">
-                <option value="0">Selecciona un Estado</option>
-                <?php
-                foreach ($estados as $estado){
-                ?>
-                    <option value="<?=$estado->id?>" <?=($placeholder->estado == $estado->id)?"selected":""?>> <?=$estado->estado?></option>
-                <?php 
-                }
-                ?>            
-            </select>
-        </td>
-     </tr>
-     <tr>
-        <td>
-        	<label class="control-label ms-2">C.P.</label>
-        	<input type="text" name="cp" placeholder="Codigo Postal del Domicilio" value="<?=$placeholder->cp?>" class="form-control">
-        </td>
-     </tr>
-     <tr>
-        <td>
-        	<label class="control-label ms-2">Correo</label>
-        	<input type="text" name="correo" placeholder="Correo del Usuario" value="<?=$placeholder->correo?>" class="form-control">
-        </td>
-     </tr>
-     <tr>
-        <td>
-        	<label class="control-label ms-2">Telefono 1</label>
-        	<input type="text" name="telefono1" placeholder="Telefono 1 del Usuario" value="<?=$placeholder->telefono1?>" class="form-control">
-        </td>
-     </tr>
-     <tr>
-        <td>
-        	<label class="control-label ms-2">Telefono 2</label>
-        	<input type="text" name="telefono2" placeholder="Telefono 2 del Usuario" value="<?=$placeholder->telefono2?>" class="form-control">
         </td>
      </tr>
      <tr>

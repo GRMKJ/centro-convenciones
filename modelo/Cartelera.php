@@ -4,12 +4,12 @@ require_once('Pattern.php');
 
 class Cartelera extends Modelo
 {
-	public $id;
-	public $id_evento;
-	public $id_sala;
-	public $estado;
-	public $inicio;
-	public $fin;
+	public $ID;
+	public $ID_EVENTO;
+	public $ID_SALA;
+	public $ESTADO;
+	public $INICIO;
+	public $FIN;
 
 	function __construct()
 	{
@@ -24,18 +24,18 @@ class Cartelera extends Modelo
 		return $this->encuentraTodos();
 	}
 
-	function recuperaRegistro($id)
+	function recuperaRegistro($ID)
 	{
-		$this->consulta = "select * from $this->tabla where id = $id";
+		$this->consulta = "select * from $this->tabla where ID = $ID";
 
 		$dato = $this->encuentraUno();
 
 		if (isset($dato)) {
-			$this->id_evento = $dato->id_evento;
-			$this->id_sala = $dato->id_sala;
-			$this->estado = $dato->estado;
-			$this->inicio = $dato->inicio;
-			$this->fin = $dato->fin;
+			$this->ID_EVENTO = $dato->ID_EVENTO;
+			$this->ID_SALA = $dato->ID_SALA;
+			$this->ESTADO = $dato->ESTADO;
+			$this->INICIO = $dato->INICIO;
+			$this->FIN = $dato->FIN;
 		}
 	}
 
@@ -44,16 +44,16 @@ class Cartelera extends Modelo
 		$this->traerDatos();
 
 		$this->consulta =
-			"insert into $this->tabla (id,id_evento,id_sala,estado,inicio,fin) " .
+			"insert into $this->tabla (ID,ID_EVENTO,ID_SALA,ESTADO,INICIO,FIN) " .
 			"values ( " .
-			"$this->id," .
-			"$this->id_evento," .
-			"$this->id_sala," .
-			"$this->estado," .
-			"'$this->inicio'," .
-			"'$this->fin',";
+			"$this->ID," .
+			"$this->ID_EVENTO," .
+			"$this->ID_SALA," .
+			"$this->ESTADO," .
+			"'$this->INICIO'," .
+			"'$this->FIN',";
 
-		$errores = $this->validarDatos();
+		$errores = $this->valIDarDatos();
 
 		if (count($errores) == 0) {
 			$this->ejecutaComandoIUD();
@@ -70,14 +70,14 @@ class Cartelera extends Modelo
 
 		$this->consulta =
 			"update $this->tabla set " .
-			"id_evento = $this->id_evento," .
-			"id_sala = $this->id_sala," .
-			"estado = $this->estado," .
-			"inicio = '$this->inicio'," .
-			"fin = '$this->fin'," .
-			"where id = $this->id";
+			"ID_EVENTO = $this->ID_EVENTO," .
+			"ID_SALA = $this->ID_SALA," .
+			"ESTADO = $this->ESTADO," .
+			"INICIO = '$this->INICIO'," .
+			"FIN = '$this->FIN'," .
+			"where ID = $this->ID";
 
-		$errores = $this->validarDatos();
+		$errores = $this->valIDarDatos();
 
 		if (count($errores) == 0) {
 			$this->ejecutaComandoIUD();
@@ -87,38 +87,38 @@ class Cartelera extends Modelo
 		}
 	}
 
-	function eliminaRegistro($id)
+	function eliminaRegistro($ID)
 	{
 		$this->consulta =
 			"delete from $this->tabla " .
-			"where id = $id;";
+			"where ID = $ID;";
 
 		$this->ejecutaComandoIUD();
 	}
 
 	function traerDatos()
 	{
-		$this->id = $_POST['id'];
-		$this->id_evento = $_POST['id_evento'];
-		$this->id_sala = $_POST['id_sala'];
-		$this->estado = $_POST['estado'];
-		$this->inicio = $_POST['inicio'];
-		$this->fin = $_POST['fin'];
+		$this->ID = $_POST['ID'];
+		$this->ID_EVENTO = $_POST['ID_EVENTO'];
+		$this->ID_SALA = $_POST['ID_SALA'];
+		$this->ESTADO = $_POST['ESTADO'];
+		$this->INICIO = $_POST['INICIO'];
+		$this->FIN = $_POST['FIN'];
 	}
 
-	function validarDatos()
+	function valIDarDatos()
 	{
 		$errores = array();
-		if ($this->inicio == null) {
-			$errores[] = 'Es obligatorio la Hora de Inicio';
+		if ($this->INICIO == null) {
+			$errores[] = 'Es obligatorio la Hora de INICIO';
 		}
-		if ($this->fin == null) {
-			$errores[] = 'Es obligatorio la Hora de Final';
+		if ($this->FIN == null) {
+			$errores[] = 'Es obligatorio la Hora de FINal';
 		}
-		if ($this->id_evento == null) {
+		if ($this->ID_EVENTO == null) {
 			$errores[] = 'Es obligatorio el Evento a Publicar';
 		}
-		if ($this->id_sala == null) {
+		if ($this->ID_SALA == null) {
 			$errores[] = 'Es obligatorio la Sala que se usará';
 		}
 

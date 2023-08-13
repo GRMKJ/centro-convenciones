@@ -1,5 +1,5 @@
 <?php 
-require_once('../../../modelo/sala.php');
+require_once('../../../modelo/Sala.php');
 
 $sala = new Sala();
 $placeholder = new Sala();

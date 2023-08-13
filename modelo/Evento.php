@@ -4,12 +4,11 @@ require_once('Pattern.php');
 
 class Evento extends Modelo
 {
-	public $id;
-	public $id_organizador;
-	public $estado;
-	public $nombre;
-	public $tipo;
-	public $duracion;
+	public $ID;
+	public $ID_ORGANIZADOR;
+	public $NOMBRE;
+	public $TIPO;
+	public $DURACION;
 
 	function __construct()
 	{
@@ -24,18 +23,17 @@ class Evento extends Modelo
 		return $this->encuentraTodos();
 	}
 
-	function recuperaRegistro($id)
+	function recuperaRegistro($ID)
 	{
-		$this->consulta = "select * from $this->tabla where id = $id";
+		$this->consulta = "select * from $this->tabla where ID = $ID";
 
 		$dato = $this->encuentraUno();
 
 		if (isset($dato)) {
-			$this->id_organizador = $dato->id_organizador;
-			$this->estado = $dato->estado;
-			$this->nombre = $dato->nombre;
-			$this->tipo = $dato->tipo;
-			$this->duracion = $dato->duracion;
+			$this->ID_ORGANIZADOR = $dato->ID_ORGANIZADOR;
+			$this->NOMBRE = $dato->NOMBRE;
+			$this->TIPO = $dato->TIPO;
+			$this->DURACION = $dato->DURACION;
 		}
 	}
 
@@ -44,16 +42,15 @@ class Evento extends Modelo
 		$this->traerDatos();
 
 		$this->consulta =
-			"insert into $this->tabla (id,id_organizador,estado,nombre,tipo,duracion) " .
+			"insert into $this->tabla (ID,ID_ORGANIZADOR,NOMBRE,TIPO,DURACION) " .
 			"values ( " .
-			"$this->id," .
-			"$this->id_organizador," .
-			"$this->estado," .
-			"'$this->nombre'," .
-			"'$this->tipo'," .
-			"'$this->duracion',";
+			"$this->ID," .
+			"$this->ID_ORGANIZADOR," .
+			"'$this->NOMBRE'," .
+			"'$this->TIPO'," .
+			"'$this->DURACION')";
 
-		$errores = $this->validarDatos();
+		$errores = $this->valIDarDatos();
 
 		if (count($errores) == 0) {
 			$this->ejecutaComandoIUD();
@@ -70,14 +67,13 @@ class Evento extends Modelo
 
 		$this->consulta =
 			"update $this->tabla set " .
-			"id_organizador = $this->id_organizador," .
-			"estado = $this->estado," .
-			"nombre = '$this->nombre'," .
-			"tipo = '$this->tipo'," .
-			"duracion = '$this->duracion'," .
-			"where id = $this->id";
+			"ID_ORGANIZADOR = $this->ID_ORGANIZADOR," .
+			"NOMBRE = '$this->NOMBRE'," .
+			"TIPO = '$this->TIPO'," .
+			"DURACION = '$this->DURACION'" .
+			"where ID = $this->ID";
 
-		$errores = $this->validarDatos();
+		$errores = $this->valIDarDatos();
 
 		if (count($errores) == 0) {
 			$this->ejecutaComandoIUD();
@@ -87,39 +83,35 @@ class Evento extends Modelo
 		}
 	}
 
-	function eliminaRegistro($id)
+	function eliminaRegistro($ID)
 	{
 		$this->consulta =
 			"delete from $this->tabla " .
-			"where id = $id;";
+			"where ID = $ID;";
 
 		$this->ejecutaComandoIUD();
 	}
 
 	function traerDatos()
 	{
-		$this->id = $_POST['id'];
-		$this->id_organizador = $_POST['id_organizador'];
-		$this->estado = $_POST['estado'];
-		$this->nombre = $_POST['nombre'];
-		$this->tipo = $_POST['tipo'];
-		$this->duracion = $_POST['duracion'];
+		$this->ID = $_POST['ID'];
+		$this->ID_ORGANIZADOR = $_POST['ID_ORGANIZADOR'];
+		$this->NOMBRE = $_POST['NOMBRE'];
+		$this->TIPO = $_POST['TIPO'];
+		$this->DURACION = $_POST['DURACION'];
 	}
 
-	function validarDatos()
+	function valIDarDatos()
 	{
 		$errores = array();
-		if ($this->estado == 0) {
-			$errores[] = 'Selecciona un estado';
+		if ($this->NOMBRE == null) {
+			$errores[] = 'El NOMBRE es obligatorio';
 		}
-		if ($this->nombre == null) {
-			$errores[] = 'El Nombre es obligatorio';
+		if ($this->DURACION == null) {
+			$errores[] = 'La DURACION es obligatorio';
 		}
-		if ($this->duracion == null) {
-			$errores[] = 'La duracion es obligatorio';
-		}
-		if ($this->tipo == null) {
-			$errores[] = 'El tipo es obligatorio';
+		if ($this->TIPO == null) {
+			$errores[] = 'El TIPO es obligatorio';
 		}
 
 		return $errores;

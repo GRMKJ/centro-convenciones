@@ -1,24 +1,22 @@
 <?php 
-require_once('../logica/Usuario.php');
-require_once('../logica/Estado.php');
-require_once('../logica/Rol.php');
+require_once('../../../modelo/Evento.php');
+require_once('../../../modelo/Organizador.php');
 
-$usuario = new Usuario();
-$usuarios = $usuario->lista();
-$estado = new Estado();
-$estados = $estado->lista();
-$rol = new Rol();
-$roles = $rol->lista();
+$evento = new Evento();
+$eventos = $evento->lista();
+$organizador = new Organizador();
+$organizadores = $organizador->lista();
 
 ?>
 <html>
 <head>
-  <title>PVAMP - Usuarios</title>
+  <title>CC Siglo XXI - Lista de Eventos</title>
+  <link rel="icon" type="image/x-icon" href="..\..\..\imagenes\CULTURA1.png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-  <link rel="stylesheet" href="../estilo/estilo.css">
+  <link rel="stylesheet" href="../../../css/estilo.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   <script type="text/javascript">
     function confirma(miurl) {
    
@@ -28,74 +26,55 @@ $roles = $rol->lista();
   }
   </script>
 </head>
-<body>
-<div class="container-fluid py-2">
+<body style="background-image: url(../../../imagenes/teatro.jpg);background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;">
+
+<div class="container-fluid w-75 py-2 z-1">
   <div class="form-group">
-    <a href="../index.html" class="btn btn-danger"><i class="bi bi-arrow-return-left"></i>&nbsp;Regresar</a>
-    <a href="insertar.php" class="btn btn-success"><i class="bi bi-plus-circle"></i>&nbsp;Registrar nuevo Usuario</a>
+    <a href="../panela.php" class="btn btn-danger"><i class="bi bi-arrow-return-left"></i>&nbsp;Regresar</a>
+    <a href="insertar.php" class="btn btn-success"><i class="bi bi-plus-circle"></i>&nbsp;Registrar nuevo evento</a>
   </div>
   <div class="form-group">
-    <h2 class="mt-4">Lista de Usuarios</h2>
+    <h2 class="mt-4 text-center" style="color:#ffffff;">Lista de eventos</h2>
   </div>
   <table class="table table-striped bg-white">
     <tr>
-        <td align="center"><b>Username</b></td>
-        <td align="center"><b>Password</b></td>
-        <td align="center"><b>Rol</b></td>
         <td align="center"><b>Nombre</b></td>
-        <td align="center"><b>Apellidos</b></td>
-        <td align="center"><b>Calle</b></td>
-        <td align="center"><b>Numero Ext.</b></td>
-        <td align="center"><b>Numero Int.</b></td>
-        <td align="center"><b>Ciudad</b></td>
-        <td align="center"><b>Estado</b></td>
-        <td align="center"><b>Codigo Postal</b></td>
-        <td align="center"><b>Correo</b></td>
-        <td align="center"><b>Telefono 1</b></td>
-        <td align="center"><b>Telefono 2</b></td>
+        <td align="center"><b>Tipo</b></td>
+        <td align="center"><b>Duracion</b></td>
+        <td align="center"><b>Organizador</b></td>
         <td align="left"><b>Acciones</b></td>
     </tr>
     <?php
-    foreach ($usuarios as $usuario) {
+    foreach ($eventos as $evento) {
     ?>
     <tr>
-        <td><span title="<?=$usuario->username?>"><?=$usuario->username?></span></td>
-        <td><span title="<?=$usuario->password?>"><?=$usuario->password?></span></td>
+        <td><span title="<?=$evento->NOMBRE?>"><?=$evento->NOMBRE?></span></td>
+        <td><span title="<?=$evento->TIPO?>">
+                <?=($evento->TIPO == 0)?"Desconocido":""?>
+                <?=($evento->TIPO == 'C')?"Conciertos y Festivales":""?>
+                <?=($evento->TIPO == 'T')?"Teatro y Culturales":""?>
+                <?=($evento->TIPO == 'D')?"Deportivos":""?>
+                <?=($evento->TIPO == 'E')?"Especiales":""?>
+                <?=($evento->TIPO == 'F')?"Familiares":""?>
+        </span></td>
+        <td><span title="<?=$evento->DURACION?>"><?=$evento->DURACION?></span></td>
         <?php
-                foreach ($roles as $rol){
-                  if($usuario->rol == $rol->id){
-                ?>
-                    <td><span title="<?=$usuario->rol?>"><?=$rol->rol?></span></td>
-                <?php
-                  } 
-                }
+          foreach ($organizadores as $organizador){
+            if($evento->ID_ORGANIZADOR == $organizador->ID){
+          ?>
+              <td><span title="<?=$organizador->RAZONSOC?>"><?=$organizador->RAZONSOC?></span></td>
+          <?php
+            } 
+          }
         ?>
-        <td><span title="<?=$usuario->nombre?>"><?=$usuario->nombre?></span></td>
-        <td><span title="<?=$usuario->apellidos?>"><?=$usuario->apellidos?></span></td>
-        <td><span title="<?=$usuario->calle?>"><?=$usuario->calle?></span></td>
-        <td><span title="<?=$usuario->numero_ext?>"><?=$usuario->numero_ext?></span></td>
-        <td><span title="<?=$usuario->numero_int?>"><?=$usuario->numero_int?></span></td>
-        <td><span title="<?=$usuario->ciudad?>"><?=$usuario->ciudad?></span></td>
-        <?php
-                foreach ($estados as $estado){
-                  if($usuario->estado == $estado->id){
-                ?>
-                    <td><span title="<?=$usuario->estado?>"><?=$estado->estado?></span></td>
-                <?php
-                  } 
-                }
-        ?>
-        <td><span title="<?=$usuario->cp?>"><?=$usuario->cp?></span></td>
-        <td><span title="<?=$usuario->correo?>"><?=$usuario->correo?></span></td>
-        <td><span title="<?=$usuario->telefono1?>"><?=$usuario->telefono1?></span></td>
-        <td><span title="<?=$usuario->telefono2?>"><?=$usuario->telefono2?></span></td>
-        <td><a href="visualizar.php?id=<?=$usuario->id?>" title='Ver datalles del usuario'><img src="../images/view-list.svg"></a>&nbsp;<a href="modificar.php?id=<?=$usuario->id?>" title='Editar usuario'><img src="../images/pencil.svg"></a>&nbsp;<a href="" onClick="confirma('eliminar.php?id=<?=$usuario->id?>'); return false;" title='Eliminar usuario'><img src="../images/trash.svg"></a></td>
+        <td><a href="visualizar.php?id=<?=$evento->ID?>" title='Ver datalles del evento'><img src="../../../imagenes/view-list.svg"></a>&nbsp;<a href="modificar.php?id=<?=$evento->ID?>" title='Editar evento'><img src="../../../imagenes/pencil.svg"></a>&nbsp;<a href="" onClick="confirma('eliminar.php?id=<?=$evento->ID?>'); return false;" title='Eliminar evento'><img src="../../../imagenes/trash.svg"></a></td>
     </tr>
     <?php
     }
     ?>
   </table>
 </div>
-</td>
 </body>
 </html>

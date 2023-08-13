@@ -3,17 +3,17 @@ session_start();
 require_once('..\..\modelo\Usuario.php');
 
 $usuario = new Usuario();
-if(isset($_SESSION['sesion'])){
+/*if(isset($_SESSION['sesion'])){
     $usuario->recuperaRegistro($_SESSION['sesion']);
 }
 else{
     header("Location: ..\inicio.php");
 }
 
-if($usuario->rol != 5){
+if($usuario->ROL != 5){
     session_destroy();
     header("Location: ..\inicio.php");
-}
+}*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,7 +21,7 @@ if($usuario->rol != 5){
   <meta charset="UTF-8">
   <meta name="viewport">
   <link rel="icon" type="image/x-icon" href="..\..\imagenes\CULTURA1.png">
-  <title>CC Siglo XXI - Iniciar Sesion</title>
+  <title>CC Siglo XXI - Panel de Administración</title>
   <link rel="stylesheet" href="../../css/custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -66,26 +66,36 @@ if($usuario->rol != 5){
                             <div>
                                 <div class="mt-1 p-2 ps-3 pe-3 ">
                                     <label for="usuario" class="form-label fw-bold">Bienvenido</label>
-                                    <span><?= $usuario->username ?></span>
+                                    <span><?php 
+                                    if($usuario->ROL==1){
+                                        echo 'Test';
+                                    }  
+                                    else{
+                                        echo 'Test';
+                                    }
+                                    ?> </span>
                                 </div>
                                 <div class=" ps-3 pe-3 p-2 ">
-                                    <label for="rol" class="form-label fw-bold">Rol</label>
+                                    <label for="ROL" class="form-label fw-bold">ROL</label>
                                     <span><?php 
-                                    if($usuario->rol==1){
+                                    if($usuario->ROL==1){
                                         echo 'Usuario General';
                                     } 
-                                    if($usuario->rol==2){
+                                    if($usuario->ROL==2){
                                         echo 'Organizador';
                                     } 
-                                    if($usuario->rol==3){
+                                    if($usuario->ROL==3){
                                         echo 'Secretaria';
                                     } 
-                                    if($usuario->rol==4){
+                                    if($usuario->ROL==4){
                                         echo 'Jefe';
                                     } 
-                                    if($usuario->rol==5){
+                                    if($usuario->ROL==5){
                                         echo 'Administrador';
                                     } 
+                                    else{
+                                        echo 'Administrador';
+                                    }
                                     ?></span>
                                 </div>
                             </div>
@@ -101,14 +111,13 @@ if($usuario->rol != 5){
                             <div class="container-fluid p-5">
                                 <div class="row w-100 justify-content-center column-gap-2">
                                     <div class="col col-xxl-6">
-                                        <a class="btn btn-danger w-100 btn-lg mt-2 mb-0" href="persona/index.php" role="button">Persona</a><br>
-                                        <a class="btn btn-danger w-100 btn-lg mt-2 mb-0" href="usuario/index.php" role="button">Usuario</a><br>
-                                        <a class="btn btn-danger w-100 btn-lg mt-2 mb-0" href="organizador/index.php" role="button">Organizador</a><br>
+                                        <a class="btn btn-danger w-100 btn-lg mt-2 mb-0" href="usuario/index.php" ROLe="button">Usuario</a><br>
+                                        <a class="btn btn-danger w-100 btn-lg mt-2 mb-0" href="organizador/index.php" ROLe="button">Organizador</a><br>
                                     </div>
                                     <div class="col col-xxl-6">
-                                        <a class="btn btn-danger w-100 btn-lg mt-2 mb-0" href="sala/index.php" role="button">Sala</a><br>
-                                        <a class="btn btn-danger w-100 btn-lg mt-2 mb-0" href="evento/index.php" role="button">Evento</a><br>
-                                        <a class="btn btn-danger w-100 btn-lg mt-2 mb-0" href="cartelera/index.php" role="button">Cartelera</a><br> 
+                                        <a class="btn btn-danger w-100 btn-lg mt-2 mb-0" href="sala/index.php" ROLe="button">Sala</a><br>
+                                        <a class="btn btn-danger w-100 btn-lg mt-2 mb-0" href="evento/index.php" ROLe="button">Evento</a><br>
+                                        <a class="btn btn-danger w-100 btn-lg mt-2 mb-0" href="cartelera/index.php" ROLe="button">Cartelera</a><br> 
                                     </div>
                                 </div>        
                             </div>

@@ -39,7 +39,7 @@ $usuarios = $usuario->lista();
     <a href="insertar.php" class="btn btn-success"><i class="bi bi-plus-circle"></i>&nbsp;Registrar nuevo organizador</a>
   </div>
   <div class="form-group">
-    <h2 class="mt-4 text-center" style="color:#ffffff;">Lista de organizadors</h2>
+    <h2 class="mt-4 text-center mb-4" style="color:#ffffff;">Lista de Organizadores</h2>
   </div>
   <table class="table table-striped bg-white">
     <tr>
