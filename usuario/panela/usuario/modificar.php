@@ -77,7 +77,7 @@ $persona = new Persona();
     <tr>
         <td>
         	<label class="control-label ms-2">Password</label>
-        	<input type="password" name="PASSWRD" usuario="Password" value="<?=$usuario->PASSWRD?>" class="form-control">
+        	<input type="password" name="PASSWRD" usuario="Password" placeholder="Inserte nueva Contraseña" class="form-control">
         </td>
     </tr>
     <tr>

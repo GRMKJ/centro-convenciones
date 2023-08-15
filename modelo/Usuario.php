@@ -106,12 +106,7 @@ class Usuario extends Modelo {
 
 	function valIDarDatos(){
 		$errores = array();
-		if ($this->ESTADO==0){
-			$errores[]='Selecciona un ESTADO';
-		}
-		if (Pattern::email($this->CORREO)==null){
-			$errores[]='El formato del CORREO es incorrecto';
-		}
+		
 			
 		return $errores;
 		

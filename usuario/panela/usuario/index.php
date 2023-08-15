@@ -47,7 +47,6 @@ $personas = $persona->lista();
         <td align="center"><b>Fecha Nacimiento</b></td>
         <td align="center"><b>Telefono</b></td>
         <td align="center"><b>Username</b></td>
-        <td align="center"><b>Password</b></td>
         <td align="center"><b>Correo</b></td>
         <td align="center"><b>Rol</b></td>
         <td align="center"><b>Estado</b></td>
@@ -71,7 +70,6 @@ $personas = $persona->lista();
           }
         ?>
         <td><span title="<?=$usuario->USERNAME?>"><?=$usuario->USERNAME?></span></td>
-        <td><span title="<?=$usuario->PASSWRD?>"><?=$usuario->PASSWRD?></span></td>
         <td><span title="<?=$usuario->CORREO?>"><?=$usuario->CORREO?></span></td>
         <td><span title="<?=$usuario->ROL?>"><?=$usuario->ROL?></span></td>
         <td><span title="<?=$usuario->ESTADO?>"><?=$usuario->ESTADO?></span></td>
