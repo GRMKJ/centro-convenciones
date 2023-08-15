@@ -63,8 +63,8 @@ $eventos = $evento->lista();
         <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Evento</a>
         <h2 class="mt-4 text-white">Modificar un Evento en Cartelera</h2>
     </div>
-    <form name="frmInsProd" method="post" action="insertar.php">
-    <input type="hidden" name="ID" value="null">
+    <form name="frmInsProd" method="post" action="modificar.php">
+    <input type="hidden" name="ID" value="<?=$cartelera->ID?>">
   	<table class="table mt-4">
     <tr>
         <td>
