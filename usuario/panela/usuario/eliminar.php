@@ -1,5 +1,6 @@
 <?php require_once('../../../modelo/Usuario.php');
 require_once('../../../modelo/Persona.php');
+require_once('Security.php');
 
 $persona = new Persona();
 $usuario = new Usuario();

@@ -1,6 +1,7 @@
 <?php 
 require_once('../../../modelo/Organizador.php');
 require_once('../../../modelo/Persona.php');
+require_once('Security.php');
 
 $organizador = new Organizador();
 $placeholder = new organizador();
@@ -13,7 +14,7 @@ $placeholder2 = new Persona();
     <title>CC Siglo XXI - Agregar organizadors</title>
     <link rel="icon" type="image/x-icon" href="..\..\..\imagenes\CULTURA1.png">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="../../../css/estilo.css">
+    <link rel="stylesheet" href="../../../css/custom.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>

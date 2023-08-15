@@ -20,32 +20,30 @@ $placeholder = new Usuario();
 </head>
 <body style="background-color:#231c16">
 <?php 
-/*  Nota: Se que esto no es seguro ni correcto pero en la base de datos no se encripta la contraseña 
-por lo que solo para motivos practicos me invente esta solución Bonito dia */
+
 if(isset($_SESSION["sesion"])== true){
     header("Location: index.php");
 }
+
 else{
-if (isset($_POST['username']) && isset($_POST['password'])) {
-    $placeholder->USERNAME = $_POST['username'];
-    $placeholder->PASSWRD = md5($_POST['password']);
-    $usuario->login();
+    if (isset($_POST['USERNAME']) && isset($_POST['PASSWRD'])) {
+        $placeholder->USERNAME = $_POST['USERNAME'];
+        $placeholder->PASSWRD = md5($_POST['PASSWRD']);
+        $usuario->login();
 
-    echo $usuario->PASSWRD;
-
-    if ($usuario->password == $placeholder->password){
-        $_SESSION["sesion"]=$usuario->ID;
-        $_SESSION["rol"]=$usuario->ROL;
-        header("Location: panela/panela.php");
-    }
-    else{
-        ?>
-        <div class="alert alert-danger" role="alert">
-            <?='Username o Password invalidos'?>
-        </div>
-        
-    <?php
+        if ($usuario->password == $placeholder->password){
+            $_SESSION["sesion"]=$usuario->ID;
+            $_SESSION["rol"]=$usuario->ROL;
+            header("Location: panela/panela.php");
         }
+        else{
+            ?>
+            <div class="alert alert-danger" role="alert">
+                <?='Username o Password invalidos'?>
+            </div>
+            
+        <?php
+            }
     }
 }
 ?>
@@ -86,11 +84,11 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                             <table class="table table-striped bg-white">
                                 <tr>
                                     <td style="vertical-align:middle" align="center"><b>Username</b></td>
-                                    <td style="vertical-align:middle"><input type="text" name="username" value="" class="form-control"></td>
+                                    <td style="vertical-align:middle"><input type="text" name="USERNAME" value="" class="form-control"></td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align:middle" align="center"><b>Password</b></td>
-                                    <td style="vertical-align:middle"><input type="password" name="password" value="" class="form-control"></td>
+                                    <td style="vertical-align:middle"><input type="password" name="PASSWRD" value="" class="form-control"></td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align:middle" align="right">

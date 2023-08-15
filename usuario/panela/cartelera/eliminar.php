@@ -1,5 +1,6 @@
 <?php 
 require_once('../../../modelo/Cartelera.php');
+require_once('Security.php');
 
 $cartelera = new Cartelera();
 if (isset($_GET['id'])) {

@@ -2,18 +2,18 @@
 session_start();
 require_once('..\..\modelo\Usuario.php');
 
-$usuario = new Usuario();
-/*if(isset($_SESSION['sesion'])){
-    $usuario->recuperaRegistro($_SESSION['sesion']);
+$ua = new Usuario();
+if(isset($_SESSION['sesion'])){
+    $ua->recuperaRegistro($_SESSION['sesion']);
 }
 else{
     header("Location: ..\inicio.php");
 }
 
-if($usuario->ROL != 5){
+if($ua->ROL != 5){
     session_destroy();
     header("Location: ..\inicio.php");
-}*/
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,7 +52,7 @@ if($usuario->ROL != 5){
                     <div class="d-flex w-100 justify-content-center">
                         <div id="login" class="card mt-xxl-5 mb-xxl-5">
                             <div class="p-2">
-                                <a id="filtrocartelera" class="btn btn-danger mt-2" href="" onClick="confirma('logout.php'); return false;" title='Cerrar Sesion'>Cerrar Sesion</a>
+                                <a id="filtrocartelera" class="btn btn-danger mt-2" href="" onClick="confirma('../logout.php'); return false;" title='Cerrar Sesion'>Cerrar Sesion</a>
                             </div>
                             <div class="d-flex mb-3 w-100 justify-content-center">
                                 <svg  id="loginlogo" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -67,8 +67,8 @@ if($usuario->ROL != 5){
                                 <div class="mt-1 p-2 ps-3 pe-3 ">
                                     <label for="usuario" class="form-label fw-bold">Bienvenido</label>
                                     <span><?php 
-                                    if($usuario->ROL==1){
-                                        echo 'Test';
+                                    if(isset($ua->USERNAME)){
+                                        echo $ua->USERNAME;
                                     }  
                                     else{
                                         echo 'Test';
@@ -78,23 +78,23 @@ if($usuario->ROL != 5){
                                 <div class=" ps-3 pe-3 p-2 ">
                                     <label for="ROL" class="form-label fw-bold">ROL</label>
                                     <span><?php 
-                                    if($usuario->ROL==1){
+                                    if($ua->ROL==1){
                                         echo 'Usuario General';
                                     } 
-                                    if($usuario->ROL==2){
+                                    if($ua->ROL==2){
                                         echo 'Organizador';
                                     } 
-                                    if($usuario->ROL==3){
+                                    if($ua->ROL==3){
                                         echo 'Secretaria';
                                     } 
-                                    if($usuario->ROL==4){
+                                    if($ua->ROL==4){
                                         echo 'Jefe';
                                     } 
-                                    if($usuario->ROL==5){
+                                    if($ua->ROL==5){
                                         echo 'Administrador';
                                     } 
                                     else{
-                                        echo 'Administrador';
+                                        echo 'Desconocido';
                                     }
                                     ?></span>
                                 </div>

@@ -118,11 +118,9 @@ class Usuario extends Modelo {
 	}
 	function login(){
 		
-		$this->USERNAME = $_POST['username'];
+		$this->USERNAME = $_POST['USERNAME'];
 	
 		$this->consulta = "select * from $this->tabla where USERNAME = '$this->USERNAME'";
-		 
-		echo $this->consulta;
 
 		$dato = $this->encuentraUno();
 		

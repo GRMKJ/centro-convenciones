@@ -1,3 +1,6 @@
+<?php
+header("Location: usuario/inicio.php");
+?>
 <!DOCTYPE html>
 <html>
 <head>
