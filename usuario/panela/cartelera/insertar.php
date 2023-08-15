@@ -36,7 +36,7 @@ $eventos = $evento->lista();
 <?php 
 if (isset($_POST['ID'])) {
     $placeholder->traerDatos();
-    $error = $evento->insertaRegistro();
+    $error = $cartelera->insertaRegistro();
     if (count($error)==0){
         header("Location: index.php");
     }

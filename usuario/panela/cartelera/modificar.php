@@ -1,16 +1,18 @@
 <?php 
 require_once('../../../modelo/Evento.php');
-require_once('../../../modelo/Organizador.php');
+require_once('../../../modelo/Cartelera.php');
+require_once('../../../modelo/Sala.php');
 
+$cartelera = new Cartelera();
+$sala = new Sala();
+$salas = $sala->lista();
 $evento = new Evento();
-$placeholder = new Evento();
-$organizador = new Organizador();
-$organizadores = $organizador->lista();
+$eventos = $evento->lista();
 
 ?>
 <html>
 <head>
-  <title>CC Siglo XXI - Modificar Evento</title>
+  <title>CC Siglo XXI - Modificar Evento en la Cartelera</title>
   <link rel="icon" type="image/x-icon" href="..\..\..\imagenes\CULTURA1.png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="../../../css/estilo.css">
@@ -34,7 +36,7 @@ $organizadores = $organizador->lista();
     <?php
     if (isset($_POST['ID'])) {
         
-        $error = $evento->actualizaRegistro();
+        $error = $cartelera->actualizaRegistro();
         
         if (count($error)==0){
             header("Location: index.php");
@@ -45,13 +47,13 @@ $organizadores = $organizador->lista();
                     <?=$errores?>
                 </div> 
             <?php
-            $evento->recuperaRegistro($evento->ID);
+            $cartelera->recuperaRegistro($evento->ID);
             }
         }
     }
     else{
-        $evento->ID = $_GET['id'];
-        $evento->recuperaRegistro($evento->ID);
+        $cartelera->ID = $_GET['id'];
+        $cartelera->recuperaRegistro($cartelera->ID);
 
     }
     ?>
@@ -59,48 +61,67 @@ $organizadores = $organizador->lista();
 <div class="container py-2 w-50">
     <div class="form-group mt-2 mb-2">
         <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Evento</a>
-        <h2 class="mt-4 text-white">Modificar un evento</h2>
+        <h2 class="mt-4 text-white">Modificar un Evento en Cartelera</h2>
     </div>
-    <form name="frmInsProd" method="post" action="modificar.php">
-    <input type="hidden" name="ID" value="<?=$evento->ID?>">
+    <form name="frmInsProd" method="post" action="insertar.php">
+    <input type="hidden" name="ID" value="null">
   	<table class="table mt-4">
     <tr>
         <td>
-        	<label class="control-label ms-2">Nombre</label>
-        	<input type="text" name="NOMBRE" placeholder="Nombre de la evento" value="<?=$evento->NOMBRE?>" class="form-control">
+        	<label class="control-label ms-2">Nombre del Evento</label>
+        	<select class="form-select" name="ID_EVENTO">
+                <option value="0">Selecciona un Evento</option>
+                <?php
+                foreach ($eventos as $evento){
+                ?>
+                    <option value="<?=$evento->ID?>" <?=($cartelera->ID_EVENTO == $evento->ID)?"selected":""?>> <?=$evento->NOMBRE?></option>
+                <?php 
+                }
+                ?>            
+            </select>        
         </td>
     </tr>
     <tr>
         <td>
-        	<label class="control-label ms-2">Tipo</label>
-        	<select class="form-select" name="TIPO">
-                <option value="0" <?=($evento->TIPO == 0)?"selected":""?>>Selecciona un Organizador</option>
-                <option value="C" <?=($evento->TIPO == 'C')?"selected":""?>>Conciertos y Festivales</option>
-                <option value="T" <?=($evento->TIPO == 'T')?"selected":""?>>Teatro y Culturales</option>
-                <option value="D" <?=($evento->TIPO == 'D')?"selected":""?>>Deportivos</option>
-                <option value="E" <?=($evento->TIPO == 'E')?"selected":""?>>Especiales</option>
-                <option value="F" <?=($evento->TIPO == 'F')?"selected":""?>>Familiares</option>
-            </select>
+        	<label class="control-label ms-2">Sala del Evento</label>
+        	<select class="form-select" name="ID_SALA">
+                <option value="0">Selecciona una Sala</option>
+                <?php
+                foreach ($salas as $sala){
+                ?>
+                    <option value="<?=$sala->ID?>" <?=($cartelera->ID_EVENTO == $sala->ID)?"selected":""?>> <?=$sala->NOMBRE?></option>
+                <?php 
+                }
+                ?>            
+            </select> 
         </td>
     </tr>
     <tr>
         <td>
-        	<label class="control-label ms-2">Duracion (en horas:minutos)</label>
-        	<input type="time" name="DURACION" placeholder="Duracion" value="<?=$evento->DURACION?>" class="form-control">
+        	<label class="control-label ms-2">Fecha de Inicio</label>
+        	<input type="datetime-local" name="INICIO" id="INICIO" placeholder="Duracion" value="<?=$cartelera->INICIO?>" class="form-control">
         </td>
      </tr>
      <tr>
         <td>
-        	<label class="control-label ms-2">Organizador</label>
-        	<select class="form-select" name="ID_ORGANIZADOR">
-                <option value="0">Selecciona un Organizador</option>
-                <?php
-                foreach ($organizadores as $organizador){
-                ?>
-                    <option value="<?=$organizador->ID?>" <?=($evento->ID_ORGANIZADOR == $organizador->ID)?"selected":""?>> <?=$organizador->RAZONSOC?></option>
-                <?php 
-                }
-                ?>            
+        	<label class="control-label ms-2">Fecha de Fin</label>
+        	<input type="datetime-local" name="FIN" id="FIN" placeholder="Duracion" value="<?=$cartelera->FIN?>" class="form-control">
+        </td>
+     </tr>
+     <script>
+        document.getElementById("INICIO").valueAsDate = new Date();
+        document.getElementById("FIN").valueAsDate = addDays(document.getElementById("FIN").valueAsDate,5);
+    </script>
+     <tr>
+        <td>
+        	<label class="control-label ms-2">Estado del Evento</label>
+        	<select class="form-select" name="ESTADO">
+                <option value="0" <?=($cartelera->ESTADO == 0)?"selected":""?>>Selecciona un Estado</option>
+                <option value="1" <?=($cartelera->ESTADO == 1)?"selected":""?>>Activo</option>
+                <option value="2" <?=($cartelera->ESTADO == 2)?"selected":""?>>Agotado</option>
+                <option value="3" <?=($cartelera->ESTADO == 3)?"selected":""?>>En Curso</option>
+                <option value="4" <?=($cartelera->ESTADO == 4)?"selected":""?>>Cancelado</option>
+                <option value="5" <?=($cartelera->ESTADO == 5)?"selected":""?>>Terminado</option>
             </select>
         </td>
      </tr>

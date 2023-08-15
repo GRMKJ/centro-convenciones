@@ -1,19 +1,22 @@
 <?php 
 require_once('../../../modelo/Evento.php');
-require_once('../../../modelo/Organizador.php');
+require_once('../../../modelo/Cartelera.php');
+require_once('../../../modelo/Sala.php');
 
+$cartelera = new Cartelera();
+$sala = new Sala();
+$salas = $sala->lista();
 $evento = new Evento();
-$organizador = new Organizador();
-$organizadores = $organizador->lista();
+$eventos = $evento->lista();
 
 if ($_GET['id']) {
-    $evento->ID = $_GET['id'];
-    $evento->recuperaRegistro($evento->ID);
+    $cartelera->ID = $_GET['id'];
+    $cartelera->recuperaRegistro($cartelera->ID);
 }
 ?>
 <html>
 <head>
-  <title>CC Siglo XXI - Evento: <?=$evento->NOMBRE?></title>
+  <title>CC Siglo XXI - Detalles de la Cartelera</title>
   <link rel="icon" type="image/x-icon" href="..\..\..\imagenes\CULTURA1.png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="../../../css/estilo.css">
@@ -45,48 +48,61 @@ if ($_GET['id']) {
         <td>
         	<label class="control-label">Nombre del Evento</label>
         </td>
-        <td>
-            <span><?=$evento->NOMBRE?></span>
-        </td>        
-    </tr>
-    <tr>
-        <td>
-        	<label class="control-label">Tipo de Evento</label>
-        </td>
-        <td>
-        	  <span>
-                <?=($evento->TIPO == 0)?"Desconocido":""?>
-                <?=($evento->TIPO == 'C')?"Conciertos y Festivales":""?>
-                <?=($evento->TIPO == 'T')?"Teatro y Culturales":""?>
-                <?=($evento->TIPO == 'D')?"Deportivos":""?>
-                <?=($evento->TIPO == 'E')?"Especiales":""?>
-                <?=($evento->TIPO == 'F')?"Familiares":""?>
-            </span>
-        </td>
-    </tr>
-        </td>        
-    </tr>
-    <tr>
-        <td>
-        	<label class="control-label">Duracion del Evento</label>
-        </td>
-        <td>
-        <span><?=$evento->DURACION?></span>
-        </td>        
-    </tr>
-    <tr>
-        <td>
-        	<label class="control-label">Organizador del Evento</label>
-        	<?php
-          foreach ($organizadores as $organizador){
-            if($evento->ID_ORGANIZADOR == $organizador->ID){
+        <?php
+          foreach ($eventos as $evento){
+            if($cartelera->ID_EVENTO == $evento->ID){
           ?>
-              <td><span title="<?=$organizador->RAZONSOC?>"><?=$organizador->RAZONSOC?></span></td>
+              <td><span title="<?=$evento->NOMBRE?>"><?=$evento->NOMBRE?></span></td>
           <?php
             } 
           }
         ?>
+        </td>        
+    </tr>
+    <tr>
+        <td>
+          <label class="control-label ms-2">Sala del Evento</label>
         </td>
+        <?php
+          foreach ($salas as $sala){
+            if($cartelera->ID_SALA == $sala->ID){
+          ?>
+              <td><span title="<?=$sala->NOMBRE?>"><?=$sala->NOMBRE?></span></td>
+          <?php
+            } 
+          }
+        ?>
+    </tr>
+        </td>        
+    </tr>
+    <tr>
+        <td>
+          <label class="control-label ms-2">Fecha de Inicio</label>
+        </td>
+        <td>
+        <span><?=$cartelera->INICIO?></span>
+        </td>        
+    </tr>
+    <tr>
+        <td>
+          <label class="control-label ms-2">Fecha de Fin</label>
+        </td>  
+        <td>
+        	<span><?=$cartelera->FIN?></span>
+        </td> 
+     </tr>
+     <tr>
+        <td>
+          <label class="control-label ms-2">Estado del Evento</label>
+        </td>  
+        <td>
+        	<span><?=($cartelera->ESTADO == 0)?"Desconocido":""?>
+                <?=($cartelera->ESTADO == 1)?"Activo":""?>
+                <?=($cartelera->ESTADO == 2)?"Agotado":""?>
+                <?=($cartelera->ESTADO == 3)?"Curso":""?>
+                <?=($cartelera->ESTADO == 4)?"Cancelado":""?>
+                <?=($cartelera->ESTADO == 5)?"Terminado":""?></span>
+        </td> 
      </tr>
      <tr>
         <td colspan="2">

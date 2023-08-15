@@ -51,7 +51,7 @@ class Cartelera extends Modelo
 			"$this->ID_SALA," .
 			"$this->ESTADO," .
 			"'$this->INICIO'," .
-			"'$this->FIN',";
+			"'$this->FIN')";
 
 		$errores = $this->valIDarDatos();
 
