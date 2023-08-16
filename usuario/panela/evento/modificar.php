@@ -57,10 +57,11 @@ $organizadores = $organizador->lista();
     }
     ?>
 </div>
-<div class="container py-2 w-50">
+<div class="container py-2 w-50 justify-content-center">
+    <div class="card">
     <div class="form-group mt-2 mb-2">
         <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Evento</a>
-        <h2 class="mt-4 text-white">Modificar un evento</h2>
+        <h2 class="mt-4 ms-3 text-black">Modificar un evento</h2>
     </div>
     <form name="frmInsProd" method="post" action="modificar.php">
     <input type="hidden" name="ID" value="<?=$evento->ID?>">
@@ -97,9 +98,11 @@ $organizadores = $organizador->lista();
                 <option value="0">Selecciona un Organizador</option>
                 <?php
                 foreach ($organizadores as $organizador){
+                    if ($organizador->ESTADO == 1){
                 ?>
                     <option value="<?=$organizador->ID?>" <?=($evento->ID_ORGANIZADOR == $organizador->ID)?"selected":""?>> <?=$organizador->RAZONSOC?></option>
                 <?php 
+                    }
                 }
                 ?>            
             </select>
@@ -114,6 +117,7 @@ $organizadores = $organizador->lista();
     </tr>
     </table>
     </form>
+</div>
 </div>
 </body>
 </html>

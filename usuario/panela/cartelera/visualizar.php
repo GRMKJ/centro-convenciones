@@ -2,6 +2,7 @@
 require_once('../../../modelo/Evento.php');
 require_once('../../../modelo/Cartelera.php');
 require_once('../../../modelo/Sala.php');
+require_once('../../../modelo/Organizador.php');
 require_once('Security.php');
 
 $cartelera = new Cartelera();
@@ -9,6 +10,8 @@ $sala = new Sala();
 $salas = $sala->lista();
 $evento = new Evento();
 $eventos = $evento->lista();
+$organizador = new Organizador();
+$organizadores = $organizador->lista();
 
 if ($_GET['id']) {
     $cartelera->ID = $_GET['id'];
@@ -37,17 +40,18 @@ if ($_GET['id']) {
   background-attachment: fixed;
   background-size: cover;">
 
-<div class="container w-75 py-2">
+<div class="container w-50 py-2 justify-content-center">
+  <div class="card mt-4">
     <div class="form-group">
-        <a href="index.php" class="btn btn-danger"><i class="bi bi-arrow-return-left"></i>&nbsp;eventos</a>
-        <h2 class="mt-4 text-white">Detalles del evento</h2>
+        <a href="index.php" class="btn btn-danger mt-2 ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Regresar</a>
+        <h2 class="mt-4 ms-4 text-black">Detalles del evento</h2>
     </div>
     <form name="frmModProd" method="post" action="modificar.php">
     <input type="hidden" name="ID" value="<?=$evento->ID?>">
   	<table class="table">
       <tr>
         <td>
-        	<label class="control-label">Nombre del Evento</label>
+        	<label class="control-label ms-2 fw-bold">Nombre del Evento</label>
         </td>
         <?php
           foreach ($eventos as $evento){
@@ -57,12 +61,11 @@ if ($_GET['id']) {
           <?php
             } 
           }
-        ?>
-        </td>        
+        ?>       
     </tr>
     <tr>
         <td>
-          <label class="control-label ms-2">Sala del Evento</label>
+          <label class="control-label ms-2 fw-bold">Sala del Evento</label>
         </td>
         <?php
           foreach ($salas as $sala){
@@ -74,11 +77,24 @@ if ($_GET['id']) {
           }
         ?>
     </tr>
-        </td>        
+    <tr>
+        <td>
+          <label class="control-label ms-2 fw-bold">Organizador del Evento</label>
+        </td>
+        <?php
+          foreach ($organizadores as $organizador){
+            if($cartelera->ID_SALA == $organizador->ID){
+          ?>
+              <td><span title="<?=$organizador->RAZONSOC?>"><?=$organizador->RAZONSOC?></span></td>
+          <?php
+            } 
+          }
+        ?>
+    </tr>
     </tr>
     <tr>
         <td>
-          <label class="control-label ms-2">Fecha de Inicio</label>
+          <label class="control-label ms-2 fw-bold">Fecha de Inicio</label>
         </td>
         <td>
         <span><?=$cartelera->INICIO?></span>
@@ -86,7 +102,7 @@ if ($_GET['id']) {
     </tr>
     <tr>
         <td>
-          <label class="control-label ms-2">Fecha de Fin</label>
+          <label class="control-label ms-2 fw-bold">Fecha de Fin</label>
         </td>  
         <td>
         	<span><?=$cartelera->FIN?></span>
@@ -94,7 +110,7 @@ if ($_GET['id']) {
      </tr>
      <tr>
         <td>
-          <label class="control-label ms-2">Estado del Evento</label>
+          <label class="control-label ms-2 fw-bold">Estado del Evento</label>
         </td>  
         <td>
         	<span><?=($cartelera->ESTADO == 0)?"Desconocido":""?>
@@ -114,6 +130,7 @@ if ($_GET['id']) {
     </tr>
   </table>
     </form>
+</div>
 </div>
 </body>
 </html>

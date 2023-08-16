@@ -43,11 +43,12 @@ if (isset($_POST['ID'])) {
     }
 ?>
 </div>
-<div class="container py-2 w-50">
-    <div class="form-group mt-2 mb-2">
-        <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Evento</a>
-        <h2 class="mt-4 text-white">Agregar un evento</h2>
-    </div>
+<div class="container py-2 w-50 justify-content-center">
+    <div class="card">
+        <div class="form-group mt-2 mb-2">
+            <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Regresar</a>
+            <h2 class="mt-4 text-black ms-5">Agregar un evento</h2>
+        </div>
     <form name="frmInsProd" method="post" action="insertar.php">
     <input type="hidden" name="ID" value="null">
   	<table class="table mt-4">
@@ -61,7 +62,7 @@ if (isset($_POST['ID'])) {
         <td>
         	<label class="control-label ms-2">Tipo</label>
         	<select class="form-select" name="TIPO">
-                <option value="0" <?=($placeholder->TIPO == 0)?"selected":""?>>Selecciona un Organizador</option>
+                <option value="0" <?=($placeholder->TIPO == 0)?"selected":""?>>Selecciona un Tipo de Evento</option>
                 <option value="C" <?=($placeholder->TIPO == 'C')?"selected":""?>>Conciertos y Festivales</option>
                 <option value="T" <?=($placeholder->TIPO == 'T')?"selected":""?>>Teatro y Culturales</option>
                 <option value="D" <?=($placeholder->TIPO == 'D')?"selected":""?>>Deportivos</option>
@@ -83,9 +84,11 @@ if (isset($_POST['ID'])) {
                 <option value="0">Selecciona un Organizador</option>
                 <?php
                 foreach ($organizadores as $organizador){
+                    if ($organizador->ESTADO == 1){
                 ?>
                     <option value="<?=$organizador->ID?>" <?=($placeholder->ID_ORGANIZADOR == $organizador->ID)?"selected":""?>> <?=$organizador->RAZONSOC?></option>
                 <?php 
+                    }
                 }
                 ?>            
             </select>
@@ -100,6 +103,7 @@ if (isset($_POST['ID'])) {
     </tr>
     </table>
     </form>
+</div>
 </div>
 </body>
 </html>

@@ -34,7 +34,12 @@ else{
         if ($usuario->password == $placeholder->password){
             $_SESSION["sesion"]=$usuario->ID;
             $_SESSION["rol"]=$usuario->ROL;
-            header("Location: panela/panela.php");
+            if($usuario->ROL==5){
+                header("Location: panela/panela.php");
+            }
+            if($usuario->ROL==1){
+                header("Location: panelu/panelu.php");
+            }
         }
         else{
             ?>
@@ -47,6 +52,7 @@ else{
     }
 }
 ?>
+
     <!-- Carrusel -->
     <section class="w-100">
         <div>

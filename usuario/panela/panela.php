@@ -1,10 +1,13 @@
 <?php 
 session_start();
 require_once('..\..\modelo\Usuario.php');
+require_once('..\..\modelo\Persona.php');
 
 $ua = new Usuario();
+$uap = new Persona();
 if(isset($_SESSION['sesion'])){
     $ua->recuperaRegistro($_SESSION['sesion']);
+    $uap->recuperaRegistro($ua->ID_PERSONA);
 }
 else{
     header("Location: ..\inicio.php");
@@ -36,6 +39,70 @@ if($ua->ROL != 5){
     </script>
 </head>
 <body style="background-color:#231c16">
+    <header class="w-100">
+        <nav class="navbar navbar-expand-lg ps-lg-2 pe-lg-2 ps-xll-5 pe-xll-5">
+            <div class="container-fluid">
+                <a id="logos" class="navbar-brand me-auto me-lg-5" aria-current="page" href="#">
+                <img  id="logo" src="../../identidad/CULTURA1White.png" class="img-fluid float-end w-auto" alt="logo">
+                </a>
+            <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span><i class="bi bi-list"></i></span>
+            </button>
+            <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#userSupportedContent" aria-controls="userSupportedContent" aria-expanded="false" aria-label="Toggle User">
+                <span><i class="bi bi-person-fill"></i></span>
+            </button>
+            <div class="collapse navbar-collapse ms-2" id="navbarSupportedContent">
+                <div class="container justify" id="navbar">
+                <div class="container rounded" id="navbart">
+                    <ul class="nav nav-pills nav-fill justify-content-center me-auto mt-3 mb-3 mb-lg-0">
+                    <li class="nav-item m-0">
+                        <a class="nav-link align-middle text-white" href="usuario/index.php">Usuario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link align-middle text-white" href="organizador/index.php">Organizador</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link align-middle text-white" href="sala/index.php">Sala</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link align-middle text-white" href="evento/index.php">Eventos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link align-middle text-white" href="cartelera/index.php">Cartelera</a>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse ms-2" id="userSupportedContent">
+                <div class="container" id="navbar">
+                    <div class="container" id="navbar">
+                    <ul class="navbar-nav justify-content-center me-auto mt-3 mb-2 mb-lg-0">
+                    <li class="nav-item m-0">
+                        <label class="dropdown-item">Usuario Activo: <?=$ua->USERNAME?></label>
+                    </li>
+                    <li class="nav-item">
+                        <a class="dropdown-item" href="../logout.php">Cerrar Sesión</a>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div class="navbar-brand align-middle" id="userslong"> 
+                <div class="btn-group ms-lg-5 mt-1">
+                <button id="useraccess" type="button" class="btn btn-lg dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person-fill" ></i>
+                </button>
+                <ul id="useraccesslist" class="dropdown-menu">
+                    <li><label class="dropdown-item">Usuario Activo: <?=$ua->USERNAME?></label></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="../logout.php">Cerrar Sesión</a></li>
+                </ul>
+                </div>
+            </div> 
+            </div>
+        </nav>
+    </header>
     <!-- Carrusel -->
     <section class="w-100">
         <div>
@@ -48,11 +115,11 @@ if($ua->ROL != 5){
 
         <div class="container-fluid mb-xxl-5">
             <div class="row w-100 justify-content-center column-gap-5">
-                <div class="col col-10 mt-5 mt-xxl-5 mb-xxl-5 col-xxl-3">
+                <div class="col col-10 mt-5 mt-xxl-2 mb-xxl-5 col-xxl-3">
                     <div class="d-flex w-100 justify-content-center">
                         <div id="login" class="card mt-xxl-5 mb-xxl-5">
                             <div class="p-2">
-                                <a id="filtrocartelera" class="btn btn-danger mt-2" href="" onClick="confirma('../logout.php'); return false;" title='Cerrar Sesion'>Cerrar Sesion</a>
+                                <a id="filtrocartelera" class="btn btn-danger mt-2 ms-2 fw-bold" href="" onClick="confirma('../logout.php'); return false;" title='Cerrar Sesion'><i class="bi bi-x-circle-fill"></i>&nbsp;Cerrar Sesion</a>
                             </div>
                             <div class="d-flex mb-3 w-100 justify-content-center">
                                 <svg  id="loginlogo" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -61,22 +128,26 @@ if($ua->ROL != 5){
                                 </svg>
                             </div>
                             <div class="d-flex p-3 w-100 justify-content-center">
-                                <p class="fs-3 fw-bolder"> Panel de Control </p>
+                                <p class="fs-3 fw-bolder">Usuario Activo </p>
                             </div>
-                            <div>
-                                <div class="mt-1 p-2 ps-3 pe-3 ">
-                                    <label for="usuario" class="form-label fw-bold">Bienvenido</label>
-                                    <span><?php 
-                                    if(isset($ua->USERNAME)){
-                                        echo $ua->USERNAME;
-                                    }  
-                                    else{
-                                        echo 'Test';
-                                    }
-                                    ?> </span>
+                            <div class="ps-3 pe-3 p-2">
+                                <div class="mt-1 p-2 pe-3 ">
+                                    <label class="form-label fw-bold mb-2">Bienvenido <?=$uap->NOMBRE ?></label>
                                 </div>
-                                <div class=" ps-3 pe-3 p-2 ">
-                                    <label for="ROL" class="form-label fw-bold">ROL</label>
+                                
+                                <div class="mt-1 p-2 pe-3 ">
+                                    <label class="form-label fw-bold">Usuario</label>
+                                        <span class=""><?php 
+                                        if(isset($ua->USERNAME)){
+                                            echo $ua->USERNAME;
+                                        }  
+                                        else{
+                                            echo 'Test';
+                                        }
+                                        ?> </span>
+                                </div>
+                                <div class="mt-1 p-2 pe-3 ">
+                                    <label for="ROL" class="form-label fw-bold">Rol del Usuario</label>
                                     <span><?php 
                                     if($ua->ROL==1){
                                         echo 'Usuario General';
@@ -102,7 +173,7 @@ if($ua->ROL != 5){
                         </div>
                     </div>
                 </div>
-                <div class="col col-10 mt-5 mt-xxl-5 mb-xxl-5 col-xxl-5">
+                <div class="col col-10 mt-5 mt-xxl-2 mb-xxl-5 col-xxl-5">
                     <div class="d-flex w-100 justify-content-center">
                         <div id="login" class="card mt-xxl-5 mb-xxl-5">
                             <div class="d-flex w-100 justify-content-center">

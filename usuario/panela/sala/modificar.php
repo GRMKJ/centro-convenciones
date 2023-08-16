@@ -52,10 +52,11 @@ $sala = new Sala();
     }
     ?>
 </div>
-<div class="container py-2 w-50">
+<div class="container py-2 w-50 justify-content-center">
+    <div class="card">
     <div class="form-group mt-2 mb-2">
         <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Sala</a>
-        <h2 class="mt-4 text-white">Modificar un sala</h2>
+        <h2 class="mt-4 text-black ms-4">Modificar un sala</h2>
     </div>
     <form name="frmInsProd" method="post" action="modificar.php">
     <input type="hidden" name="ID" value="<?=$sala->ID?>">
@@ -69,7 +70,11 @@ $sala = new Sala();
     <tr>
         <td>
         	<label class="control-label ms-2">Estado</label>
-        	<input type="text" name="ESTADO" placeholder="Estado" value="<?=$sala->ESTADO?>" class="form-control">
+        	<select class="form-select" name="ESTADO">
+                <option value="0" <?=($sala->ESTADO == 0)?"selected":""?>>No Disponible</option>
+                <option value="1" <?=($sala->ESTADO == 1)?"selected":""?>>Activo</option>
+                <option value="2" <?=($sala->ESTADO == 2)?"selected":""?>>En Mantenimiento</option>
+            </select>
         </td>
     </tr>
     <tr>
@@ -87,6 +92,7 @@ $sala = new Sala();
     </tr>
     </table>
     </form>
+</div>
 </div>
 </body>
 </html>

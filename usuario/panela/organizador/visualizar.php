@@ -61,7 +61,7 @@ if ($_GET['id']) {
     </tr>
     <tr>
         <td colspan="2  ">
-        	<label align="center" class="control-label">Persona de Contacto</label>
+        	<label align="center" class="control-label fw-bold">Persona de Contacto</label>
         </td>       
     </tr>
     <tr>

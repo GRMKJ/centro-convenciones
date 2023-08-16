@@ -44,14 +44,16 @@ class Usuario extends Modelo {
 		"insert into $this->tabla (ID,ID_PERSONA,ESTADO,CORREO,USERNAME,PASSWRD,ROL) ".
 		"values ( " .
 		"$this->ID," .
-		"$this->ID_PERSONA,".
+		"last_insert_id(),".
 		"$this->ESTADO,".
 		"'$this->CORREO',".
 		"'$this->USERNAME',".
 		"'$this->PASSWRD',".
 		"'$this->ROL');";
+
+		echo $this->consulta;
 		
-		$errores=$this->valIDarDatos();
+		$errores=$this->validarDatos();
 
 		if (count($errores)==0){
 			$this->ejecutaComandoIUD();
@@ -73,11 +75,14 @@ class Usuario extends Modelo {
 		"USERNAME = '$this->USERNAME',".
 		"PASSWRD = '$this->PASSWRD'," .
 		"ROL = '$this->ROL'".
-		"where ID = $this->ID";
+		"where ID = $this->ID;";
+		
+		echo $this->consulta;
 
-		$errores=$this->valIDarDatos();
+		$errores=$this->validarDatos();
 
 		if (count($errores)==0){
+			echo 'Consulta Exitosa';
 			$this->ejecutaComandoIUD();
 			return $errores;
 		}
@@ -104,10 +109,20 @@ class Usuario extends Modelo {
 		$this->ROL = $_POST['ROL'];
 	}
 
-	function valIDarDatos(){
+	function validarDatos(){
 		$errores = array();
 		
-			
+		if ($this->ESTADO==null){
+			$errores[]='El ESTADO es Obligatorio';
+		}
+
+		if ($this->USERNAME==null){
+			$errores[]='El ESTADO es Obligatorio';
+		}
+		if ($this->ROL==null){
+			$errores[]='El ESTADO es Obligatorio';
+		}
+
 		return $errores;
 		
 	}
@@ -128,8 +143,21 @@ class Usuario extends Modelo {
 	}
 
 	function procedUsuario(){
-		$this->consulta = "CALL registrarUsuario('".$_POST['NOMBRE']."', '".$_POST['A_PATERNO']."', '".$_POST['A_MATERNO']."', '".$_POST['FECHA_NAC']."', '".$_POST['TELEFONO']."', '".$_POST['CORREO']."', '".$_POST['PASSWRD']."', '".$_POST['USERNAME']."', ".$_POST['ROL'].");";
-		$errores=$this->valIDarDatos();
+		$this->traerDatos();
+		$this->consulta = "insert into persona (ID,NOMBRE,A_PATERNO,A_MATERNO,FECHA_NAC,TELEFONO) ".
+		"values ( " .
+		"null,"."'".$_POST['NOMBRE']."',"."'".$_POST['A_PATERNO']."',".
+		"'".$_POST['A_MATERNO']."',"."'".$_POST['FECHA_NAC']."',"."'".$_POST['TELEFONO']."');
+		insert into $this->tabla (ID,ID_PERSONA,ESTADO,CORREO,USERNAME,PASSWRD,ROL) ".
+		"values ( " .
+		"$this->ID," .
+		"last_insert_id(),".
+		"$this->ESTADO,".
+		"'$this->CORREO',".
+		"'$this->USERNAME',".
+		"'$this->PASSWRD',".
+		"'$this->ROL');";
+		$errores=$this->validarDatos();
 
 		$this->ejecutaComandoIUD();
 		return $errores ;
