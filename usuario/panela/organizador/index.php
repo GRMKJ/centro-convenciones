@@ -16,7 +16,11 @@ $usuarios = $usuario->lista();
 <html>
 <head>
   <title>CC Siglo XXI - Lista de Organizadores</title>
+<<<<<<< HEAD
   <link rel="icon" type="image/x-icon" href="../../../imagenes/CULTURA1.png">
+=======
+  <link rel="icon" type="image/x-icon" href="..\..\..\imagenes\CULTURA1.png">
+>>>>>>> 753b03726f026df61ed9162d88dee128c9718699
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="../../../css/custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">

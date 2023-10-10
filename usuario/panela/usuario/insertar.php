@@ -62,7 +62,11 @@ if (isset($_POST['ID'])) {
     <tr>
         <td>
         	<label class="control-label ms-2">Password</label>
+<<<<<<< HEAD
         	<input type="password" name="PASSWRD" id="psw" pattern="(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{8,})" placeholder="Password" value="<?=$placeholder->PASSWRD?>" title="Debe contener los siguientes requisitos" required class="form-control">
+=======
+        	<input type="password" name="PASSWRD" id="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password" value="<?=$placeholder->PASSWRD?>" title="Debe contener los siguientes requisitos" required class="form-control">
+>>>>>>> 753b03726f026df61ed9162d88dee128c9718699
             <div id="message">
                 <h5>La Contraseña debe</h5>
                 <p id="letter" class="invalid">Una letra <b>minúscula</b> </p>
