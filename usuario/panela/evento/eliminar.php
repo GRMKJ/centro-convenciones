@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 require_once('../../../modelo/Evento.php');
 require_once('Security.php');
 

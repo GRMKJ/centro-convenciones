@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 require_once('../../../modelo/Usuario.php');
 require_once('../../../modelo/Persona.php');
 require_once('Security.php');
@@ -12,7 +13,7 @@ $placeholder2 = new Persona();
 <html>
 <head>
     <title>CC Siglo XXI - Agregar Usuarios</title>
-    <link rel="icon" type="image/x-icon" href="..\..\..\imagenes\CULTURA1.png">
+    <link rel="icon" type="image/x-icon" href="../../../imagenes/CULTURA1.png">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="../../../css/custom.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -42,10 +43,11 @@ if (isset($_POST['ID'])) {
     }
 ?>
 </div>
-<div class="container py-2 w-50">
+<div class="container py-2 w-50 justify-content-center">
+    <div class="card">
     <div class="form-group mt-2 mb-2">
         <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Usuarios</a>
-        <h2 class="mt-4 text-white">Agregar un usuario</h2>
+        <h2 class="mt-4 text-black ms-5">Agregar un usuario</h2>
     </div>
     <form name="frmInsProd" method="post" action="insertar.php">
     <input type="hidden" name="ID" value="null">
@@ -60,7 +62,14 @@ if (isset($_POST['ID'])) {
     <tr>
         <td>
         	<label class="control-label ms-2">Password</label>
-        	<input type="password" name="PASSWRD" placeholder="Password" value="<?=$placeholder->PASSWRD?>" class="form-control">
+        	<input type="password" name="PASSWRD" id="psw" pattern="(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{8,})" placeholder="Password" value="<?=$placeholder->PASSWRD?>" title="Debe contener los siguientes requisitos" required class="form-control">
+            <div id="message">
+                <h5>La Contraseña debe</h5>
+                <p id="letter" class="invalid">Una letra <b>minúscula</b> </p>
+                <p id="capital" class="invalid">Una letra <b>mayúscula</b> </p>
+                <p id="number" class="invalid">Un <b>número</b></p>
+                <p id="length" class="invalid">Mínimo <b>8 caracteres</b></p>
+            </div>
         </td>
     </tr>
     <tr>
@@ -120,5 +129,65 @@ if (isset($_POST['ID'])) {
     </table>
     </form>
 </div>
+</div>
 </body>
+<script>
+        var myInput = document.getElementById("psw");
+        var letter = document.getElementById("letter");
+        var capital = document.getElementById("capital");
+        var number = document.getElementById("number");
+        var length = document.getElementById("length");
+
+        // When the user clicks on the password field, show the message box
+        myInput.onfocus = function() {
+        document.getElementById("message").style.display = "block";
+        }
+
+        // When the user clicks outside of the password field, hide the message box
+        myInput.onblur = function() {
+        document.getElementById("message").style.display = "none";
+        }
+
+        // When the user starts to type something inside the password field
+        myInput.onkeyup = function() {
+        // Validate lowercase letters
+        var lowerCaseLetters = /[a-z]/g;
+        if(myInput.value.match(lowerCaseLetters)) {
+            letter.classList.remove("invalid");
+            letter.classList.add("valid");
+        } else {
+            letter.classList.remove("valid");
+            letter.classList.add("invalid");
+        }
+
+        // Validate capital letters
+        var upperCaseLetters = /[A-Z]/g;
+        if(myInput.value.match(upperCaseLetters)) {
+            capital.classList.remove("invalid");
+            capital.classList.add("valid");
+        } else {
+            capital.classList.remove("valid");
+            capital.classList.add("invalid");
+        }
+
+        // Validate numbers
+        var numbers = /[0-9]/g;
+        if(myInput.value.match(numbers)) {
+            number.classList.remove("invalid");
+            number.classList.add("valid");
+        } else {
+            number.classList.remove("valid");
+            number.classList.add("invalid");
+        }
+
+        // Validate length
+        if(myInput.value.length >= 8) {
+            length.classList.remove("invalid");
+            length.classList.add("valid");
+        } else {
+            length.classList.remove("valid");
+            length.classList.add("invalid");
+        }
+    }
+    </script>
 </html>

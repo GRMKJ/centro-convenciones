@@ -42,7 +42,7 @@ class Sala extends Modelo {
 		"'$this->NOMBRE',".
 		"$this->ASIENTOS)";
 		
-		$errores=$this->valIDarDatos();
+		$errores=$this->validarDatos();
 
 		if (count($errores)==0){
 			$this->ejecutaComandoIUD();
@@ -64,7 +64,7 @@ class Sala extends Modelo {
 		"ASIENTOS = $this->ASIENTOS ".
 		"where ID = $this->ID";
 
-		$errores=$this->valIDarDatos();
+		$errores=$this->validarDatos();
 
 		if (count($errores)==0){
 			$this->ejecutaComandoIUD();
@@ -90,16 +90,15 @@ class Sala extends Modelo {
 		$this->ASIENTOS = $_POST['ASIENTOS'];
 	}
 
-	function valIDarDatos(){
+	function validarDatos(){
+
 		$errores = array();
+		
 		if ($this->ESTADO==null){
 			$errores[]='El ESTADO es Obligatorio';
 		}
 		if ($this->NOMBRE==null){
 			$errores[]='El NOMBRE de la sala es Obligatorio';
-		}
-		if ($this->ASIENTOS==null){
-			$errores[]='La CantIDad de ASIENTOS es Obligatorio';
 		}
 			
 		return $errores;

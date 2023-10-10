@@ -96,8 +96,7 @@ class Cartelera extends Modelo
 		$this->ejecutaComandoIUD();
 	}
 
-	function traerDatos()
-	{
+	function traerDatos(){
 		$this->ID = $_POST['ID'];
 		$this->ID_EVENTO = $_POST['ID_EVENTO'];
 		$this->ID_SALA = $_POST['ID_SALA'];
@@ -110,10 +109,10 @@ class Cartelera extends Modelo
 	{
 		$errores = array();
 		if ($this->INICIO == null) {
-			$errores[] = 'Es obligatorio la Hora de INICIO';
+			$errores[] = 'Es obligatorio la Fecha de Inicio';
 		}
 		if ($this->FIN == null) {
-			$errores[] = 'Es obligatorio la Hora de FINal';
+			$errores[] = 'Es obligatorio la Fecha de Final';
 		}
 		if ($this->ID_EVENTO == null) {
 			$errores[] = 'Es obligatorio el Evento a Publicar';
@@ -123,7 +122,6 @@ class Cartelera extends Modelo
 		}
 
 		return $errores;
-
 	}
 
 }

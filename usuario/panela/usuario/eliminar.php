@@ -1,4 +1,6 @@
-<?php require_once('../../../modelo/Usuario.php');
+<?php 
+ob_start();
+require_once('../../../modelo/Usuario.php');
 require_once('../../../modelo/Persona.php');
 require_once('Security.php');
 

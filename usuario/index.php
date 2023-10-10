@@ -1,13 +1,14 @@
 <?php
+ob_start();
 session_start();
-require_once('..\modelo\Usuario.php');
+require_once('../modelo/Usuario.php');
 
 $ua = new Usuario();
 if(isset($_SESSION['sesion'])){
     $ua->recuperaRegistro($_SESSION['sesion']);
 }
 else{
-    header("Location: ..\inicio.php");
+    header("Location: ../inicio.php");
 }
 
 if ($ua->ROL == 5){

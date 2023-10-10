@@ -16,7 +16,7 @@ if ($_GET['id']) {
 <html>
 <head>
   <title>CC Siglo XXI - Ver Organizadores</title>
-  <link rel="icon" type="image/x-icon" href="..\..\..\imagenes\CULTURA1.png">
+  <link rel="icon" type="image/x-icon" href="../../../imagenes/CULTURA1.png">
   <meta name="viewport" content="wIDth=device-wIDth,initial-scale=1">
   <link rel="stylesheet" href="../../../css/custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -61,7 +61,7 @@ if ($_GET['id']) {
     </tr>
     <tr>
         <td colspan="2  ">
-        	<label align="center" class="control-label">Persona de Contacto</label>
+        	<label align="center" class="control-label fw-bold">Persona de Contacto</label>
         </td>       
     </tr>
     <tr>

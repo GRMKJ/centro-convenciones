@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 require_once('../../../modelo/Organizador.php');
 require_once('../../../modelo/Persona.php');
 require_once('Security.php');
@@ -12,7 +13,7 @@ $persona = new Persona();
 <html>
 <head>
   <title>CC Siglo XXI - Modificar Organizadores</title>
-  <link rel="icon" type="image/x-icon" href="..\..\..\imagenes\CULTURA1.png">
+  <link rel="icon" type="image/x-icon" href="../../../imagenes/CULTURA1.png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="../../../css/custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -35,9 +36,9 @@ $persona = new Persona();
     <?php
     if (isset($_POST['ID']) && isset($_POST['ID_PERSONA'])) {
         
-        $error = $persona->actualizaRegistro();
         $error = $organizador->actualizaRegistro();
-        
+        $error = $persona->actualizaRegistro();
+
         if (count($error)==0){
             header("Location: index.php");
         }
@@ -59,10 +60,11 @@ $persona = new Persona();
         $persona->recuperaRegistro($persona->ID);
     }
     ?>
-<div class="container py-2 w-50">
+<div class="container py-2 w-50 justify-content-center">
+    <div class="card">
     <div class="form-group mt-2 mb-2">
         <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Organizadores</a>
-        <h2 class="mt-4 text-white">Modificar un organizador</h2>
+        <h2 class="mt-4 text-black ms-3">Modificar un organizador</h2>
     </div>
     <form name="frmInsProd" method="post" action="modificar.php">
     <input type="hidden" name="ID" value="<?=$organizador->ID?>">
@@ -110,16 +112,29 @@ $persona = new Persona();
         	<input type="text" name="DIRECCION" placeholder="Domicilio Fiscal" value="<?=$organizador->DIRECCION?>" class="form-control">
         </td>
     </tr>
+    <tr>
+        <td>
+        	<label class="control-label ms-2">Estado</label>  
+        	<select class="form-select" name="ESTADO">
+                <option value="0" <?=($organizador->ESTADO == 0)?"selected":""?>>Selecciona un Estado</option>
+                <option value="1" <?=($organizador->ESTADO == 1)?"selected":""?>>Activo</option>
+                <option value="2" <?=($organizador->ESTADO == 2)?"selected":""?>>Deudor</option>
+                <option value="3" <?=($organizador->ESTADO == 3)?"selected":""?>>En Contrato</option>
+                <option value="4" <?=($organizador->ESTADO == 4)?"selected":""?>>Cancelado</option>
+                <option value="5" <?=($organizador->ESTADO == 5)?"selected":""?>>Terminado</option>
+            </select>
+        </td>
+    </tr>
      <tr>
         <td>
 			<div class="form-group ms-2">
-            <input type="hidden" name="ESTADO" value="1">
             <button type="submit" class="btn btn-success"><i class="bi bi-save-fill"></i>&nbsp;Guardar</button>
 			</div>
         </td>
     </tr>
     </table>
     </form>
+</div>
 </div>
 </body>
 </html>

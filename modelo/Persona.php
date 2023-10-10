@@ -48,7 +48,9 @@ class Persona extends Modelo {
 		"'$this->FECHA_NAC',".
 		"'$this->TELEFONO');";
 		
-		$errores=$this->valIDarDatos();
+		echo $this->consulta;
+		
+		$errores=$this->validarDatos();
 
 		if (count($errores)==0){
 			$this->ejecutaComandoIUD();
@@ -79,6 +81,7 @@ class Persona extends Modelo {
 		$errores=$this->validarDatos();
 
 		if (count($errores)==0){
+			echo 'Consulta Exitosa';
 			$this->ejecutaComandoIUD();
 			return $errores;
 		}
@@ -105,13 +108,19 @@ class Persona extends Modelo {
 	}
 
 	function validarDatos(){
+
 		$errores = array();
+		
 		if ($this->NOMBRE==null){
 			$errores[]='El NOMBRE es Obligatorio';
 		}
 		if ($this->A_PATERNO==null){
 			$errores[]='El ApellIdo Paterno es Obligatorio';
 		}
+		if ($this->A_MATERNO==null){
+			$errores[]='El ApellIdo Materno es Obligatorio';
+		}
+
 		return $errores;
 		
 	}

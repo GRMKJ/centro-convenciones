@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 require_once('../../../modelo/Organizador.php');
 require_once('../../../modelo/Persona.php');
 require_once('Security.php');
@@ -12,7 +13,7 @@ $placeholder2 = new Persona();
 <html>
 <head>
     <title>CC Siglo XXI - Agregar organizadors</title>
-    <link rel="icon" type="image/x-icon" href="..\..\..\imagenes\CULTURA1.png">
+    <link rel="icon" type="image/x-icon" href="../../../imagenes/CULTURA1.png">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="../../../css/custom.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -28,28 +29,32 @@ $placeholder2 = new Persona();
 if (isset($_POST['ID'])) {
     $placeholder->traerDatos();
     $placeholder2->traerDatos();
+
     $error = $organizador->procedorganizador();
     if (count($error)==0){
         header("Location: index.php");
     }
-    else{?>
+    else{
+        foreach ($error as $errores){?>
         <div class="alert alert-danger" role="alert">
-            <?='algo salio mal'?>
+            <?=$errores?>
         </div>
         
     <?php
+        }
         }
 
     }
 ?>
 </div>
-<div class="container py-2 w-50">
+<div class="container py-2 w-50 justify-content-center">
+    <div class="card">
     <div class="form-group mt-2 mb-2">
         <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Organizadores</a>
-        <h2 class="mt-4 text-white">Agregar un organizador</h2>
+        <h2 class="mt-4 text-black ms-2">Agregar un organizador</h2>
     </div>
     <form name="frmInsProd" method="post" action="insertar.php">
-    <input type="hidden" name="ID" value="">
+    <input type="hidden" name="ID" value="null">
     <input type="hidden" name="ID_PERSONA" value="">
   	<table class="table mt-4">
     <tr>
@@ -104,6 +109,7 @@ if (isset($_POST['ID'])) {
     </tr>
     </table>
     </form>
+</div>
 </div>
 </body>
 </html>

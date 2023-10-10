@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 require_once('../../../modelo/Evento.php');
 require_once('../../../modelo/Organizador.php');
 require_once('Security.php');
@@ -15,7 +16,7 @@ if ($_GET['id']) {
 <html>
 <head>
   <title>CC Siglo XXI - Evento: <?=$evento->NOMBRE?></title>
-  <link rel="icon" type="image/x-icon" href="..\..\..\imagenes\CULTURA1.png">
+  <link rel="icon" type="image/x-icon" href="../../../imagenes/CULTURA1.png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="../../../css/custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -34,17 +35,18 @@ if ($_GET['id']) {
   background-attachment: fixed;
   background-size: cover;">
 
-<div class="container w-75 py-2">
-    <div class="form-group">
-        <a href="index.php" class="btn btn-danger"><i class="bi bi-arrow-return-left"></i>&nbsp;eventos</a>
-        <h2 class="mt-4 text-white">Detalles del evento</h2>
+<div class="container w-50 py-2 justify-content-center">
+  <div class="card mt-4">
+    <div class="form-group mt-2 mb-2">
+        <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Regresar</a>
+        <h2 class="mt-4 ms-3 text-black">Detalles del evento</h2>
     </div>
     <form name="frmModProd" method="post" action="modificar.php">
     <input type="hidden" name="ID" value="<?=$evento->ID?>">
   	<table class="table">
       <tr>
         <td>
-        	<label class="control-label">Nombre del Evento</label>
+        	<label class="control-label fw-bold">Nombre del Evento</label>
         </td>
         <td>
             <span><?=$evento->NOMBRE?></span>
@@ -52,7 +54,7 @@ if ($_GET['id']) {
     </tr>
     <tr>
         <td>
-        	<label class="control-label">Tipo de Evento</label>
+        	<label class="control-label fw-bold">Tipo de Evento</label>
         </td>
         <td>
         	  <span>
@@ -69,7 +71,7 @@ if ($_GET['id']) {
     </tr>
     <tr>
         <td>
-        	<label class="control-label">Duracion del Evento</label>
+        	<label class="control-label fw-bold">Duracion del Evento</label>
         </td>
         <td>
         <span><?=$evento->DURACION?></span>
@@ -77,7 +79,7 @@ if ($_GET['id']) {
     </tr>
     <tr>
         <td>
-        	<label class="control-label">Organizador del Evento</label>
+        	<label class="control-label fw-bold">Organizador del Evento</label>
         	<?php
           foreach ($organizadores as $organizador){
             if($evento->ID_ORGANIZADOR == $organizador->ID){
@@ -98,6 +100,7 @@ if ($_GET['id']) {
     </tr>
   </table>
     </form>
+</div>
 </div>
 </body>
 </html>

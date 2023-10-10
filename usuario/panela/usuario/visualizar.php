@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 require_once('../../../modelo/Usuario.php');
 require_once('../../../modelo/Persona.php');
 require_once('Security.php');
@@ -16,7 +17,7 @@ if ($_GET['id']) {
 <html>
 <head>
   <title>CC Siglo XXI - Ver Usuarios</title>
-  <link rel="icon" type="image/x-icon" href="..\..\..\imagenes\CULTURA1.png">
+  <link rel="icon" type="image/x-icon" href="../../../imagenes/CULTURA1.png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="../../../css/custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -35,17 +36,18 @@ if ($_GET['id']) {
   background-attachment: fixed;
   background-size: cover;">
 
-<div class="container py-2">
-    <div class="form-group">
-        <a href="index.php" class="btn btn-danger"><i class="bi bi-arrow-return-left"></i>&nbsp;Usuarios</a>
-        <h2 class="mt-4 text-white">Detalles del usuario</h2>
+<div class="container py-2 w-50 justify-content-center">
+    <div class="card">
+    <div class="form-group mt-2 mb-2">
+        <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Regresar</a>
+        <h2 class="mt-4 text-black ms-5">Detalles del usuario</h2>
     </div>
     <form name="frmModProd" method="post" action="modificar.php">
     <input type="hidden" name="id" value="<?=$usuario->id?>">
   	<table class="table">
       <tr>
         <td>
-        	<label class="control-label">Username</label>
+        	<label class="control-label fw-bold">Username</label>
         </td>
         <td>
             <span><?=$usuario->USERNAME?></span>
@@ -53,15 +55,7 @@ if ($_GET['id']) {
     </tr>
     <tr>
         <td>
-        	<label class="control-label">Password</label>
-        </td>
-        <td>
-            <span><?=$usuario->PASSWRD?></span>
-        </td>        
-    </tr>
-    <tr>
-        <td>
-        	<label class="control-label">Rol</label>
+        	<label class="control-label fw-bold">Rol</label>
         </td>
         <td>
             <span title="<?=$usuario->rol?>"><?=($usuario->ROL == 1)?"Cliente":""?><?=($usuario->ROL == 5)?"Administrativo":""?></span>
@@ -69,7 +63,7 @@ if ($_GET['id']) {
     </tr>
     <tr>
         <td>
-        	<label class="control-label">Nombre</label>  
+        	<label class="control-label fw-bold">Nombre</label>  
         </td>
         <td>
             <span><?=$persona->NOMBRE?></span>
@@ -77,7 +71,7 @@ if ($_GET['id']) {
     </tr>
     <tr>
         <td>
-        	<label class="control-label">Apellido Paterno</label>
+        	<label class="control-label fw-bold">Apellido Paterno</label>
        	</td>
         <td>
             <span><?=$persona->A_PATERNO?></span>
@@ -86,7 +80,7 @@ if ($_GET['id']) {
     
     <tr>
         <td>
-        	<label class="control-label">Apellido Materno</label>
+        	<label class="control-label fw-bold">Apellido Materno</label>
         </td>
         <td>
             <span><?=$persona->A_MATERNO?></span>
@@ -94,7 +88,7 @@ if ($_GET['id']) {
      </tr>
      <tr>
         <td>
-        	<label class="control-label">Fecha de Nacimiento</label>
+        	<label class="control-label fw-bold">Fecha de Nacimiento</label>
         </td>
         <td>
             <span><?=$persona->FECHA_NAC?></span>
@@ -102,7 +96,7 @@ if ($_GET['id']) {
      </tr>
      <tr>
         <td>
-        	<label class="control-label">Telefono</label>
+        	<label class="control-label fw-bold">Telefono</label>
         </td>
         <td>
             <span><?=$persona->TELEFONO?></span>
@@ -110,7 +104,7 @@ if ($_GET['id']) {
      </tr>
      <tr>
         <td>
-        	<label class="control-label">Correo</label>
+        	<label class="control-label fw-bold">Correo</label>
         </td>
         <td>
             <span><?=$usuario->CORREO?></span>

@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 require_once('../../../modelo/Sala.php');
 require_once('Security.php');
 
@@ -13,7 +14,7 @@ if ($_GET['id']) {
 <html>
 <head>
   <title>CC Siglo XXI - Ver salas</title>
-  <link rel="icon" type="image/x-icon" href="..\..\..\imagenes\CULTURA1.png">
+  <link rel="icon" type="image/x-icon" href="../../../imagenes/CULTURA1.png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="../../../css/custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -32,17 +33,18 @@ if ($_GET['id']) {
   background-attachment: fixed;
   background-size: cover;">
 
-<div class="container w-75 py-2">
-    <div class="form-group">
-        <a href="index.php" class="btn btn-danger"><i class="bi bi-arrow-return-left"></i>&nbsp;Salas</a>
-        <h2 class="mt-4 text-white">Detalles del Sala</h2>
+<div class="container w-50 py-2 justify-content-center">
+  <div class="card mt-4">
+    <div class="form-group mt-2 mb-2">
+        <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Regrear</a>
+        <h2 class="mt-4 text-black ms-5">Detalles del Sala</h2>
     </div>
     <form name="frmModProd" method="post" action="modificar.php">
     <input type="hidden" name="ID" value="<?=$sala->ID?>">
   	<table class="table">
       <tr>
         <td>
-        	<label class="control-label">Nombre</label>
+        	<label class="control-label fw-bold">Nombre</label>
         </td>
         <td>
             <span><?=$sala->NOMBRE?></span>
@@ -50,15 +52,20 @@ if ($_GET['id']) {
     </tr>
     <tr>
         <td>
-        	<label class="control-label">Estado</label>
+        	<label class="control-label fw-bold">Estado</label>
         </td>
         <td>
-            <span><?=$sala->ESTADO?></span>
+          <span>
+                <?=($sala->ESTADO == 0)?"Desconocido":""?>
+                <?=($sala->ESTADO == 1)?"Activo":""?>
+                <?=($sala->ESTADO == 2)?"Mantenimiento":""?>
+
+            </span>
         </td>        
     </tr>
     <tr>
         <td>
-        	<label class="control-label">Asientos</label>
+        	<label class="control-label fw-bold">Asientos</label>
         </td>
         <td>
         <span><?=$sala->ASIENTOS?></span>
@@ -73,6 +80,7 @@ if ($_GET['id']) {
     </tr>
   </table>
     </form>
+</div>
 </div>
 </body>
 </html>

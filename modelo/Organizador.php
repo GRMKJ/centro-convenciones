@@ -48,7 +48,9 @@ class Organizador extends Modelo
 			"last_insert_ID()," .
 			"$this->ESTADO," .
 			"'$this->RAZONSOC'," .
-			"'$this->DIRECCION',";
+			"'$this->DIRECCION')";
+
+			echo $this->consulta;
 
 		$errores = $this->validarDatos();
 
@@ -77,6 +79,7 @@ class Organizador extends Modelo
 		$errores = $this->validarDatos();
 
 		if (count($errores) == 0) {
+			echo 'Consulta Exitosa';
 			$this->ejecutaComandoIUD();
 			return $errores;
 		} else {
@@ -105,19 +108,49 @@ class Organizador extends Modelo
 	function validarDatos()
 	{
 		$errores = array();
-		
+
+		if ($this->ESTADO == 0) {
+			$errores[] = 'Es obligatorio la Fecha de Inicio';
+		}
+		if ($this->RAZONSOC == null) {
+			$errores[] = 'Es obligatorio la Fecha de Final';
+		}
+		if ($this->DIRECCION == null) {
+			$errores[] = 'Es obligatorio el Evento a Publicar';
+		}
+
 		return $errores;
 
 	}
 
 	function procedorganizador(){
-		$this->consulta = "CALL registrarOrg('".$_POST['NOMBRE']."', '".$_POST['A_PATERNO']."', '".$_POST['A_MATERNO']."', '".$_POST['FECHA_NAC']."', '".$_POST['TELEFONO']."', '".$_POST['RAZONSOC']."', '".$_POST['DIRECCION']."');";
-		$errores=$this->valIDarDatos();
+		$this->traerDatos();
 
-		$this->ejecutaComandoIUD();
-		return $errores ;
-	}
+		$this->consulta = "insert into persona (ID,NOMBRE,A_PATERNO,A_MATERNO,FECHA_NAC,TELEFONO) ".
+		"values ( null,"."'".$_POST['NOMBRE']."',"."'".$_POST['A_PATERNO']."',".
+		"'".$_POST['A_MATERNO']."',"."'".$_POST['FECHA_NAC']."',"."'".$_POST['TELEFONO']."');
+		insert into $this->tabla (ID,ID_PERSONA,ESTADO,RAZONSOC,DIRECCION) " .
+			"values ( " .
+			"$this->ID," .
+			"last_insert_ID()," .
+			"$this->ESTADO," .
+			"'$this->RAZONSOC'," .
+			"'$this->DIRECCION');";
+
+		echo $this->consulta;
+
+		$errores=$this->validarDatos();
+
+		if (count($errores) == 0) {
+			echo 'Consulta Exitosa';
+			$this->ejecutaComandoIUD();
+			return $errores;
+		} 
+		else {
+			return $errores;
+		}
 
 	}
+}
 
 ?>

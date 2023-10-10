@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 require_once('../../../modelo/Cartelera.php');
 require_once('Security.php');
 

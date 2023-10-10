@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport">
-  <link rel="icon" type="image/x-icon" href="..\imagenes\CULTURA1.png">
+  <link rel="icon" type="image/x-icon" href="../imagenes/CULTURA1.png">
   <title>CC Siglo XXI - Registrarse</title>
   <link rel="stylesheet" href="../css/custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">

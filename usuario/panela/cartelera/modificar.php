@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 require_once('../../../modelo/Evento.php');
 require_once('../../../modelo/Cartelera.php');
 require_once('../../../modelo/Sala.php');
@@ -14,7 +15,7 @@ $eventos = $evento->lista();
 <html>
 <head>
   <title>CC Siglo XXI - Modificar Evento en la Cartelera</title>
-  <link rel="icon" type="image/x-icon" href="..\..\..\imagenes\CULTURA1.png">
+  <link rel="icon" type="image/x-icon" href="../../../imagenes/CULTURA1.png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="../../../css/custom.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -59,10 +60,11 @@ $eventos = $evento->lista();
     }
     ?>
 </div>
-<div class="container py-2 w-50">
+<div class="container py-2 w-50  justify-content-center">
+    <div class="card">
     <div class="form-group mt-2 mb-2">
-        <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Evento</a>
-        <h2 class="mt-4 text-white">Modificar un Evento en Cartelera</h2>
+        <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Regresar</a>
+        <h2 class="mt-4 text-black ms-4">Modificar un Evento en Cartelera</h2>
     </div>
     <form name="frmInsProd" method="post" action="modificar.php">
     <input type="hidden" name="ID" value="<?=$cartelera->ID?>">
@@ -135,6 +137,7 @@ $eventos = $evento->lista();
     </tr>
     </table>
     </form>
+</div>
 </div>
 </body>
 </html>
