@@ -29,10 +29,11 @@ if(isset($_SESSION["sesion"])== true){
 else{
     if (isset($_POST['USERNAME']) && isset($_POST['PASSWRD'])) {
         $placeholder->USERNAME = $_POST['USERNAME'];
-        $placeholder->PASSWRD = md5($_POST['PASSWRD']);
+        $_POST['PASSWRD'] = md5($_POST['PASSWRD']);
+        $placeholder->PASSWRD = $_POST['PASSWRD'];
         $usuario->login();
 
-        if ($usuario->password == $placeholder->password){
+        if ($usuario->PASSWRD == $placeholder->PASSWRD){
             $_SESSION["sesion"]=$usuario->ID;
             $_SESSION["rol"]=$usuario->ROL;
             if($usuario->ROL==5){
@@ -49,6 +50,8 @@ else{
             </div>
             
         <?php
+            echo $usuario->PASSWRD;
+            echo $placeholder->PASSWRD;
             }
     }
 }

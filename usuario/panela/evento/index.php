@@ -96,11 +96,7 @@ $organizadores = $organizador->lista();
             </div>
         </nav>
     </header>
-<<<<<<< HEAD
 <div class="container-fluid w-100 mt-4 py-2 z-1">
-=======
-<div class="container-fluid w-75 mt-4 py-2 z-1">
->>>>>>> 753b03726f026df61ed9162d88dee128c9718699
   <div class="card py-2 m-5">
       <div class="row justify-content-center">
         <div class="col-2 ps-2 mt-4">

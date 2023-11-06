@@ -1,13 +1,8 @@
 <?php 
 ob_start();
 session_start();
-<<<<<<< HEAD
 require_once('../../modelo/Usuario.php');
 require_once('../../modelo/Persona.php');
-=======
-require_once('..\..\modelo\Usuario.php');
-require_once('..\..\modelo\Persona.php');
->>>>>>> 753b03726f026df61ed9162d88dee128c9718699
 
 $ua = new Usuario();
 $uap = new Persona();
@@ -59,11 +54,7 @@ if($ua->ROL != 5){
             </button>
             <div class="collapse navbar-collapse ms-2" id="navbarSupportedContent">
                 <div class="container justify" id="navbar">
-<<<<<<< HEAD
                 <div class="container rounded" style="visibility: hidden;" id="navbart">
-=======
-                <div class="container rounded" id="navbart">
->>>>>>> 753b03726f026df61ed9162d88dee128c9718699
                     <ul class="nav nav-pills nav-fill justify-content-center me-auto mt-3 mb-3 mb-lg-0">
                     <li class="nav-item m-0">
                         <a class="nav-link align-middle text-white" href="usuario/index.php">Usuario</a>

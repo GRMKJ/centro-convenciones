@@ -129,8 +129,9 @@ class Usuario extends Modelo {
 	function login(){
 		
 		$this->USERNAME = $_POST['USERNAME'];
+		$this->PASSWRD = $_POST['PASSWRD'];
 	
-		$this->consulta = "select * from $this->tabla where USERNAME = '$this->USERNAME'";
+		$this->consulta = "select ID, USERNAME, PASSWRD, ROL from $this->tabla where USERNAME = '$this->USERNAME' and PASSWRD = '$this->PASSWRD'";
 
 		$dato = $this->encuentraUno();
 		
