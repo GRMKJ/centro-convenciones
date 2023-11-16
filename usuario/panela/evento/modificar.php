@@ -64,7 +64,7 @@ $organizadores = $organizador->lista();
         <a href="index.php" class="btn btn-danger ms-2"><i class="bi bi-arrow-return-left"></i>&nbsp;Evento</a>
         <h2 class="mt-4 ms-3 text-black">Modificar un evento</h2>
     </div>
-    <form name="frmInsProd" method="post" action="modificar.php">
+    <form name="frmInsProd" method="post" action="modificar.php" enctype="multipart/form-data">
     <input type="hidden" name="ID" value="<?=$evento->ID?>">
   	<table class="table mt-4">
     <tr>
@@ -110,6 +110,13 @@ $organizadores = $organizador->lista();
         </td>
      </tr>
      <tr>
+        <td colspan="2">
+        	<label class="control-label ms-2">Poster del Evento</label>
+        	<input type="file" name="FOTO" placeholder="Poster del Evento" value="" class="form-control">
+            <label class="form-text ms-2">Debe ser un archivo *.JPG</label>
+        </td>
+    </tr>
+    <tr>
         <td>
 			<div class="form-group ms-2">
             <button type="submit" class="btn btn-success"><i class="bi bi-save-fill"></i>&nbsp;Guardar</button>

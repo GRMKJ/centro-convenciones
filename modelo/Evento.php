@@ -9,6 +9,7 @@ class Evento extends Modelo
 	public $NOMBRE;
 	public $TIPO;
 	public $DURACION;
+	public $FOTO;
 
 	function __construct()
 	{
@@ -34,6 +35,7 @@ class Evento extends Modelo
 			$this->NOMBRE = $dato->NOMBRE;
 			$this->TIPO = $dato->TIPO;
 			$this->DURACION = $dato->DURACION;
+			$this->FOTO = $dato->FOTO;
 		}
 	}
 
@@ -42,13 +44,14 @@ class Evento extends Modelo
 		$this->traerDatos();
 
 		$this->consulta =
-			"insert into $this->tabla (ID,ID_ORGANIZADOR,NOMBRE,TIPO,DURACION) " .
+			"insert into $this->tabla (ID,ID_ORGANIZADOR,NOMBRE,TIPO,DURACION,FOTO) " .
 			"values ( " .
 			"$this->ID," .
 			"$this->ID_ORGANIZADOR," .
 			"'$this->NOMBRE'," .
 			"'$this->TIPO'," .
-			"'$this->DURACION')";
+			"'$this->DURACION',".
+			"'$this->FOTO');";
 
 		$errores = $this->valIDarDatos();
 
@@ -65,13 +68,25 @@ class Evento extends Modelo
 	{
 		$this->traerDatos();
 
-		$this->consulta =
+		if($_FILES['FOTO']['error']!=4){
+			$this->consulta =
+			"update $this->tabla set " .
+			"ID_ORGANIZADOR = $this->ID_ORGANIZADOR," .
+			"NOMBRE = '$this->NOMBRE'," .
+			"TIPO = '$this->TIPO'," .
+			"DURACION = '$this->DURACION'," .
+			"FOTO = '$this->FOTO'" .
+			"where ID = $this->ID;";
+		}
+		else{
+			$this->consulta =
 			"update $this->tabla set " .
 			"ID_ORGANIZADOR = $this->ID_ORGANIZADOR," .
 			"NOMBRE = '$this->NOMBRE'," .
 			"TIPO = '$this->TIPO'," .
 			"DURACION = '$this->DURACION'" .
-			"where ID = $this->ID";
+			"where ID = $this->ID;";
+		}
 
 		$errores = $this->valIDarDatos();
 
@@ -99,6 +114,9 @@ class Evento extends Modelo
 		$this->NOMBRE = $_POST['NOMBRE'];
 		$this->TIPO = $_POST['TIPO'];
 		$this->DURACION = $_POST['DURACION'];
+		if($_FILES['FOTO']['error']!=4){
+			$this->FOTO = addslashes(file_get_contents($_FILES['FOTO']['tmp_name']));
+		}
 	}
 
 	function valIDarDatos()

@@ -116,6 +116,7 @@ $salas = $sala->lista();
       </div>
       <table class="table table-striped bg-white">
         <tr>
+            <td align="center" scope="col"><b>Poster</b></td>
             <td align="center" scope="col"><b>Nombre del Evento</b></td>
             <td align="center" scope="col"><b>Lugar</b></td>
             <td align="center" scope="col"><b>Fecha de Inicio</b></td>
@@ -131,6 +132,7 @@ $salas = $sala->lista();
                     foreach ($eventos as $evento){
                       if($cartelera->ID_EVENTO == $evento->ID){
                     ?>
+                        <td align="center"><img src="<?=(isset($evento->FOTO))?"data:image/jpg;base64,".base64_encode($evento->FOTO):"../../../imagenes/poster-placeholder.png"?>" width="50px" alt="Poster del Evento"></td>
                         <td><span title="<?=$cartelera->ID_EVENTO?>"><?=$evento->NOMBRE?></span></td>
                     <?php
                       } 
@@ -155,7 +157,12 @@ $salas = $sala->lista();
                     <?=($cartelera->ESTADO == 4)?"Cancelado":""?>
                     <?=($cartelera->ESTADO == 5)?"Terminado":""?>
             </span></td>
-            <td align="right"><a class="btn btn-primary" href="visualizar.php?id=<?=$cartelera->ID?>" title='Ver datalles del evento'><i class="bi bi-binoculars"></i>&nbsp;Ver Detalles</a>&nbsp;<a class="btn btn-warning" href="modificar.php?id=<?=$cartelera->ID?>" title='Editar evento'><i class="bi bi-pencil"></i>&nbsp;Editar Evento</a>&nbsp;<a class="btn btn-danger" href="" onClick="confirma('eliminar.php?id=<?=$cartelera->ID?>'); return false;" title='Eliminar evento'><i class="bi bi-trash3"></i>&nbsp;Eliminar Evento</a></td>
+            <td align="center">
+              <a class="btn btn-danger" href="visualizar.php?id=<?=$cartelera->ID?>" title='Ver datalles del evento'>
+              <i class="bi bi-eye-fill"></i>&nbsp;</a>&nbsp;<a class="btn btn-danger" href="modificar.php?id=<?=$cartelera->ID?>" title='Editar evento'>
+              <i class="bi bi-pencil"></i>&nbsp;</a>
+              <a class="btn btn-danger" href="" onClick="confirma('eliminar.php?id=<?=$cartelera->ID?>'); return false;" title='Eliminar evento'>
+              <i class="bi bi-trash3"></i>&nbsp;</a></td>
         </tr>
         <?php
         }

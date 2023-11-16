@@ -45,6 +45,12 @@ if ($_GET['id']) {
     <input type="hidden" name="ID" value="<?=$evento->ID?>">
   	<table class="table">
       <tr>
+        <td colspan="4" align="center">
+          <img src="data:image/jpg;base64,<?=base64_encode($evento->FOTO)?>" width="300px" >
+        </td>     
+      </tr>
+      <tr>
+      <tr>
         <td>
         	<label class="control-label fw-bold">Nombre del Evento</label>
         </td>

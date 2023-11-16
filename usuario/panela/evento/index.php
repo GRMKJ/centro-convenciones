@@ -111,16 +111,18 @@ $organizadores = $organizador->lista();
       </div> 
       <table class="table table-striped bg-white">
         <tr>
-            <td align="center"><b>Nombre</b></td>
-            <td align="center"><b>Tipo</b></td>
-            <td align="center"><b>Duracion</b></td>
-            <td align="center"><b>Organizador</b></td>
-            <td align="center"><b>Acciones</b></td>
+          <td align="center"><b>Poster</b></td>
+          <td align="center"><b>Nombre</b></td>
+          <td align="center"><b>Tipo</b></td>
+          <td align="center"><b>Duracion</b></td>
+          <td align="center"><b>Organizador</b></td>
+          <td align="center"><b>Acciones</b></td>
         </tr>
         <?php
         foreach ($eventos as $evento) {
         ?>
         <tr>
+            <td align="center"><img src="<?=(isset($evento->FOTO))?"data:image/jpg;base64,".base64_encode($evento->FOTO):"../../../imagenes/poster-placeholder.png"?>" width="50px" alt="Poster del Evento"></td>
             <td><span title="<?=$evento->NOMBRE?>"><?=$evento->NOMBRE?></span></td>
             <td><span title="<?=$evento->TIPO?>">
                     <?=($evento->TIPO == 0)?"Desconocido":""?>

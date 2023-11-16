@@ -131,7 +131,7 @@ class Usuario extends Modelo {
 		$this->USERNAME = $_POST['USERNAME'];
 		$this->PASSWRD = $_POST['PASSWRD'];
 	
-		$this->consulta = "select ID, USERNAME, PASSWRD, ROL from $this->tabla where USERNAME = '$this->USERNAME' and PASSWRD = '$this->PASSWRD'";
+		$this->consulta = "select ID, USERNAME, PASSWRD, ROL from $this->tabla where USERNAME = '$this->USERNAME' and PASSWRD = '$this->PASSWRD';";
 
 		$dato = $this->encuentraUno();
 		

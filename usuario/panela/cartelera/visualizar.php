@@ -50,19 +50,32 @@ if ($_GET['id']) {
     <form name="frmModProd" method="post" action="modificar.php">
     <input type="hidden" name="ID" value="<?=$evento->ID?>">
   	<table class="table">
-      <tr>
-        <td>
-        	<label class="control-label ms-2 fw-bold">Nombre del Evento</label>
-        </td>
+    <tr>
+        <td colspan="4" align="center">
+        <?php
+          foreach ($eventos as $evento){
+            if($cartelera->ID_EVENTO == $evento->ID){
+          ?>
+          <img src="data:image/jpg;base64,<?=base64_encode($evento->FOTO)?>" width="300px" >
+          <?php
+          } 
+        }
+      ?> 
+        </td>     
+      </tr>  
+    <tr>
+      <td>
+        <label class="control-label ms-2 fw-bold">Nombre del Evento</label>
+      </td>
         <?php
           foreach ($eventos as $evento){
             if($cartelera->ID_EVENTO == $evento->ID){
           ?>
               <td><span title="<?=$evento->NOMBRE?>"><?=$evento->NOMBRE?></span></td>
-          <?php
-            } 
-          }
-        ?>       
+              <?php
+          } 
+        }
+      ?>       
     </tr>
     <tr>
         <td>
