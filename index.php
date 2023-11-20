@@ -1,7 +1,10 @@
 <?php
 ob_start();
 header("Location: usuario/inicio.php");
+echo "Hola"
 ?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
