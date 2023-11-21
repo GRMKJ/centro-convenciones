@@ -2,9 +2,10 @@
 require_once("class/conexion.php");
 require_once("class/Cartelera.php");
 
-$pagina = $_GET["pagina"]*10; 
 
-$consulta = "SELECT ID, ID_EVENTO, ID_SALA, ESTADO, INICIO, FIN FROM CARTELERA WHERE ESTADO = '1' ORDER BY INICIO DESC LIMIT 10 OFFSET ".$pagina.";";
+$pagina = ($_GET["pagina"]-1)*10; 
+
+$consulta = "SELECT * FROM cartelera WHERE ESTADO = '1' ORDER BY INICIO DESC LIMIT 10 OFFSET ".$pagina.";";
 
 $result = mysqli_query($mbd,$consulta);
 
@@ -14,12 +15,12 @@ if (mysqli_num_rows($result) > 0){
     $cartelera = array();
 
     foreach ($rows as $row){
-        $queryevento = "SELECT * FROM EVENTO WHERE ID = ".$row["ID_EVENTO"].";";
+        $queryevento = "SELECT * FROM evento WHERE ID = ".$row["ID_EVENTO"].";";
         $evento = mysqli_query($mbd,$queryevento);
         $foundevento = mysqli_fetch_assoc($evento);
         $row += ["EVENTO" => $foundevento];
 
-        $querysala = "SELECT * FROM SALA WHERE ID = ".$row["ID_SALA"].";";
+        $querysala = "SELECT * FROM sala WHERE ID = ".$row["ID_SALA"].";";
         $sala = mysqli_query($mbd,$querysala);
         $foundsala = mysqli_fetch_assoc($sala);
         $row += ["SALA" => $foundsala];

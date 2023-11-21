@@ -1,6 +1,7 @@
 <?php
 require_once("class/conexion.php");
 require_once("class/Usuario.php");
+session_start();
 
 $usuario = $_POST["userParam"];
 $password = md5($_POST["passParam"]);
@@ -20,6 +21,7 @@ if (mysqli_num_rows($result) > 0){
     header('Content-Type: application/json');
     header("HTTP/1.1 200 OK");
     echo json_encode($answer);
+    $_SESSION["user"]= $data->USERNAME;
 
 }
 else{
