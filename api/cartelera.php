@@ -2,6 +2,7 @@
 require_once("class/conexion.php");
 require_once("class/Cartelera.php");
 
+$pagina = ($_GET["pagina"]-1)*10; 
 
 $pagina = ($_GET["pagina"]-1)*10; 
 
