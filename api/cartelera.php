@@ -4,8 +4,6 @@ require_once("class/Cartelera.php");
 
 $pagina = ($_GET["pagina"]-1)*10; 
 
-$pagina = ($_GET["pagina"]-1)*10; 
-
 $consulta = "SELECT * FROM cartelera WHERE ESTADO = '1' ORDER BY INICIO DESC LIMIT 10 OFFSET ".$pagina.";";
 
 $result = mysqli_query($mbd,$consulta);
