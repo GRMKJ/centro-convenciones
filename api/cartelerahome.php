@@ -2,9 +2,7 @@
 require_once("class/conexion.php");
 require_once("class/Cartelera.php");
 
-$pagina = $_GET["pagina"]*10; 
-
-$consulta = "SELECT ID, ID_EVENTO, ID_SALA, ESTADO, INICIO, FIN FROM CARTELERA WHERE ESTADO = '1' ORDER BY INICIO DESC LIMIT 10 OFFSET ".$pagina.";";
+$consulta = "SELECT ID, ID_EVENTO, ID_SALA, ESTADO, INICIO, FIN FROM CARTELERA WHERE ESTADO = '1' ORDER BY INICIO DESC LIMIT 5;";
 
 $result = mysqli_query($mbd,$consulta);
 
