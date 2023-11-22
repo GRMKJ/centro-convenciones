@@ -122,7 +122,7 @@ $organizadores = $organizador->lista();
         foreach ($eventos as $evento) {
         ?>
         <tr>
-            <td align="center"><img src="<?=(isset($evento->FOTO))?"data:image/jpg;base64,".base64_encode($evento->FOTO):"../../../imagenes/poster-placeholder.png"?>" width="50px" alt="Poster del Evento"></td>
+            <td align="center"><img src="<?=(isset($evento->FOTO))?$evento->FOTO:"../../../imagenes/poster-placeholder.png"?>" width="50px" alt="Poster del Evento"></td>
             <td><span title="<?=$evento->NOMBRE?>"><?=$evento->NOMBRE?></span></td>
             <td><span title="<?=$evento->TIPO?>">
                     <?=($evento->TIPO == 0)?"Desconocido":""?>

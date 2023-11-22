@@ -1,6 +1,6 @@
 <?php
 class Modelo {
-	protected $host ="localhost";
+	protected $host ="srv1201.hstgr.io";
 	protected $user = "u544793699_ccomplexu";
 	protected $contraseña = "Tortademilanesa7";
 	protected $database = "u544793699_ccsxxi";

@@ -2,7 +2,7 @@
 require_once("class/conexion.php");
 require_once("class/Cartelera.php");
 
-$consulta = "SELECT ID, ID_EVENTO, ID_SALA, ESTADO, INICIO, FIN FROM cartelera WHERE ESTADO = '1' ORDER BY INICIO DESC LIMIT 5;";
+$consulta = "SELECT ID, ID_EVENTO, ID_SALA, ESTADO, INICIO, FIN FROM cartelera WHERE ESTADO = '1' ORDER BY INICIO DESC LIMIT 6;";
 
 $result = mysqli_query($mbd,$consulta);
 

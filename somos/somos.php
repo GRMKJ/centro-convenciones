@@ -16,7 +16,7 @@
     <header class="w-100">
       <nav class="navbar navbar-expand-lg ps-lg-2 pe-lg-2 ps-xll-5 pe-xll-5">
           <div class="container-fluid">
-              <a id="logos" class="navbar-brand me-auto me-lg-5" aria-current="page" href="../index.php">
+              <a id="logos" class="navbar-brand me-auto me-lg-5" aria-current="page" href="../index.html">
                 <img  id="logo" src="../identidad/CULTURA1White.png" class="img-fluid float-end w-auto" alt="logo">
               </a>
             <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,7 +34,7 @@
                 <div class="container rounded" id="navbart">
                   <ul class="nav nav-pills nav-fill justify-content-center me-auto mt-3 mb-3 mb-lg-0">
                     <li class="nav-item m-0">
-                      <a class="nav-link  align-middle text-white" aria-current="page" href="../index.php">Inicio</a>
+                      <a class="nav-link  align-middle text-white" aria-current="page" href="../index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link align-middle text-white" href="../cartelera/cartelera.php">Cartelera</a>
@@ -228,7 +228,7 @@
               <div class="row justify-content-center">
               <p><span class="text-white">Mapa del Sitio:</span></p>
                 <div class="col col-10 col-xxl-4 justify-content-center">
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0" href="../index.php"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0" href="../index.html"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
                   <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0" href="../cartelera/cartelera.php"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
                   <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0" href="../servicios/servicios.php"><i class="bi bi-arrow-right-circle-fill"></i> Servicios</a></p>
                   <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0" href="../ubicacion/ubicacion.php"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>

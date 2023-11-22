@@ -34,7 +34,7 @@
               <div class="container rounded" id="navbart">
                 <ul class="nav nav-pills nav-fill justify-content-center me-auto mt-3 mb-3 mb-lg-0">
                   <li class="nav-item m-0">
-                    <a class="nav-link  align-middle text-white" aria-current="page" href="../index.php">Inicio</a>
+                    <a class="nav-link  align-middle text-white" aria-current="page" href="../index.html">Inicio</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link align-middle text-white" href="../cartelera/cartelera.php">Cartelera</a>
@@ -151,7 +151,7 @@
               <div class="row justify-content-center">
               <p><span class="text-white  ms-sm-5">Mapa del Sitio:</span></p>
                 <div class="col col-10 col-xxl-4 justify-content-center">
-                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 ms-xxl-0" href="../index.php"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
+                  <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 ms-xxl-0" href="../index.html"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
                   <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 ms-xxl-0" href="../cartelera/cartelera.php"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
                   <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 ms-xxl-0" href="../servicios/servicios.php"><i class="bi bi-arrow-right-circle-fill"></i> Servicios</a></p>
                   <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5 ms-xxl-0" href="../ubicacion/ubicacion.php"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>

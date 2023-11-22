@@ -395,3 +395,8 @@ img.img-fluid{
     position: relative;
     left: 35px;
   }
+
+  #poster{
+    height: auto;
+    width: 300px;
+  }

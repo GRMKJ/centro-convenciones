@@ -131,7 +131,7 @@ else{
                 <div class="row justify-content-center">
                 <p><span class="text-white ms-sm-5">Mapa del Sitio:</span></p>
                     <div class="col col-10 col-xxl-4 justify-content-center">
-                    <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="../index.php"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
+                    <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="../index.html"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
                     <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="../cartelera/cartelera.php"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
                     <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="../servicios/servicios.php"><i class="bi bi-arrow-right-circle-fill"></i> Servicios</a></p>
                     <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="../ubicacion/ubicacion.php"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>

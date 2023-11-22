@@ -46,7 +46,7 @@ if ($_GET['id']) {
   	<table class="table">
       <tr>
         <td colspan="4" align="center">
-          <img src="data:image/jpg;base64,<?=base64_encode($evento->FOTO)?>" width="300px" >
+          <img src="<?=(isset($evento->FOTO))?$evento->FOTO:"../../../imagenes/poster-placeholder.png"?>" width="300px" >
         </td>     
       </tr>
       <tr>
