@@ -1,9 +1,9 @@
 <?php
 class Modelo {
 	protected $host ="localhost";
-	protected $user = "root";
-	protected $contraseña = "";
-	protected $database = "ccsxxi";
+	protected $user = "u544793699_ccomplexu";
+	protected $contraseña = "Tortademilanesa7";
+	protected $database = "u544793699_ccsxxi";
 	protected $mbd;
 	protected $tabla;
 	protected $consulta;
