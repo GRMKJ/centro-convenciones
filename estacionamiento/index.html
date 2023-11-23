@@ -10,6 +10,53 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> 
+  <script>
+    var contenido = "";
+      fetch("http://localhost/centro-convenciones/api/parking.php")
+      .then(resp => resp.json())
+      .then(resp => {
+          
+        contenido += "<img id=\"cajon1\" src=\"../imagenes/";
+        if (resp[0].ESTADO==0) contenido += "circulorojo.svg\">";
+        else contenido += "circuloverde.svg\">";
+
+        contenido += "<img id=\"cajon2\" src=\"../imagenes/";
+        if (resp[1].ESTADO==0) contenido += "circulorojo.svg\">";
+        else contenido += "circuloverde.svg\">";
+
+        contenido += "<img id=\"cajon3\" src=\"../imagenes/";
+        if (resp[2].ESTADO==0) contenido += "circulorojo.svg\">";
+        else contenido += "circuloverde.svg\">";
+          
+
+        document.getElementById("cajon").innerHTML = contenido;
+
+      });
+
+      function recargar(){
+        var contenido = "";
+        fetch("http://localhost/centro-convenciones/api/parking.php")
+        .then(resp => resp.json())
+        .then(resp => {
+            
+          contenido += "<img id=\"cajon1\" src=\"../imagenes/";
+          if (resp[0].ESTADO==0) contenido += "circulorojo.svg\">";
+          else contenido += "circuloverde.svg\">";
+
+          contenido += "<img id=\"cajon2\" src=\"../imagenes/";
+          if (resp[1].ESTADO==0) contenido += "circulorojo.svg\">";
+          else contenido += "circuloverde.svg\">";
+
+          contenido += "<img id=\"cajon3\" src=\"../imagenes/";
+          if (resp[2].ESTADO==0) contenido += "circulorojo.svg\">";
+          else contenido += "circuloverde.svg\">";
+            
+
+          document.getElementById("cajon").innerHTML = contenido;
+
+        });
+      }
+  </script>
 </head>
 <body class="bg-black">
   <!-- Header -->
@@ -100,19 +147,12 @@
             <div class="row g-0">
               <div class="col-md-8">
                 <div class="card-body">
-                  <h5 class="card-title align-content-center">Estacionamiento</h5>
                   <div>
+                  <a class="btn btn-danger mb-2" onclick="recargar()">Recargar</a>
                   <img id="estacionamiento" class="" src="../imagenes/estacionamiento.png">
-                    <svg id="cajon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="1100.000000pt" height="711.000000pt" viewBox="0 0 1280.000000 1280.000000" preserveAspectRatio="xMidYMid meet">
-                    <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
-                    fill="#FF0000" stroke="none">
-                    <path d="M6057 12789 c-1760 -96 -3397 -908 -4537 -2250 -1187 -1398 -1715
-                    -3231 -1454 -5049 213 -1490 944 -2853 2069 -3858 767 -685 1685 -1176 2670
-                    -1427 1273 -325 2614 -254 3835 202 1937 723 3413 2348 3945 4343 317 1189
-                    283 2454 -97 3628 -172 531 -432 1072 -743 1542 -949 1436 -2434 2432 -4115
-                    2759 -515 100 -1059 138 -1573 110z"/>
-                    </g>
-                    </svg>
+                  <div id="cajon">
+                  
+                  </div>
                   </div>
                 </div>
               </div>

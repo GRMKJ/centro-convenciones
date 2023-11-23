@@ -404,9 +404,36 @@ img.img-fluid{
     z-index: 1;
   }
 
-  #cajon{
+  #cajon1{
     position: relative;
     width: 50px;
     z-index: 2;
-    margin-top: -15px;
+    margin-top: -750px;
+    margin-left: 65px
+  }
+  #cajon2{
+    position: relative;
+    width: 50px;
+    z-index: 2;
+    margin-top: -750px;
+    margin-left: 100px
+  }
+  #cajon3{
+    position: relative;
+    width: 50px;
+    z-index: 2;
+    margin-top: -750px;
+    margin-left: 100px
+  }
+
+  #auditorio{
+    height: 350px;
+  }
+
+  #teatro{
+    height: 350px;
+  }
+
+  #cine{
+    height: 350px;
   }
