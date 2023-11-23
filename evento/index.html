@@ -46,9 +46,9 @@
           .then(response => {
             contenido = "";
             if(response.total_results > 1){
-                contenido += "<div class=\"mb-3\"><label class=\"form-label b ms-3 font-weight-bold\">Sinopsis</label><p class=\"ms-4\">"+ response.results[0].overview +"</p>"+
-                "</div><div class=\"mb-3\"><label class=\"form-label b ms-3 font-weight-bold\">Fecha de Lanzamiento Original</label><p class=\"ms-4\">" + response.results[0].release_date + "</p>"+
-                "</div><div class=\"mb-3\"><label  class=\"form-label b ms-3 font-weight-bold\">Lenguaje Original</label><p class=\"ms-4\">" + response.results[0].original_language + "</p></div>";
+                contenido += "<div class=\"mb-3\"><h6 class=\"form-label b ms-3 font-weight-bold\">Sinopsis</h6><p class=\"ms-4\">"+ response.results[0].overview +"</p>"+
+                "</div><div class=\"mb-3\"><h6 class=\"form-label b ms-3 font-weight-bold\">Fecha de Lanzamiento Original</h6><p class=\"ms-4\">" + response.results[0].release_date + "</p>"+
+                "</div><div class=\"mb-3\"><h6  class=\"form-label b ms-3 font-weight-bold\">Lenguaje Original</h6><p class=\"ms-4\">" + response.results[0].original_language + "</p></div>";
             }
             else{
               contenido += "<div class=\"mb-3\"><label class=\"form-label b ms-3 font-weight-bold\">Sinopsis</label><p class=\"ms-4\"></p>"+
@@ -155,15 +155,15 @@
               <h5 class="card-title align-self-start fw-bolder m-3">Información Adicional</h5>
                 <div id="informacion">
                 <div class="mb-3">
-                  <label for="nombre" class="form-label ms-3">Sinopsis</label>
-                  <p class="ms-4">Hola este es un Texto de Prueba </p>
+                  <h6 for="nombre" class="form-label ms-3 font-weight-bold">Sinopsis</h6>
+                  <p class="ms-4 ">Hola este es un Texto de Prueba </p>
                 </div>
                 <div class="mb-3">
-                  <label for="apellido" class="form-label ms-3">Fecha de Lanzamiento Original</label>
+                  <h6 for="apellido" class="form-label ms-3 font-weight-bold">Fecha de Lanzamiento Original</h6>
                   <p class="ms-4"> Esta es una prueba </p>
                 </div>
                 <div class="mb-3">
-                  <label for="telefono" class="form-label ms-3">Lenguaje Original</label>
+                  <h6 for="telefono" class="form-label ms-3 font-weight-bold">Lenguaje Original</h6>
                   <p class="ms-4">Inglés</p>
                 </div>
               </div>
