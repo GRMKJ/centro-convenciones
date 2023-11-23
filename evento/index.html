@@ -41,7 +41,7 @@
           }
 
           contenido += "<h3 class=\"card-title align-self-start fw-bolder mt-3 ms-3\">"+a.EVENTO.NOMBRE+"</h3><div class=\"card-body\"><p class=\"card-text h4\">"+ a.SALA.NOMBRE +" - "+ a.INICIO +"</p><a id=\"filtrocartelera\" href=\"#\" class=\"btn mt-5\">Obtener Boletos</a></div>";
-        document.getElementById("nombre1").innerHTML = 
+        document.getElementById("nombre1").innerHTML = nombre;
         document.getElementById("datos").innerHTML = contenido;
         document.getElementById("imagen").innerHTML = imagen;
         fetch('https://api.themoviedb.org/3/search/movie?query='+ a.EVENTO.NOMBRE +'&include_adult=false&language=es-MX&page=1', options)
