@@ -24,7 +24,7 @@
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNTViNWJhZGVkNTc1ZTdiNDI1YTI3MWZkYWE5NzA3YiIsInN1YiI6IjY1NWQ4MTI3N2YyZDRhMDBjOTdhMDM4ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3wyfBHuMVJZ4PAVkzV3uPdBj8Jrl5MdGVWvB8NMDoDg'
           }
       };
-      fetch("http://localhost/centro-convenciones/api/evento.php?"+params)
+      fetch("https://minitechsolutions.shop/ccsxxitest/api/evento.php?"+params)
       .then(resp => resp.json())
       .then(resp => {
         resp.evento.forEach((a) => {
