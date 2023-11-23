@@ -11,14 +11,14 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   <script>
     var contenido = "";
-    fetch("https://minitechsolutions.shop/ccsxxitest/api/cartelerahome.php")
+    fetch("http://localhost/centro-convenciones/api/cartelerahome.php")
     .then(resp => resp.json())
     .then(resp => {
       console.log(resp);
       resp.cartelera.forEach((a) => {
         
         contenido += "<div id=\"cartelera1\" class=\"col col-xxl-2 col-lg-4 col-sm-5 ms-1 mb-3 mb-sm-0\">"+
-        "<div class=\"card mb-4\"><img id=\"poster\" src=\"";
+        "<div class=\"card mb-4\"><a href=\"evento/"+a.ID +"\"><img id=\"poster\" src=\"";
         
         if(a.EVENTO.FOTO==""||a.EVENTO.FOTO=="null"||a.EVENTO.FOTO==null){
           contenido += "imagenes/poster-placeholder.png";
@@ -27,9 +27,9 @@
           contenido +=  a.EVENTO.FOTO;
         }
 
-        contenido += "\" class=\"card-img-top\" alt=\"\"...\"\"><div class=\"card-footer\">"+
+        contenido += "\" class=\"card-img-top\" alt=\"\"...\"\"></a><div class=\"card-footer\">"+
             "<small class=\"h6 text-muted\">"+ a.EVENTO.NOMBRE +"</small><br>"+
-            "<small class=\"text-muted\">"+ a.SALA.NOMBRE +"</small>"+
+            "<small class=\"text-muted\">"+ a.SALA.NOMBRE + "<br>" + a.INICIO +"</small>"+
             "</div>"+
           "</div>"+
         "</div>";
@@ -64,16 +64,16 @@
                     <a class="nav-link active align-middle text-white" aria-current="page" href="#">Inicio</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link align-middle text-white" href="cartelera/cartelera.php">Cartelera</a>
+                    <a class="nav-link align-middle text-white" href="cartelera/">Cartelera</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link align-middle text-white" href="servicios/servicios.php">Servicios</a>
+                    <a class="nav-link align-middle text-white" href="estacionamiento/">Estacionamiento</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link align-middle text-white" href="ubicacion/ubicacion.php">Ubicación</a>
+                    <a class="nav-link align-middle text-white" href="ubicacion/">Ubicación</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link align-middle text-white" href="somos/somos.php">Quienes somos</a>
+                    <a class="nav-link align-middle text-white" href="somos/">Quienes somos</a>
                   </li>
                 </ul>
               </div>
@@ -119,7 +119,7 @@
   </section>
   <section>
     <div id="cartas" class="row z-1 mb-5 ms-2 justify-content-evenly">
-      
+      <!-- Aqui deberia salir lo invocado por el servicio -->>
     </div>
   </section> 
 
@@ -134,21 +134,21 @@
           </div>
 
           <div class="d-flex flex-column  ps-2 mt-sm-5 col-lg-3 align-middle">
-                <div class="row justify-content-center">
-                <p><span class="text-white ms-sm-5">Mapa del Sitio:</span></p>
-                  <div class="col col-10 col-xxl-4 justify-content-center">
-                    <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5" href="index.html"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
-                    <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5" href="cartelera/cartelera.php"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
-                    <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5" href="servicios/servicios.php"><i class="bi bi-arrow-right-circle-fill"></i> Servicios</a></p>
-                    <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5" href="ubicacion/ubicacion.php"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>
-                  </div>
-                  <div class="col col-10 col-xxl-4 justify-content-center">
-                    <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="somos/somos.php"><i class="bi bi-arrow-right-circle-fill"></i> Quienes Somos</a></p>
-                    <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Politica de Privacidad</a></p>
-                    <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="somos/somos.php?legal=true"><i class="bi bi-arrow-return-right"></i> Aviso Legal</a></p>
-                  </div>
-                </div>    
+            <div class="row justify-content-center">
+            <p><span class="text-white ms-sm-5">Mapa del Sitio:</span></p>
+              <div class="col col-10 col-xxl-4 justify-content-center">
+                <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5" href="index.html"><i class="bi bi-arrow-right-circle-fill"></i> Inicio</a></p>
+                <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5" href="cartelera/"><i class="bi bi-arrow-right-circle-fill"></i> Cartelera</a></p>
+                <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5" href="estacionamiento/"><i class="bi bi-arrow-right-circle-fill"></i> Estacionamiento</a></p>
+                <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-sm-5" href="ubicacion/"><i class="bi bi-arrow-right-circle-fill"></i> Ubicación</a></p>
               </div>
+              <div class="col col-10 col-xxl-4 justify-content-center">
+                <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="somos/"><i class="bi bi-arrow-right-circle-fill"></i> Quienes Somos</a></p>
+                <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="somos/#legal"><i class="bi bi-arrow-return-right"></i> Politica de Privacidad</a></p>
+                <p><a id="mapa" class="link-underline text-white link-underline-opacity-0 ms-xxl-0 ms-sm-5" href="somos/#legal"><i class="bi bi-arrow-return-right"></i> Aviso Legal</a></p>
+              </div>
+            </div> 
+          </div>
 
               <div class="d-flex mt-5 col-lg-3 justify-content-center">
                 <a class="ms-2 mt-5 me-3" href="https://www.facebook.com/CCUBUAP/?locale=es_LA" style="text-decoration:none">

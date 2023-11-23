@@ -48,7 +48,6 @@
     }
 
     #thumbnail{
-        aspect-ratio: 9/16;
         max-width: 3rem;
         max-height: 5.3rem;
     }
@@ -176,7 +175,7 @@
 
     #footerinoc{
         background-color: #ff0000;
-        margin-top: 70%;
+        margin-top: 0%;
     }
 
     #footerinos{
@@ -195,7 +194,6 @@
     }
     
     #thumbnail{
-        aspect-ratio: 9/16;
         max-width: 9rem;
         max-height: 16rem;
     }
@@ -229,7 +227,6 @@
 }
 
 #thumbnail{
-    aspect-ratio: 9/16;
     width: 100%;
     height: 100%;
 }
@@ -398,5 +395,18 @@ img.img-fluid{
 
   #poster{
     height: auto;
-    width: 300px;
+    width: 100;
+  }
+
+  #estacionamiento{
+    position: relative;
+    width: 1100px;
+    z-index: 1;
+  }
+
+  #cajon{
+    position: relative;
+    width: 50px;
+    z-index: 2;
+    margin-top: -15px;
   }

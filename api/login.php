@@ -3,8 +3,8 @@ require_once("class/conexion.php");
 require_once("class/Usuario.php");
 session_start();
 
-$usuario = $_POST["userParam"];
-$password = md5($_POST["passParam"]);
+$usuario = $_GET["userParam"];
+$password = md5($_GET["passParam"]);
 
 
 $consulta = "SELECT ID, ID_PERSONA, ESTADO, CORREO, USERNAME, ROL FROM usuario WHERE USERNAME = '".$usuario."' AND PASSWRD = '".$password."';";
