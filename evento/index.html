@@ -5,18 +5,72 @@
     <meta http-equiv="X-UA-Compatible" content="IE= edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="..\imagenes\CULTURA1.png">
-    <title>CC Siglo XXI - Quienes Somos</title>
+    <div id="nombre1">
+
+    </div>
     <link rel="stylesheet" href="../css/custom.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script> 
+    <script>
+      const params = new URLSearchParams(window.location.search)
+      var contenido = "";
+      var imagen = "";
+
+      const options = {
+          method: 'GET',
+          headers: {
+            accept: 'application/json',
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwNTViNWJhZGVkNTc1ZTdiNDI1YTI3MWZkYWE5NzA3YiIsInN1YiI6IjY1NWQ4MTI3N2YyZDRhMDBjOTdhMDM4ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3wyfBHuMVJZ4PAVkzV3uPdBj8Jrl5MdGVWvB8NMDoDg'
+          }
+      };
+      fetch("http://localhost/centro-convenciones/api/evento.php?"+params)
+      .then(resp => resp.json())
+      .then(resp => {
+        resp.evento.forEach((a) => {
+
+          imagen += "<img class=\"img-fluid p-5 w-100\" src=\"";
+          if(a.EVENTO.FOTO==""||a.EVENTO.FOTO=="null"||a.EVENTO.FOTO==null){
+            imagen += "../imagenes/poster-placeholder.png\">";
+          }
+          else{
+            imagen +=  a.EVENTO.FOTO+"\">";
+          }
+
+          contenido += "<h3 class=\"card-title align-self-start fw-bolder mt-3 ms-3\">"+a.EVENTO.NOMBRE+"</h3><div class=\"card-body\"><p class=\"card-text h4\">"+ a.SALA.NOMBRE +" - "+ a.INICIO +"</p><a id=\"filtrocartelera\" href=\"#\" class=\"btn mt-5\">Obtener Boletos</a></div>";
+        
+        document.getElementById("datos").innerHTML = contenido;
+        document.getElementById("imagen").innerHTML = imagen;
+        fetch('https://api.themoviedb.org/3/search/movie?query='+ a.EVENTO.NOMBRE +'&include_adult=false&language=es-MX&page=1', options)
+          .then(response => response.json())
+          .then(response => {
+            contenido = "";
+            if(response.total_results > 1){
+                contenido += "<div class=\"mb-3\"><label class=\"form-label b ms-3\">Sinopsis</label><p class=\"ms-4\">"+ response.results[0].overview +"</p>"+
+                "</div><div class=\"mb-3\"><label class=\"form-label b ms-3\">Fecha de Lanzamiento Original</label><p class=\"ms-4\">" + response.results[0].release_date + "</p>"+
+                "</div><div class=\"mb-3\"><label  class=\"form-label b ms-3\">Lenguaje Original</label><p class=\"ms-4\">" + response.results[0].original_language + "</p></div>";
+            }
+            else{
+              contenido += "<div class=\"mb-3\"><label class=\"form-label b ms-3\">Sinopsis</label><p class=\"ms-4\"></p>"+
+                "</div><div class=\"mb-3\"><label class=\"form-label b ms-3\">Fecha de Lanzamiento Original</label><p class=\"ms-4\"></p>"+
+                "</div><div class=\"mb-3\"><label  class=\"form-label b ms-3\">Lenguaje Original</label><p class=\"ms-4\"></p></div>";
+            }
+
+            document.getElementById("informacion").innerHTML = contenido;
+          })
+          .catch(err => console.error(err));
+        });
+      
+      });
+
+    </script>
   </head>
   <body class="bg-black">
     <!-- Header -->
     <header class="w-100">
       <nav class="navbar navbar-expand-lg ps-lg-2 pe-lg-2 ps-xll-5 pe-xll-5">
           <div class="container-fluid">
-              <a id="logos" class="navbar-brand me-auto me-lg-5" aria-current="page" href="">
+              <a id="logos" class="navbar-brand me-auto me-lg-5" aria-current="page" href="../">
                 <img  id="logo" src="../identidad/CULTURA1White.png" class="img-fluid float-end w-auto" alt="logo">
               </a>
             <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -94,58 +148,32 @@
       <div id="somos" class="container-fluid">  
         <div class="row column-gap-3 justify-content-center">
           <div class="col col-xxl-4">
-            <div class="card">
-              <h5 class="card-title align-self-start fw-bolder m-3">Centro Cultural Siglo XXI</h5>
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a id="filtrocartelera" href="#" class="btn">Ver Eventos en el Recinto</a>
-              </div>
+            <div id="datos" class="card">
+              
             </div>
-            <div class="card mt-3">
-              <h5 class="card-title align-self-start fw-bolder m-3">Contactanos</h5>
-              <form action="somos.php" class="needs-validation ps-4 pe-4 mb-3">
+            <div id="infoevento" class="card mt-3">
+              <h5 class="card-title align-self-start fw-bolder m-3">Información Adicional</h5>
+                <div id="informacion">
                 <div class="mb-3">
-                  <label for="nombre" class="form-label">Nombre</label>
-                  <input type="text" class="form-control" id="nombre" aria-describedby="nombre">
-                </div>
-                <div class="mb-3">
-                  <label for="apellido" class="form-label">Apellido(s)</label>
-                  <input type="text" class="form-control" id="apellido">
+                  <label for="nombre" class="form-label ms-3">Sinopsis</label>
+                  <p class="ms-4">Hola este es un Texto de Prueba </p>
                 </div>
                 <div class="mb-3">
-                  <label for="telefono" class="form-label">Telefono</label>
-                  <input type="text" class="form-control" id="telefono">
+                  <label for="apellido" class="form-label ms-3">Fecha de Lanzamiento Original</label>
+                  <p class="ms-4"> Esta es una prueba </p>
                 </div>
                 <div class="mb-3">
-                  <label for="email" class="form-label">E-mail</label>
-                  <input type="mail" class="form-control" id="email">
+                  <label for="telefono" class="form-label ms-3">Lenguaje Original</label>
+                  <p class="ms-4">Inglés</p>
                 </div>
-                <div class="mb-3">
-                  <label for="email" class="form-label">Razón de Contacto</label>
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>Selecciona una Razón</option>
-                    <option value="1">Contratación de Servicios</option>
-                    <option value="2">Aclaraciones</option>
-                    <option value="3">Quejas y Sugerencias</option>
-                    <option value="4">Bolsa de Trabajo</option>
-                  </select>
-                </div>
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" value="" id="acepto" required>
-                  <label class="form-check-label" for="acepto">Acepto ser contactado por CCSXXI</label>
-                </div>
-                <button id="filtrocartelera" type="submit" class="btn">Enviar Datos</button>
-              </form>
+              </div>
             </div>
           </div>
           <div class="col col-xxl-4">
             <div class="card mb-3 justify-content-center">
-              <div class="img-fluid  w-100">
-                <img class="img-fluid p-5 w-100 " src="..\identidad\CULTURA1Black.png">
+              <div id="imagen" class="img-fluid  w-100">
+                
               </div>
-            </div>
-            <div class="card">
-              <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3264.7781022664894!2d-98.2411219073527!3d19.02083513873902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfc7424895884f%3A0x947e2bcfdc25a577!2sCentro%20de%20Convenciones%20CCU%20-%20BUAP!5e0!3m2!1ses-419!2smx!4v1691359307988!5m2!1ses-419!2smx" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>  
         </div>

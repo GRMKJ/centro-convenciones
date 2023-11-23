@@ -29,7 +29,7 @@
 
         contenido += "\"></div></div><div class=\"col col-7 align-self-center\"><p class=\"h3\">"+a.EVENTO.NOMBRE +"</p><p class=\"h6\">"+ a.SALA.NOMBRE+" - "+ a.INICIO +"</p>"+
                   "</div><div class=\"col col-3 align-self-center\"><div class=\"d-flex w-100 pe-xl-5 justify-content-end\">"+
-                    "<a id=\"filtrocartelera\" class=\"btn me-3\" href=\"../evento/"+a.ID+"\" value=\"Ver Detalles\">Ver Detalles</a></div></div></div></div>";
+                    "<a id=\"filtrocartelera\" class=\"btn me-3\" href=\"../evento/?id="+a.ID+"\" value=\"Ver Detalles\">Ver Detalles</a></div></div></div></div>";
       });
       document.getElementById("cartelera2").innerHTML = contenido;
     });
@@ -62,7 +62,7 @@
 
             contenido += "\"></div></div><div class=\"col col-7 align-self-center\"><p class=\"h3\">"+a.EVENTO.NOMBRE +"</p><p class=\"h6\">"+ a.SALA.NOMBRE+" - "+ a.INICIO +"</p>"+
                       "</div><div class=\"col col-3 align-self-center\"><div class=\"d-flex w-100 pe-xl-5 justify-content-end\">"+
-                        "<a id=\"filtrocartelera\" class=\"btn me-3\" href=\"../evento/"+a.ID+"\" value=\"Ver Detalles\">Ver Detalles</a></div></div></div></div>";
+                        "<a id=\"filtrocartelera\" class=\"btn me-3\" href=\"../evento/?id="+a.ID+"\" value=\"Ver Detalles\">Ver Detalles</a></div></div></div></div>";
           });
         }
         document.getElementById("cartelera2").innerHTML = contenido;
@@ -96,7 +96,7 @@
 
             contenido += "\"></div></div><div class=\"col col-7 align-self-center\"><p class=\"h3\">"+a.EVENTO.NOMBRE +"</p><p class=\"h6\">"+ a.SALA.NOMBRE+" - "+ a.INICIO +"</p>"+
                       "</div><div class=\"col col-3 align-self-center\"><div class=\"d-flex w-100 pe-xl-5 justify-content-end\">"+
-                        "<a id=\"filtrocartelera\" class=\"btn me-3\" href=\"../evento/"+a.ID+"\" value=\"Ver Detalles\">Ver Detalles</a></div></div></div></div>";
+                        "<a id=\"filtrocartelera\" class=\"btn me-3\" href=\"../evento/?id="+a.ID+"\" value=\"Ver Detalles\">Ver Detalles</a></div></div></div></div>";
           });
         }
         document.getElementById("cartelera2").innerHTML = contenido;

@@ -18,7 +18,7 @@
       resp.cartelera.forEach((a) => {
         
         contenido += "<div id=\"cartelera1\" class=\"col col-xxl-2 col-lg-4 col-sm-5 ms-1 mb-3 mb-sm-0\">"+
-        "<div class=\"card mb-4\"><a href=\"evento/"+a.ID +"\"><img id=\"poster\" src=\"";
+        "<div class=\"card mb-4\"><a href=\"evento/?id="+a.ID +"\"><img id=\"poster\" src=\"";
         
         if(a.EVENTO.FOTO==""||a.EVENTO.FOTO=="null"||a.EVENTO.FOTO==null){
           contenido += "imagenes/poster-placeholder.png";
