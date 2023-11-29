@@ -145,23 +145,23 @@ class Evento extends Modelo
 		if(isset($_POST["FOTO"])) {
 			$check = getimagesize($_FILES["FOTO"]["tmp_name"]);
 			if($check !== false) {
-				$uploadOk = 1;
+				$uploadOk = "null";
 			} 
 			else {
-				$uploadOk = 0;
+				$uploadOk = "null";
 				return "File is not an image.";
 			}
 		}
 		
 		// Check file size
-		if ($_FILES["FOTO"]["size"] > 500000) {
-			return $uploadOk = 0;
+		if ($_FILES["FOTO"]["size"] > 5000000) {
+			return $uploadOk = "null";
 		}
 		
 		// Allow certain file formats
 		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 		&& $imageFileType != "gif" ) {
-			$uploadOk = 0;
+			$uploadOk = "null";
 			return $uploadOk;
 		}
 		
@@ -176,7 +176,8 @@ class Evento extends Modelo
 				return $bdurl;
 			} 
 			else {
-				return 0;
+				$bdurl = $url_base.$bdfile;
+				return $bdurl;
 			}
   		}
 
