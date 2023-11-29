@@ -135,8 +135,10 @@ class Evento extends Modelo
 	}
 
 	function subirFoto(){
-		$target_dir = "https://minitechsolutions.shop/ccsxxitest/imagenes/posters/";
+		$target_dir = "/home/u544793699/public_html/ccsxxitest/imagenes/posters/";
+		$url_base = "https://minitechsolutions.shop/ccsxxitest/imagenes/posters/";
 		$target_file = $target_dir . basename($_FILES["FOTO"]["name"]);
+		$bdfile = basename($_FILES["FOTO"]["name"]);
 		$uploadOk = 1;
 		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 		// Check if image file is a actual image or fake image
@@ -170,11 +172,11 @@ class Evento extends Modelo
 		} 
 		else {
 			if (move_uploaded_file($_FILES["FOTO"]["tmp_name"], $target_file)) {
-				error_log(print_r($this->FOTO, TRUE)); 
-				return $target_file;
+				$bdurl = $url_base.$bdfile;
+				return $bdurl;
 			} 
 			else {
-				return $target_file;
+				return 0;
 			}
   		}
 
