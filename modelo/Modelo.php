@@ -1,6 +1,6 @@
 <?php
 class Modelo {
-	protected $host ="localhost";
+	protected $host ="ccsxxi.mysql.database.azure.com";
 	protected $user = "wckpxbemht";
 	protected $contraseña = "522HWUAWU62WI661$";
 	protected $database = "u544793699_ccsxxi";

@@ -12,7 +12,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   <script>
     var contenido = "";
-    fetch("https://minitechsolutions.shop/ccsxxitest/api/cartelera.php?pagina=1")
+    fetch("https://ccsxxi.azurewebsites.net/api/cartelera.php?pagina=1")
     .then(resp => resp.json())
     .then(resp => {
       console.log(resp);
@@ -40,7 +40,7 @@
       pagina++;
       contenido = "";
       document.getElementById("cartelera2").innerHTML = "";
-      fetch("https://minitechsolutions.shop/ccsxxitest/api/cartelera.php?pagina="+pagina)
+      fetch("https://ccsxxi.azurewebsites.net/api/cartelera.php?pagina="+pagina)
       .then(resp => resp.json())
       .then(resp => {
         if(resp.cartelera == "Algo salio mal"){
@@ -74,7 +74,7 @@
       pagina--;
       contenido = "";
       document.getElementById("cartelera2").innerHTML = "";
-      fetch("https://minitechsolutions.shop/ccsxxitest/api/cartelera.php?pagina="+pagina)
+      fetch("https://ccsxxi.azurewebsites.net/api/cartelera.php?pagina="+pagina)
       .then(resp => resp.json())
       .then(resp => {
         if(resp.cartelera == "Algo salio mal"){
