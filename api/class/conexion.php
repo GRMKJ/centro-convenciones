@@ -1,7 +1,7 @@
 <?php
-    $host ="srv1201.hstgr.io";
-	$user = "u544793699_ccomplexu";
-	$contraseña = "Tortademilanesa7";
+    $host ="localhost";
+	$user = "wckpxbemht";
+	$contraseña = "522HWUAWU62WI661$";
 	$database = "u544793699_ccsxxi";
 	$consulta;
 

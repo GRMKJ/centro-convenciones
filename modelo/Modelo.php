@@ -1,8 +1,8 @@
 <?php
 class Modelo {
-	protected $host ="srv1201.hstgr.io";
-	protected $user = "u544793699_ccomplexu";
-	protected $contraseña = "Tortademilanesa7";
+	protected $host ="localhost";
+	protected $user = "wckpxbemht";
+	protected $contraseña = "522HWUAWU62WI661$";
 	protected $database = "u544793699_ccsxxi";
 	protected $mbd;
 	protected $tabla;
