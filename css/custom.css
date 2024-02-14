@@ -65,6 +65,17 @@
         width: 75%;
     }
 
+    .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+    .col-2, .col-8, .col-2.ps-5 {
+        width: 100%;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+      }
 }
 
 @media only screen and (min-width: 994px) and (max-width: 1399px) {
@@ -138,6 +149,10 @@
         width: 95%;
     }
 
+    .container-fluid {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
 }
 
 @media only screen and (min-width: 1400px) {
@@ -436,4 +451,11 @@ img.img-fluid{
 
   #cine{
     height: 350px;
+  }
+
+  .col-2, .col-8, .col-2.ps-5 {
+    width: 100%;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
   }
