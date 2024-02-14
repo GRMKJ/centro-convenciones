@@ -65,6 +65,7 @@
         width: 75%;
     }
 
+    /* Parte del diseño de la tabla*/
     .container-fluid {
         padding-left: 15px;
         padding-right: 15px;
@@ -149,6 +150,7 @@
         width: 95%;
     }
 
+    /* Parte del diseño de la tabla*/
     .container-fluid {
         padding-left: 30px;
         padding-right: 30px;
@@ -453,6 +455,7 @@ img.img-fluid{
     height: 350px;
   }
 
+  /* Parte del diseño de la tabla*/
   .col-2, .col-8, .col-2.ps-5 {
     width: 100%;
     text-align: center;
