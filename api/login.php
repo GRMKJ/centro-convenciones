@@ -24,7 +24,6 @@ if (mysqli_num_rows($result) > 0){
     header('Content-Type: application/json');
     header("HTTP/1.1 200 OK");
     echo json_encode($answer);
-    $_SESSION["user"]= $data->USERNAME;
 
 }
 else{
