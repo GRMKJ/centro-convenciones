@@ -15,7 +15,10 @@ if (mysqli_num_rows($result) > 0){
     $status = true;
     $row = mysqli_fetch_assoc($result);
 
-    $data = new Usuario($row["ID"],$row["ID_PERSONA"],$row["ESTADO"],$row["CORREO"],$row["USERNAME"],$row["ROL"]);
+    $queryevento = "SELECT * FROM user WHERE ID = ".$row["ID_PERSONA"].";";
+    $query = mysqli_query($mbd,$queryevento);
+    $foundersona = mysqli_fetch_assoc($query);
+    $row += ["PERSONA" => $foundersona];
 
     $answer = array("estatus" => $status, "usuario" => $data );
     header('Content-Type: application/json');
