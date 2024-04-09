@@ -13,10 +13,12 @@ if (mysqli_num_rows($result) > 0){
     foreach($rows as $row){
         array_push($answer,$row);
     }
+
+    $data = array("estacionamiento" => $answer);
     
     header('Content-Type: application/json');
     header("HTTP/1.1 200 OK");
-    echo json_encode($answer);
+    echo json_encode($data);
 
 }
 else{

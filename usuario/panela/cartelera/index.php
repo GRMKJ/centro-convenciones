@@ -132,7 +132,7 @@ $salas = $sala->lista();
                     foreach ($eventos as $evento){
                       if($cartelera->ID_EVENTO == $evento->ID){
                     ?>
-                        <td align="center"><img src="<?=(isset($evento->FOTO))?"data:image/jpg;base64,".base64_encode($evento->FOTO):"../../../imagenes/poster-placeholder.png"?>" width="50px" alt="Poster del Evento"></td>
+                        <td align="center"><img src="<?=(isset($evento->FOTO))?$evento->FOTO:"../../../imagenes/poster-placeholder.png"?>" width="50px" alt="Poster del Evento"></td>
                         <td><span title="<?=$cartelera->ID_EVENTO?>"><?=$evento->NOMBRE?></span></td>
                     <?php
                       } 

@@ -39,8 +39,7 @@ class Evento extends Modelo
 		}
 	}
 
-	function insertaRegistro()
-	{
+	function insertaRegistro(){
 		$this->traerDatos();
 
 		$this->consulta =
@@ -52,6 +51,8 @@ class Evento extends Modelo
 			"'$this->TIPO'," .
 			"'$this->DURACION',".
 			"'$this->FOTO');";
+
+		error_log(print_r($this->consulta, TRUE)); 
 
 		$errores = $this->valIDarDatos();
 
@@ -68,7 +69,7 @@ class Evento extends Modelo
 	{
 		$this->traerDatos();
 
-		if($_FILES['FOTO']['error']!=4){
+		if($_FILES["FOTO"]["error"]==0){
 			$this->consulta =
 			"update $this->tabla set " .
 			"ID_ORGANIZADOR = $this->ID_ORGANIZADOR," .
@@ -107,16 +108,13 @@ class Evento extends Modelo
 		$this->ejecutaComandoIUD();
 	}
 
-	function traerDatos()
-	{
+	function traerDatos(){
 		$this->ID = $_POST['ID'];
 		$this->ID_ORGANIZADOR = $_POST['ID_ORGANIZADOR'];
 		$this->NOMBRE = $_POST['NOMBRE'];
 		$this->TIPO = $_POST['TIPO'];
 		$this->DURACION = $_POST['DURACION'];
-		if($_FILES['FOTO']['error']!=4){
-			$this->FOTO = addslashes(file_get_contents($_FILES['FOTO']['tmp_name']));
-		}
+		$this->FOTO = $this->subirFoto();
 	}
 
 	function valIDarDatos()
@@ -133,6 +131,55 @@ class Evento extends Modelo
 		}
 
 		return $errores;
+
+	}
+
+	function subirFoto(){
+		$target_dir = "/home/u544793699/public_html/ccsxxitest/imagenes/posters/";
+		$url_base = "https://minitechsolutions.shop/ccsxxitest/imagenes/posters/";
+		$target_file = $target_dir . basename($_FILES["FOTO"]["name"]);
+		$bdfile = basename($_FILES["FOTO"]["name"]);
+		$uploadOk = 1;
+		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+		// Check if image file is a actual image or fake image
+		if(isset($_POST["FOTO"])) {
+			$check = getimagesize($_FILES["FOTO"]["tmp_name"]);
+			if($check !== false) {
+				$uploadOk = "null";
+			} 
+			else {
+				$uploadOk = "null";
+				return "File is not an image.";
+			}
+		}
+		
+		// Check file size
+		if ($_FILES["FOTO"]["size"] > 5000000) {
+			return $uploadOk = "null";
+		}
+		
+		// Allow certain file formats
+		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+		&& $imageFileType != "gif" ) {
+			$uploadOk = "null";
+			return $uploadOk;
+		}
+		
+		// Check if $uploadOk is set to 0 by an error
+		if ($uploadOk == 0) {
+			
+		// if everything is ok, try to upload file
+		} 
+		else {
+			if (move_uploaded_file($_FILES["FOTO"]["tmp_name"], $target_file)) {
+				$bdurl = $url_base.$bdfile;
+				return $bdurl;
+			} 
+			else {
+				$bdurl = $url_base.$bdfile;
+				return $bdurl;
+			}
+  		}
 
 	}
 

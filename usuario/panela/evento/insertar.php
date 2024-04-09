@@ -75,7 +75,7 @@ if (isset($_POST['ID'])) {
     <tr>
         <td>
         	<label class="control-label ms-2">Duracion (en horas:minutos)</label>
-        	<input type="time" name="DURACION" placeholder="Duracion" value="<?=$placeholder->DURACION?>" class="form-control">
+        	<input type="text" name="DURACION" placeholder="Duracion" value="<?=$placeholder->DURACION?>" class="form-control">
         </td>
      </tr>
      <tr>

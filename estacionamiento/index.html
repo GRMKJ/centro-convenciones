@@ -17,21 +17,23 @@
       .then(resp => {
           
         contenido += "<img id=\"cajon1\" src=\"../imagenes/";
-        if (resp[0].ESTADO==0) contenido += "circulorojo.svg\">";
+        if (resp.estacionamiento[0].ESTADO==0) contenido += "circulorojo.svg\">";
         else contenido += "circuloverde.svg\">";
 
         contenido += "<img id=\"cajon2\" src=\"../imagenes/";
-        if (resp[1].ESTADO==0) contenido += "circulorojo.svg\">";
+        if (resp.estacionamiento[1].ESTADO==0) contenido += "circulorojo.svg\">";
         else contenido += "circuloverde.svg\">";
 
         contenido += "<img id=\"cajon3\" src=\"../imagenes/";
-        if (resp[2].ESTADO==0) contenido += "circulorojo.svg\">";
+        if (resp.estacionamiento[2].ESTADO==0) contenido += "circulorojo.svg\">";
         else contenido += "circuloverde.svg\">";
           
 
         document.getElementById("cajon").innerHTML = contenido;
 
       });
+
+      setTimeout(recargar(), 5000);
 
       function recargar(){
         var contenido = "";
@@ -40,15 +42,15 @@
         .then(resp => {
             
           contenido += "<img id=\"cajon1\" src=\"../imagenes/";
-          if (resp[0].ESTADO==0) contenido += "circulorojo.svg\">";
+          if (resp.estacionamiento[0].ESTADO==0) contenido += "circulorojo.svg\">";
           else contenido += "circuloverde.svg\">";
 
           contenido += "<img id=\"cajon2\" src=\"../imagenes/";
-          if (resp[1].ESTADO==0) contenido += "circulorojo.svg\">";
+          if (resp.estacionamiento[1].ESTADO==0) contenido += "circulorojo.svg\">";
           else contenido += "circuloverde.svg\">";
 
           contenido += "<img id=\"cajon3\" src=\"../imagenes/";
-          if (resp[2].ESTADO==0) contenido += "circulorojo.svg\">";
+          if (resp.estacionamiento[2].ESTADO==0) contenido += "circulorojo.svg\">";
           else contenido += "circuloverde.svg\">";
             
 
