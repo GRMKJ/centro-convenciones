@@ -17,10 +17,10 @@ if (mysqli_num_rows($result) > 0){
 
     $queryevento = "SELECT * FROM user WHERE ID = ".$row["ID_PERSONA"].";";
     $query = mysqli_query($mbd,$queryevento);
-    $foundersona = mysqli_fetch_assoc($query);
-    $row += ["PERSONA" => $foundersona];
+    $foundpersona = mysqli_fetch_assoc($query);
+    $row += ["PERSONA" => $foundpersona];
 
-    $answer = array("estatus" => $status, "usuario" => $data );
+    $answer = array("estatus" => $status, "usuario" => $row );
     header('Content-Type: application/json');
     header("HTTP/1.1 200 OK");
     echo json_encode($answer);
