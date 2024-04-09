@@ -14,8 +14,10 @@ $result = mysqli_query($mbd,$consulta);
 if (mysqli_num_rows($result) > 0){
     $status = true;
     $row = mysqli_fetch_assoc($result);
+    
 
-    $queryevento = "SELECT * FROM user WHERE ID = ".$row["ID_PERSONA"].";";
+    
+    $queryevento = "SELECT * FROM persona WHERE ID = ".$row["ID_PERSONA"].";";
     $query = mysqli_query($mbd,$queryevento);
     $foundpersona = mysqli_fetch_assoc($query);
     $row += ["PERSONA" => $foundpersona];
@@ -30,6 +32,7 @@ else{
     $status = false;
     $data = null;
 
+    
     $answer = array("estatus" => $status, "usuario" => $data );
 
     header('Content-Type: application/json');
