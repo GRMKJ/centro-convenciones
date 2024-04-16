@@ -12,7 +12,7 @@ for($i=0;$i<count($datos->estacionamiento);$i++){
 if($datos->passkey == "contrasena"){
     
     for($i=0; $i<$lugares->getLength(); $i++){
-        $consulta = "UPDATE estacionamiento SET ESTADO = ".$lugares->buscarIndice($i)->getVal()->estatus." WHERE ID = ".($lugares->buscarIndice($i)->getVal()->id).";";
+        $consulta = "UPDATE cajons SET ESTADO = ".$lugares->buscarIndice($i)->getVal()->estatus." WHERE ID = ".($lugares->buscarIndice($i)->getVal()->id).";";
         $result = mysqli_query($mbd,$consulta);
     }
 
@@ -25,7 +25,7 @@ if($datos->passkey == "contrasena"){
 }
 else{
     $status = false;
-    $data = null;
+    $data = null;   
 
     $answer = array("estatus" => "Algo salio mal :(" );
 
