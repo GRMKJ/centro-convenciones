@@ -1,5 +1,5 @@
 <?php
-require_once("class/conexion.php");
+require_once("class/conexion2.php");
 require_once("class/Lista.php");
 
 $datos = json_decode(file_get_contents('php://input'));
@@ -12,7 +12,7 @@ for($i=0;$i<count($datos->estacionamiento);$i++){
 if($datos->passkey == "contrasena"){
     
     for($i=0; $i<$lugares->getLength(); $i++){
-        $consulta = "UPDATE estacionamiento SET ESTADO = ".$lugares->buscarIndice($i)->getVal()->estatus." WHERE ID = ".($i+1).";";
+        $consulta = "UPDATE estacionamiento SET ESTADO = ".$lugares->buscarIndice($i)->getVal()->estatus." WHERE ID = ".($lugares->buscarIndice($i)->getVal()->id).";";
         $result = mysqli_query($mbd,$consulta);
     }
 
